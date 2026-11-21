@@ -1,0 +1,6002 @@
+{
+ "meta": {
+  "seed": 20261122,
+  "n_batches": {
+   "train": 45,
+   "calibrate": 25,
+   "check": 30
+  },
+  "n_records_total": 711,
+  "drift_injected": true,
+  "drift_note": "检查集注入漂移：蒸汽基线 +7.2~23.4 t/记录，电力 +180~585 kWh/记录（随批次顺序增强），冷却水不漂移。",
+  "energy_names": [
+   "electricity_kwh",
+   "steam_t",
+   "cooling_water_t"
+  ],
+  "energy_labels": [
+   "电力 (kWh)",
+   "蒸汽 (t)",
+   "冷却水 (t)"
+  ]
+ },
+ "batches": [
+  {
+   "batch_id": "B0001",
+   "n_records": 5,
+   "output_t": 81.52,
+   "material_index": 1.2428,
+   "ambient_c_mean": 23.337,
+   "records": [
+    {
+     "record_id": "B0001-r01",
+     "electricity_kwh": 2261.736,
+     "steam_t": 29.6167,
+     "cooling_water_t": 651.58,
+     "ambient_c": 20.47
+    },
+    {
+     "record_id": "B0001-r02",
+     "electricity_kwh": 2314.533,
+     "steam_t": 32.7925,
+     "cooling_water_t": 654.933,
+     "ambient_c": 23.02
+    },
+    {
+     "record_id": "B0001-r03",
+     "electricity_kwh": 2157.631,
+     "steam_t": 30.4778,
+     "cooling_water_t": 634.061,
+     "ambient_c": 22.61
+    },
+    {
+     "record_id": "B0001-r04",
+     "electricity_kwh": 1991.324,
+     "steam_t": 27.533,
+     "cooling_water_t": 618.431,
+     "ambient_c": 20.86
+    },
+    {
+     "record_id": "B0001-r05",
+     "electricity_kwh": 2411.446,
+     "steam_t": 34.7694,
+     "cooling_water_t": 648.686,
+     "ambient_c": 22.84
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0002",
+   "n_records": 4,
+   "output_t": 75.135,
+   "material_index": 1.126,
+   "ambient_c_mean": 27.638,
+   "records": [
+    {
+     "record_id": "B0002-r01",
+     "electricity_kwh": 1613.116,
+     "steam_t": 26.4846,
+     "cooling_water_t": 549.554,
+     "ambient_c": 28.76
+    },
+    {
+     "record_id": "B0002-r02",
+     "electricity_kwh": 1850.202,
+     "steam_t": 31.4103,
+     "cooling_water_t": 643.706,
+     "ambient_c": 27.71
+    },
+    {
+     "record_id": "B0002-r03",
+     "electricity_kwh": 1915.126,
+     "steam_t": 28.7894,
+     "cooling_water_t": 587.255,
+     "ambient_c": 27.34
+    },
+    {
+     "record_id": "B0002-r04",
+     "electricity_kwh": 1639.156,
+     "steam_t": 24.4112,
+     "cooling_water_t": 621.676,
+     "ambient_c": 26.73
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0003",
+   "n_records": 10,
+   "output_t": 58.647,
+   "material_index": 0.9398,
+   "ambient_c_mean": 30.558,
+   "records": [
+    {
+     "record_id": "B0003-r01",
+     "electricity_kwh": 1490.384,
+     "steam_t": 32.6142,
+     "cooling_water_t": 512.556,
+     "ambient_c": 29.19
+    },
+    {
+     "record_id": "B0003-r02",
+     "electricity_kwh": 1685.58,
+     "steam_t": 34.3917,
+     "cooling_water_t": 584.835,
+     "ambient_c": 30.9
+    },
+    {
+     "record_id": "B0003-r03",
+     "electricity_kwh": 1650.807,
+     "steam_t": 33.2147,
+     "cooling_water_t": 645.738,
+     "ambient_c": 30.05
+    },
+    {
+     "record_id": "B0003-r04",
+     "electricity_kwh": 1427.118,
+     "steam_t": 31.6598,
+     "cooling_water_t": 536.344,
+     "ambient_c": 29.61
+    },
+    {
+     "record_id": "B0003-r05",
+     "electricity_kwh": 1502.479,
+     "steam_t": 31.1594,
+     "cooling_water_t": 604.451,
+     "ambient_c": 30.39
+    },
+    {
+     "record_id": "B0003-r06",
+     "electricity_kwh": 1683.522,
+     "steam_t": 33.4807,
+     "cooling_water_t": 580.446,
+     "ambient_c": 30.42
+    },
+    {
+     "record_id": "B0003-r07",
+     "electricity_kwh": 2108.572,
+     "steam_t": 39.0249,
+     "cooling_water_t": 614.41,
+     "ambient_c": 27.17
+    },
+    {
+     "record_id": "B0003-r08",
+     "electricity_kwh": 1657.898,
+     "steam_t": 34.0012,
+     "cooling_water_t": 553.256,
+     "ambient_c": 28.22
+    },
+    {
+     "record_id": "B0003-r09",
+     "electricity_kwh": 1433.74,
+     "steam_t": 30.2595,
+     "cooling_water_t": 534.324,
+     "ambient_c": 29.79
+    },
+    {
+     "record_id": "B0003-r10",
+     "electricity_kwh": 1645.341,
+     "steam_t": 33.3534,
+     "cooling_water_t": 584.044,
+     "ambient_c": 29.32
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0004",
+   "n_records": 7,
+   "output_t": 46.021,
+   "material_index": 1.1166,
+   "ambient_c_mean": 19.77,
+   "records": [
+    {
+     "record_id": "B0004-r01",
+     "electricity_kwh": 1049.829,
+     "steam_t": 20.3129,
+     "cooling_water_t": 405.759,
+     "ambient_c": 18.24
+    },
+    {
+     "record_id": "B0004-r02",
+     "electricity_kwh": 1315.231,
+     "steam_t": 25.3166,
+     "cooling_water_t": 311.558,
+     "ambient_c": 17.97
+    },
+    {
+     "record_id": "B0004-r03",
+     "electricity_kwh": 1344.305,
+     "steam_t": 23.3639,
+     "cooling_water_t": 494.629,
+     "ambient_c": 20.79
+    },
+    {
+     "record_id": "B0004-r04",
+     "electricity_kwh": 1330.59,
+     "steam_t": 23.7245,
+     "cooling_water_t": 416.258,
+     "ambient_c": 19.39
+    },
+    {
+     "record_id": "B0004-r05",
+     "electricity_kwh": 1095.053,
+     "steam_t": 21.2725,
+     "cooling_water_t": 502.372,
+     "ambient_c": 19.59
+    },
+    {
+     "record_id": "B0004-r06",
+     "electricity_kwh": 1317.628,
+     "steam_t": 23.1622,
+     "cooling_water_t": 403.199,
+     "ambient_c": 21.49
+    },
+    {
+     "record_id": "B0004-r07",
+     "electricity_kwh": 1094.871,
+     "steam_t": 19.4394,
+     "cooling_water_t": 415.09,
+     "ambient_c": 19.46
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0005",
+   "n_records": 6,
+   "output_t": 110.653,
+   "material_index": 0.8698,
+   "ambient_c_mean": 21.865,
+   "records": [
+    {
+     "record_id": "B0005-r01",
+     "electricity_kwh": 2115.89,
+     "steam_t": 37.7004,
+     "cooling_water_t": 797.312,
+     "ambient_c": 20.63
+    },
+    {
+     "record_id": "B0005-r02",
+     "electricity_kwh": 2693.143,
+     "steam_t": 46.7655,
+     "cooling_water_t": 848.207,
+     "ambient_c": 23.5
+    },
+    {
+     "record_id": "B0005-r03",
+     "electricity_kwh": 2599.565,
+     "steam_t": 46.2322,
+     "cooling_water_t": 819.986,
+     "ambient_c": 21.76
+    },
+    {
+     "record_id": "B0005-r04",
+     "electricity_kwh": 2637.062,
+     "steam_t": 45.1654,
+     "cooling_water_t": 966.055,
+     "ambient_c": 21.75
+    },
+    {
+     "record_id": "B0005-r05",
+     "electricity_kwh": 2610.96,
+     "steam_t": 47.5958,
+     "cooling_water_t": 861.737,
+     "ambient_c": 20.98
+    },
+    {
+     "record_id": "B0005-r06",
+     "electricity_kwh": 2321.579,
+     "steam_t": 44.4926,
+     "cooling_water_t": 874.7,
+     "ambient_c": 21.02
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0006",
+   "n_records": 9,
+   "output_t": 58.365,
+   "material_index": 0.9388,
+   "ambient_c_mean": 21.365,
+   "records": [
+    {
+     "record_id": "B0006-r01",
+     "electricity_kwh": 1756.922,
+     "steam_t": 35.4931,
+     "cooling_water_t": 559.197,
+     "ambient_c": 20.02
+    },
+    {
+     "record_id": "B0006-r02",
+     "electricity_kwh": 1435.444,
+     "steam_t": 29.878,
+     "cooling_water_t": 488.016,
+     "ambient_c": 21.7
+    },
+    {
+     "record_id": "B0006-r03",
+     "electricity_kwh": 1737.866,
+     "steam_t": 35.964,
+     "cooling_water_t": 482.048,
+     "ambient_c": 19.7
+    },
+    {
+     "record_id": "B0006-r04",
+     "electricity_kwh": 1521.811,
+     "steam_t": 32.0167,
+     "cooling_water_t": 547.768,
+     "ambient_c": 20.58
+    },
+    {
+     "record_id": "B0006-r05",
+     "electricity_kwh": 1653.624,
+     "steam_t": 34.7258,
+     "cooling_water_t": 502.082,
+     "ambient_c": 21.18
+    },
+    {
+     "record_id": "B0006-r06",
+     "electricity_kwh": 1749.172,
+     "steam_t": 35.8834,
+     "cooling_water_t": 489.028,
+     "ambient_c": 20.27
+    },
+    {
+     "record_id": "B0006-r07",
+     "electricity_kwh": 1669.723,
+     "steam_t": 34.6942,
+     "cooling_water_t": 487.974,
+     "ambient_c": 22.46
+    },
+    {
+     "record_id": "B0006-r08",
+     "electricity_kwh": 1517.747,
+     "steam_t": 32.0793,
+     "cooling_water_t": 507.865,
+     "ambient_c": 19.07
+    },
+    {
+     "record_id": "B0006-r09",
+     "electricity_kwh": 1669.447,
+     "steam_t": 34.048,
+     "cooling_water_t": 587.416,
+     "ambient_c": 21.88
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0007",
+   "n_records": 4,
+   "output_t": 102.126,
+   "material_index": 1.2345,
+   "ambient_c_mean": 19.008,
+   "records": [
+    {
+     "record_id": "B0007-r01",
+     "electricity_kwh": 3044.957,
+     "steam_t": 55.1088,
+     "cooling_water_t": 717.287,
+     "ambient_c": 18.53
+    },
+    {
+     "record_id": "B0007-r02",
+     "electricity_kwh": 2778.277,
+     "steam_t": 50.921,
+     "cooling_water_t": 729.766,
+     "ambient_c": 19.07
+    },
+    {
+     "record_id": "B0007-r03",
+     "electricity_kwh": 2607.302,
+     "steam_t": 47.8216,
+     "cooling_water_t": 777.048,
+     "ambient_c": 18.95
+    },
+    {
+     "record_id": "B0007-r04",
+     "electricity_kwh": 2419.13,
+     "steam_t": 45.6855,
+     "cooling_water_t": 799.29,
+     "ambient_c": 20.02
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0008",
+   "n_records": 8,
+   "output_t": 54.565,
+   "material_index": 1.2373,
+   "ambient_c_mean": 17.008,
+   "records": [
+    {
+     "record_id": "B0008-r01",
+     "electricity_kwh": 1586.849,
+     "steam_t": 21.5575,
+     "cooling_water_t": 415.259,
+     "ambient_c": 18.54
+    },
+    {
+     "record_id": "B0008-r02",
+     "electricity_kwh": 1117.589,
+     "steam_t": 17.1428,
+     "cooling_water_t": 444.152,
+     "ambient_c": 18.6
+    },
+    {
+     "record_id": "B0008-r03",
+     "electricity_kwh": 1424.423,
+     "steam_t": 19.8946,
+     "cooling_water_t": 415.723,
+     "ambient_c": 18.17
+    },
+    {
+     "record_id": "B0008-r04",
+     "electricity_kwh": 1318.247,
+     "steam_t": 18.8634,
+     "cooling_water_t": 483.86,
+     "ambient_c": 18.12
+    },
+    {
+     "record_id": "B0008-r05",
+     "electricity_kwh": 1350.956,
+     "steam_t": 20.6653,
+     "cooling_water_t": 421.99,
+     "ambient_c": 16.87
+    },
+    {
+     "record_id": "B0008-r06",
+     "electricity_kwh": 1342.078,
+     "steam_t": 19.8354,
+     "cooling_water_t": 398.723,
+     "ambient_c": 18.29
+    },
+    {
+     "record_id": "B0008-r07",
+     "electricity_kwh": 1644.507,
+     "steam_t": 23.6235,
+     "cooling_water_t": 407.263,
+     "ambient_c": 17.25
+    },
+    {
+     "record_id": "B0008-r08",
+     "electricity_kwh": 1456.281,
+     "steam_t": 19.4604,
+     "cooling_water_t": 435.445,
+     "ambient_c": 17.27
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0009",
+   "n_records": 8,
+   "output_t": 57.123,
+   "material_index": 1.2441,
+   "ambient_c_mean": 18.676,
+   "records": [
+    {
+     "record_id": "B0009-r01",
+     "electricity_kwh": 1582.779,
+     "steam_t": 33.8826,
+     "cooling_water_t": 453.779,
+     "ambient_c": 20.13
+    },
+    {
+     "record_id": "B0009-r02",
+     "electricity_kwh": 1520.301,
+     "steam_t": 30.6571,
+     "cooling_water_t": 463.886,
+     "ambient_c": 17.95
+    },
+    {
+     "record_id": "B0009-r03",
+     "electricity_kwh": 1778.899,
+     "steam_t": 35.2615,
+     "cooling_water_t": 459.358,
+     "ambient_c": 18.79
+    },
+    {
+     "record_id": "B0009-r04",
+     "electricity_kwh": 1846.077,
+     "steam_t": 35.8398,
+     "cooling_water_t": 436.224,
+     "ambient_c": 20.23
+    },
+    {
+     "record_id": "B0009-r05",
+     "electricity_kwh": 1698.378,
+     "steam_t": 33.7847,
+     "cooling_water_t": 425.93,
+     "ambient_c": 17.89
+    },
+    {
+     "record_id": "B0009-r06",
+     "electricity_kwh": 1838.259,
+     "steam_t": 33.3004,
+     "cooling_water_t": 490.132,
+     "ambient_c": 20.13
+    },
+    {
+     "record_id": "B0009-r07",
+     "electricity_kwh": 1831.121,
+     "steam_t": 35.3504,
+     "cooling_water_t": 500.795,
+     "ambient_c": 21.47
+    },
+    {
+     "record_id": "B0009-r08",
+     "electricity_kwh": 1811.527,
+     "steam_t": 34.1619,
+     "cooling_water_t": 492.935,
+     "ambient_c": 17.83
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0010",
+   "n_records": 4,
+   "output_t": 110.916,
+   "material_index": 1.1028,
+   "ambient_c_mean": 10.005,
+   "records": [
+    {
+     "record_id": "B0010-r01",
+     "electricity_kwh": 2750.77,
+     "steam_t": 44.6078,
+     "cooling_water_t": 759.952,
+     "ambient_c": 11.17
+    },
+    {
+     "record_id": "B0010-r02",
+     "electricity_kwh": 2527.909,
+     "steam_t": 41.8449,
+     "cooling_water_t": 715.396,
+     "ambient_c": 9.46
+    },
+    {
+     "record_id": "B0010-r03",
+     "electricity_kwh": 2721.995,
+     "steam_t": 43.5556,
+     "cooling_water_t": 721.039,
+     "ambient_c": 9.21
+    },
+    {
+     "record_id": "B0010-r04",
+     "electricity_kwh": 2880.04,
+     "steam_t": 47.6845,
+     "cooling_water_t": 711.576,
+     "ambient_c": 10.09
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0011",
+   "n_records": 5,
+   "output_t": 54.338,
+   "material_index": 0.9522,
+   "ambient_c_mean": 19.904,
+   "records": [
+    {
+     "record_id": "B0011-r01",
+     "electricity_kwh": 1224.728,
+     "steam_t": 15.3112,
+     "cooling_water_t": 444.838,
+     "ambient_c": 19.11
+    },
+    {
+     "record_id": "B0011-r02",
+     "electricity_kwh": 1224.064,
+     "steam_t": 11.2085,
+     "cooling_water_t": 428.127,
+     "ambient_c": 19.87
+    },
+    {
+     "record_id": "B0011-r03",
+     "electricity_kwh": 1220.718,
+     "steam_t": 13.9228,
+     "cooling_water_t": 430.067,
+     "ambient_c": 20.7
+    },
+    {
+     "record_id": "B0011-r04",
+     "electricity_kwh": 1388.391,
+     "steam_t": 15.3406,
+     "cooling_water_t": 509.239,
+     "ambient_c": 18.75
+    },
+    {
+     "record_id": "B0011-r05",
+     "electricity_kwh": 1204.465,
+     "steam_t": 13.7229,
+     "cooling_water_t": 401.489,
+     "ambient_c": 19.83
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0012",
+   "n_records": 5,
+   "output_t": 112.432,
+   "material_index": 1.0001,
+   "ambient_c_mean": 18.047,
+   "records": [
+    {
+     "record_id": "B0012-r01",
+     "electricity_kwh": 2819.122,
+     "steam_t": 46.2862,
+     "cooling_water_t": 831.657,
+     "ambient_c": 17.81
+    },
+    {
+     "record_id": "B0012-r02",
+     "electricity_kwh": 2911.294,
+     "steam_t": 51.6861,
+     "cooling_water_t": 786.149,
+     "ambient_c": 17.93
+    },
+    {
+     "record_id": "B0012-r03",
+     "electricity_kwh": 2718.807,
+     "steam_t": 45.8312,
+     "cooling_water_t": 853.887,
+     "ambient_c": 17.51
+    },
+    {
+     "record_id": "B0012-r04",
+     "electricity_kwh": 3173.345,
+     "steam_t": 51.0042,
+     "cooling_water_t": 843.396,
+     "ambient_c": 17.08
+    },
+    {
+     "record_id": "B0012-r05",
+     "electricity_kwh": 2850.658,
+     "steam_t": 49.5568,
+     "cooling_water_t": 824.281,
+     "ambient_c": 18.67
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0013",
+   "n_records": 9,
+   "output_t": 108.002,
+   "material_index": 1.2161,
+   "ambient_c_mean": 21.786,
+   "records": [
+    {
+     "record_id": "B0013-r01",
+     "electricity_kwh": 3191.001,
+     "steam_t": 67.0587,
+     "cooling_water_t": 895.989,
+     "ambient_c": 22.35
+    },
+    {
+     "record_id": "B0013-r02",
+     "electricity_kwh": 3305.039,
+     "steam_t": 72.4867,
+     "cooling_water_t": 890.258,
+     "ambient_c": 23.04
+    },
+    {
+     "record_id": "B0013-r03",
+     "electricity_kwh": 3164.318,
+     "steam_t": 68.7158,
+     "cooling_water_t": 795.441,
+     "ambient_c": 18.99
+    },
+    {
+     "record_id": "B0013-r04",
+     "electricity_kwh": 2820.864,
+     "steam_t": 64.8182,
+     "cooling_water_t": 912.122,
+     "ambient_c": 22.1
+    },
+    {
+     "record_id": "B0013-r05",
+     "electricity_kwh": 2738.891,
+     "steam_t": 61.1178,
+     "cooling_water_t": 849.621,
+     "ambient_c": 21.49
+    },
+    {
+     "record_id": "B0013-r06",
+     "electricity_kwh": 3018.264,
+     "steam_t": 65.9808,
+     "cooling_water_t": 930.466,
+     "ambient_c": 22.67
+    },
+    {
+     "record_id": "B0013-r07",
+     "electricity_kwh": 2911.119,
+     "steam_t": 66.0998,
+     "cooling_water_t": 833.332,
+     "ambient_c": 23.12
+    },
+    {
+     "record_id": "B0013-r08",
+     "electricity_kwh": 3262.526,
+     "steam_t": 69.2166,
+     "cooling_water_t": 806.469,
+     "ambient_c": 20.26
+    },
+    {
+     "record_id": "B0013-r09",
+     "electricity_kwh": 3068.631,
+     "steam_t": 68.2683,
+     "cooling_water_t": 847.361,
+     "ambient_c": 23.06
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0014",
+   "n_records": 9,
+   "output_t": 86.223,
+   "material_index": 0.9067,
+   "ambient_c_mean": 32.479,
+   "records": [
+    {
+     "record_id": "B0014-r01",
+     "electricity_kwh": 2441.872,
+     "steam_t": 40.2187,
+     "cooling_water_t": 703.449,
+     "ambient_c": 33.3
+    },
+    {
+     "record_id": "B0014-r02",
+     "electricity_kwh": 2100.584,
+     "steam_t": 33.5002,
+     "cooling_water_t": 719.446,
+     "ambient_c": 33.96
+    },
+    {
+     "record_id": "B0014-r03",
+     "electricity_kwh": 2065.114,
+     "steam_t": 33.3406,
+     "cooling_water_t": 792.363,
+     "ambient_c": 34.16
+    },
+    {
+     "record_id": "B0014-r04",
+     "electricity_kwh": 1834.207,
+     "steam_t": 29.7616,
+     "cooling_water_t": 684.52,
+     "ambient_c": 32.43
+    },
+    {
+     "record_id": "B0014-r05",
+     "electricity_kwh": 2164.89,
+     "steam_t": 33.9134,
+     "cooling_water_t": 715.883,
+     "ambient_c": 32.55
+    },
+    {
+     "record_id": "B0014-r06",
+     "electricity_kwh": 1807.937,
+     "steam_t": 29.1898,
+     "cooling_water_t": 741.998,
+     "ambient_c": 32.33
+    },
+    {
+     "record_id": "B0014-r07",
+     "electricity_kwh": 2143.343,
+     "steam_t": 35.8805,
+     "cooling_water_t": 725.558,
+     "ambient_c": 31.02
+    },
+    {
+     "record_id": "B0014-r08",
+     "electricity_kwh": 2328.07,
+     "steam_t": 38.9198,
+     "cooling_water_t": 713.956,
+     "ambient_c": 30.54
+    },
+    {
+     "record_id": "B0014-r09",
+     "electricity_kwh": 2326.138,
+     "steam_t": 36.5949,
+     "cooling_water_t": 775.155,
+     "ambient_c": 32.72
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0015",
+   "n_records": 4,
+   "output_t": 91.526,
+   "material_index": 1.1363,
+   "ambient_c_mean": 18.129,
+   "records": [
+    {
+     "record_id": "B0015-r01",
+     "electricity_kwh": 2347.401,
+     "steam_t": 39.3788,
+     "cooling_water_t": 781.679,
+     "ambient_c": 18.71
+    },
+    {
+     "record_id": "B0015-r02",
+     "electricity_kwh": 2207.279,
+     "steam_t": 37.7983,
+     "cooling_water_t": 677.244,
+     "ambient_c": 18.98
+    },
+    {
+     "record_id": "B0015-r03",
+     "electricity_kwh": 2455.221,
+     "steam_t": 41.8622,
+     "cooling_water_t": 707.54,
+     "ambient_c": 18.09
+    },
+    {
+     "record_id": "B0015-r04",
+     "electricity_kwh": 2046.186,
+     "steam_t": 35.0546,
+     "cooling_water_t": 658.788,
+     "ambient_c": 20.11
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0016",
+   "n_records": 7,
+   "output_t": 97.925,
+   "material_index": 1.0737,
+   "ambient_c_mean": 44.387,
+   "records": [
+    {
+     "record_id": "B0016-r01",
+     "electricity_kwh": 2813.331,
+     "steam_t": 48.9091,
+     "cooling_water_t": 818.829,
+     "ambient_c": 44.69
+    },
+    {
+     "record_id": "B0016-r02",
+     "electricity_kwh": 2776.081,
+     "steam_t": 48.4378,
+     "cooling_water_t": 878.688,
+     "ambient_c": 44.07
+    },
+    {
+     "record_id": "B0016-r03",
+     "electricity_kwh": 2677.92,
+     "steam_t": 46.3789,
+     "cooling_water_t": 877.655,
+     "ambient_c": 44.38
+    },
+    {
+     "record_id": "B0016-r04",
+     "electricity_kwh": 2990.953,
+     "steam_t": 51.6698,
+     "cooling_water_t": 897.928,
+     "ambient_c": 44.9
+    },
+    {
+     "record_id": "B0016-r05",
+     "electricity_kwh": 2846.738,
+     "steam_t": 47.8437,
+     "cooling_water_t": 907.849,
+     "ambient_c": 43.82
+    },
+    {
+     "record_id": "B0016-r06",
+     "electricity_kwh": 3012.284,
+     "steam_t": 52.8983,
+     "cooling_water_t": 961.343,
+     "ambient_c": 45.21
+    },
+    {
+     "record_id": "B0016-r07",
+     "electricity_kwh": 2483.035,
+     "steam_t": 44.3299,
+     "cooling_water_t": 941.145,
+     "ambient_c": 44.55
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0017",
+   "n_records": 8,
+   "output_t": 69.482,
+   "material_index": 1.0638,
+   "ambient_c_mean": 29.269,
+   "records": [
+    {
+     "record_id": "B0017-r01",
+     "electricity_kwh": 1938.155,
+     "steam_t": 43.6837,
+     "cooling_water_t": 657.059,
+     "ambient_c": 32.45
+    },
+    {
+     "record_id": "B0017-r02",
+     "electricity_kwh": 2041.74,
+     "steam_t": 45.2126,
+     "cooling_water_t": 594.943,
+     "ambient_c": 29.58
+    },
+    {
+     "record_id": "B0017-r03",
+     "electricity_kwh": 2193.536,
+     "steam_t": 49.1538,
+     "cooling_water_t": 649.033,
+     "ambient_c": 29.97
+    },
+    {
+     "record_id": "B0017-r04",
+     "electricity_kwh": 2102.586,
+     "steam_t": 48.4578,
+     "cooling_water_t": 714.019,
+     "ambient_c": 27.92
+    },
+    {
+     "record_id": "B0017-r05",
+     "electricity_kwh": 2115.446,
+     "steam_t": 47.9182,
+     "cooling_water_t": 660.543,
+     "ambient_c": 28.23
+    },
+    {
+     "record_id": "B0017-r06",
+     "electricity_kwh": 2001.992,
+     "steam_t": 45.0371,
+     "cooling_water_t": 625.83,
+     "ambient_c": 29.71
+    },
+    {
+     "record_id": "B0017-r07",
+     "electricity_kwh": 2074.379,
+     "steam_t": 43.6841,
+     "cooling_water_t": 719.892,
+     "ambient_c": 26.9
+    },
+    {
+     "record_id": "B0017-r08",
+     "electricity_kwh": 1956.968,
+     "steam_t": 45.1256,
+     "cooling_water_t": 617.615,
+     "ambient_c": 28.16
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0018",
+   "n_records": 10,
+   "output_t": 83.368,
+   "material_index": 0.9189,
+   "ambient_c_mean": 19.043,
+   "records": [
+    {
+     "record_id": "B0018-r01",
+     "electricity_kwh": 2235.843,
+     "steam_t": 43.2777,
+     "cooling_water_t": 588.253,
+     "ambient_c": 20.3
+    },
+    {
+     "record_id": "B0018-r02",
+     "electricity_kwh": 2108.861,
+     "steam_t": 40.5082,
+     "cooling_water_t": 692.619,
+     "ambient_c": 16.14
+    },
+    {
+     "record_id": "B0018-r03",
+     "electricity_kwh": 2125.195,
+     "steam_t": 43.3005,
+     "cooling_water_t": 636.25,
+     "ambient_c": 19.89
+    },
+    {
+     "record_id": "B0018-r04",
+     "electricity_kwh": 1945.188,
+     "steam_t": 39.9888,
+     "cooling_water_t": 636.917,
+     "ambient_c": 18.37
+    },
+    {
+     "record_id": "B0018-r05",
+     "electricity_kwh": 2390.938,
+     "steam_t": 45.4229,
+     "cooling_water_t": 632.742,
+     "ambient_c": 17.53
+    },
+    {
+     "record_id": "B0018-r06",
+     "electricity_kwh": 2023.53,
+     "steam_t": 38.5498,
+     "cooling_water_t": 644.176,
+     "ambient_c": 18.78
+    },
+    {
+     "record_id": "B0018-r07",
+     "electricity_kwh": 2183.995,
+     "steam_t": 42.8736,
+     "cooling_water_t": 728.944,
+     "ambient_c": 18.47
+    },
+    {
+     "record_id": "B0018-r08",
+     "electricity_kwh": 2358.352,
+     "steam_t": 43.8167,
+     "cooling_water_t": 698.772,
+     "ambient_c": 18.01
+    },
+    {
+     "record_id": "B0018-r09",
+     "electricity_kwh": 2432.452,
+     "steam_t": 47.2017,
+     "cooling_water_t": 668.397,
+     "ambient_c": 20.17
+    },
+    {
+     "record_id": "B0018-r10",
+     "electricity_kwh": 2207.969,
+     "steam_t": 41.1393,
+     "cooling_water_t": 587.896,
+     "ambient_c": 18.19
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0019",
+   "n_records": 8,
+   "output_t": 105.412,
+   "material_index": 0.8278,
+   "ambient_c_mean": 35.468,
+   "records": [
+    {
+     "record_id": "B0019-r01",
+     "electricity_kwh": 2344.332,
+     "steam_t": 35.6588,
+     "cooling_water_t": 877.755,
+     "ambient_c": 35.35
+    },
+    {
+     "record_id": "B0019-r02",
+     "electricity_kwh": 2654.511,
+     "steam_t": 37.561,
+     "cooling_water_t": 778.171,
+     "ambient_c": 34.4
+    },
+    {
+     "record_id": "B0019-r03",
+     "electricity_kwh": 2017.377,
+     "steam_t": 28.9799,
+     "cooling_water_t": 939.616,
+     "ambient_c": 35.96
+    },
+    {
+     "record_id": "B0019-r04",
+     "electricity_kwh": 2297.075,
+     "steam_t": 32.1051,
+     "cooling_water_t": 867.366,
+     "ambient_c": 34.5
+    },
+    {
+     "record_id": "B0019-r05",
+     "electricity_kwh": 2447.656,
+     "steam_t": 36.6242,
+     "cooling_water_t": 829.462,
+     "ambient_c": 36.65
+    },
+    {
+     "record_id": "B0019-r06",
+     "electricity_kwh": 2516.77,
+     "steam_t": 38.1814,
+     "cooling_water_t": 845.961,
+     "ambient_c": 35.22
+    },
+    {
+     "record_id": "B0019-r07",
+     "electricity_kwh": 2182.887,
+     "steam_t": 32.662,
+     "cooling_water_t": 823.548,
+     "ambient_c": 36.93
+    },
+    {
+     "record_id": "B0019-r08",
+     "electricity_kwh": 2203.717,
+     "steam_t": 30.9236,
+     "cooling_water_t": 824.917,
+     "ambient_c": 35.22
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0020",
+   "n_records": 8,
+   "output_t": 110.668,
+   "material_index": 1.0651,
+   "ambient_c_mean": 24.28,
+   "records": [
+    {
+     "record_id": "B0020-r01",
+     "electricity_kwh": 2870.554,
+     "steam_t": 61.0463,
+     "cooling_water_t": 855.257,
+     "ambient_c": 24.41
+    },
+    {
+     "record_id": "B0020-r02",
+     "electricity_kwh": 2832.61,
+     "steam_t": 60.4058,
+     "cooling_water_t": 863.864,
+     "ambient_c": 24.37
+    },
+    {
+     "record_id": "B0020-r03",
+     "electricity_kwh": 3070.619,
+     "steam_t": 64.3835,
+     "cooling_water_t": 868.151,
+     "ambient_c": 24.21
+    },
+    {
+     "record_id": "B0020-r04",
+     "electricity_kwh": 3005.488,
+     "steam_t": 63.2858,
+     "cooling_water_t": 848.048,
+     "ambient_c": 23.92
+    },
+    {
+     "record_id": "B0020-r05",
+     "electricity_kwh": 3183.144,
+     "steam_t": 65.1498,
+     "cooling_water_t": 844.518,
+     "ambient_c": 23.0
+    },
+    {
+     "record_id": "B0020-r06",
+     "electricity_kwh": 3179.261,
+     "steam_t": 67.3986,
+     "cooling_water_t": 834.229,
+     "ambient_c": 21.81
+    },
+    {
+     "record_id": "B0020-r07",
+     "electricity_kwh": 3200.616,
+     "steam_t": 66.4202,
+     "cooling_water_t": 843.821,
+     "ambient_c": 23.26
+    },
+    {
+     "record_id": "B0020-r08",
+     "electricity_kwh": 3153.909,
+     "steam_t": 67.0326,
+     "cooling_water_t": 890.875,
+     "ambient_c": 23.93
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0021",
+   "n_records": 8,
+   "output_t": 58.563,
+   "material_index": 0.8499,
+   "ambient_c_mean": 29.943,
+   "records": [
+    {
+     "record_id": "B0021-r01",
+     "electricity_kwh": 1468.306,
+     "steam_t": 24.89,
+     "cooling_water_t": 511.58,
+     "ambient_c": 30.86
+    },
+    {
+     "record_id": "B0021-r02",
+     "electricity_kwh": 1457.894,
+     "steam_t": 24.4147,
+     "cooling_water_t": 545.063,
+     "ambient_c": 29.57
+    },
+    {
+     "record_id": "B0021-r03",
+     "electricity_kwh": 1462.84,
+     "steam_t": 24.8931,
+     "cooling_water_t": 600.017,
+     "ambient_c": 29.79
+    },
+    {
+     "record_id": "B0021-r04",
+     "electricity_kwh": 1502.562,
+     "steam_t": 25.332,
+     "cooling_water_t": 531.107,
+     "ambient_c": 28.62
+    },
+    {
+     "record_id": "B0021-r05",
+     "electricity_kwh": 1339.262,
+     "steam_t": 22.4484,
+     "cooling_water_t": 576.72,
+     "ambient_c": 29.01
+    },
+    {
+     "record_id": "B0021-r06",
+     "electricity_kwh": 1622.01,
+     "steam_t": 27.0824,
+     "cooling_water_t": 602.556,
+     "ambient_c": 31.67
+    },
+    {
+     "record_id": "B0021-r07",
+     "electricity_kwh": 1435.578,
+     "steam_t": 23.1987,
+     "cooling_water_t": 540.989,
+     "ambient_c": 31.74
+    },
+    {
+     "record_id": "B0021-r08",
+     "electricity_kwh": 1470.627,
+     "steam_t": 25.5847,
+     "cooling_water_t": 514.756,
+     "ambient_c": 30.37
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0022",
+   "n_records": 7,
+   "output_t": 89.144,
+   "material_index": 1.2377,
+   "ambient_c_mean": 13.763,
+   "records": [
+    {
+     "record_id": "B0022-r01",
+     "electricity_kwh": 2620.654,
+     "steam_t": 46.553,
+     "cooling_water_t": 588.656,
+     "ambient_c": 14.21
+    },
+    {
+     "record_id": "B0022-r02",
+     "electricity_kwh": 2550.346,
+     "steam_t": 48.15,
+     "cooling_water_t": 609.207,
+     "ambient_c": 14.04
+    },
+    {
+     "record_id": "B0022-r03",
+     "electricity_kwh": 2350.123,
+     "steam_t": 43.0069,
+     "cooling_water_t": 706.791,
+     "ambient_c": 14.01
+    },
+    {
+     "record_id": "B0022-r04",
+     "electricity_kwh": 2977.977,
+     "steam_t": 52.5145,
+     "cooling_water_t": 638.004,
+     "ambient_c": 14.24
+    },
+    {
+     "record_id": "B0022-r05",
+     "electricity_kwh": 2669.84,
+     "steam_t": 48.79,
+     "cooling_water_t": 600.142,
+     "ambient_c": 13.41
+    },
+    {
+     "record_id": "B0022-r06",
+     "electricity_kwh": 2683.339,
+     "steam_t": 49.3745,
+     "cooling_water_t": 539.929,
+     "ambient_c": 12.81
+    },
+    {
+     "record_id": "B0022-r07",
+     "electricity_kwh": 3143.449,
+     "steam_t": 54.9022,
+     "cooling_water_t": 557.251,
+     "ambient_c": 12.23
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0023",
+   "n_records": 7,
+   "output_t": 39.545,
+   "material_index": 0.9205,
+   "ambient_c_mean": 14.785,
+   "records": [
+    {
+     "record_id": "B0023-r01",
+     "electricity_kwh": 957.857,
+     "steam_t": 22.5288,
+     "cooling_water_t": 360.511,
+     "ambient_c": 13.25
+    },
+    {
+     "record_id": "B0023-r02",
+     "electricity_kwh": 981.77,
+     "steam_t": 20.1679,
+     "cooling_water_t": 342.762,
+     "ambient_c": 14.51
+    },
+    {
+     "record_id": "B0023-r03",
+     "electricity_kwh": 890.287,
+     "steam_t": 20.0916,
+     "cooling_water_t": 400.289,
+     "ambient_c": 15.47
+    },
+    {
+     "record_id": "B0023-r04",
+     "electricity_kwh": 1119.361,
+     "steam_t": 24.8238,
+     "cooling_water_t": 351.265,
+     "ambient_c": 15.21
+    },
+    {
+     "record_id": "B0023-r05",
+     "electricity_kwh": 969.838,
+     "steam_t": 22.0559,
+     "cooling_water_t": 293.526,
+     "ambient_c": 13.76
+    },
+    {
+     "record_id": "B0023-r06",
+     "electricity_kwh": 1232.947,
+     "steam_t": 24.9383,
+     "cooling_water_t": 390.309,
+     "ambient_c": 15.49
+    },
+    {
+     "record_id": "B0023-r07",
+     "electricity_kwh": 1016.57,
+     "steam_t": 21.7704,
+     "cooling_water_t": 302.594,
+     "ambient_c": 14.27
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0024",
+   "n_records": 7,
+   "output_t": 77.142,
+   "material_index": 0.8226,
+   "ambient_c_mean": 20.59,
+   "records": [
+    {
+     "record_id": "B0024-r01",
+     "electricity_kwh": 2038.253,
+     "steam_t": 41.4251,
+     "cooling_water_t": 668.459,
+     "ambient_c": 21.64
+    },
+    {
+     "record_id": "B0024-r02",
+     "electricity_kwh": 2231.403,
+     "steam_t": 45.2595,
+     "cooling_water_t": 709.395,
+     "ambient_c": 22.87
+    },
+    {
+     "record_id": "B0024-r03",
+     "electricity_kwh": 2047.015,
+     "steam_t": 42.1107,
+     "cooling_water_t": 644.895,
+     "ambient_c": 19.47
+    },
+    {
+     "record_id": "B0024-r04",
+     "electricity_kwh": 2116.859,
+     "steam_t": 40.759,
+     "cooling_water_t": 613.194,
+     "ambient_c": 17.96
+    },
+    {
+     "record_id": "B0024-r05",
+     "electricity_kwh": 2049.215,
+     "steam_t": 44.1372,
+     "cooling_water_t": 608.127,
+     "ambient_c": 21.41
+    },
+    {
+     "record_id": "B0024-r06",
+     "electricity_kwh": 1670.173,
+     "steam_t": 37.2866,
+     "cooling_water_t": 625.408,
+     "ambient_c": 19.51
+    },
+    {
+     "record_id": "B0024-r07",
+     "electricity_kwh": 2155.052,
+     "steam_t": 44.1895,
+     "cooling_water_t": 574.697,
+     "ambient_c": 20.01
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0025",
+   "n_records": 8,
+   "output_t": 60.763,
+   "material_index": 1.0406,
+   "ambient_c_mean": 27.155,
+   "records": [
+    {
+     "record_id": "B0025-r01",
+     "electricity_kwh": 1961.225,
+     "steam_t": 44.3317,
+     "cooling_water_t": 562.165,
+     "ambient_c": 26.34
+    },
+    {
+     "record_id": "B0025-r02",
+     "electricity_kwh": 1725.967,
+     "steam_t": 40.8937,
+     "cooling_water_t": 660.119,
+     "ambient_c": 26.39
+    },
+    {
+     "record_id": "B0025-r03",
+     "electricity_kwh": 2051.732,
+     "steam_t": 45.4426,
+     "cooling_water_t": 670.376,
+     "ambient_c": 26.74
+    },
+    {
+     "record_id": "B0025-r04",
+     "electricity_kwh": 1855.941,
+     "steam_t": 42.1443,
+     "cooling_water_t": 558.149,
+     "ambient_c": 28.58
+    },
+    {
+     "record_id": "B0025-r05",
+     "electricity_kwh": 1960.597,
+     "steam_t": 43.2216,
+     "cooling_water_t": 494.917,
+     "ambient_c": 26.6
+    },
+    {
+     "record_id": "B0025-r06",
+     "electricity_kwh": 2144.695,
+     "steam_t": 47.4578,
+     "cooling_water_t": 571.722,
+     "ambient_c": 27.19
+    },
+    {
+     "record_id": "B0025-r07",
+     "electricity_kwh": 1683.501,
+     "steam_t": 39.1836,
+     "cooling_water_t": 557.191,
+     "ambient_c": 25.26
+    },
+    {
+     "record_id": "B0025-r08",
+     "electricity_kwh": 1813.157,
+     "steam_t": 40.1853,
+     "cooling_water_t": 619.174,
+     "ambient_c": 26.07
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0026",
+   "n_records": 5,
+   "output_t": 78.878,
+   "material_index": 1.0957,
+   "ambient_c_mean": 20.823,
+   "records": [
+    {
+     "record_id": "B0026-r01",
+     "electricity_kwh": 2148.965,
+     "steam_t": 44.2172,
+     "cooling_water_t": 721.078,
+     "ambient_c": 20.42
+    },
+    {
+     "record_id": "B0026-r02",
+     "electricity_kwh": 2093.565,
+     "steam_t": 41.2644,
+     "cooling_water_t": 644.99,
+     "ambient_c": 20.8
+    },
+    {
+     "record_id": "B0026-r03",
+     "electricity_kwh": 1739.295,
+     "steam_t": 35.709,
+     "cooling_water_t": 708.425,
+     "ambient_c": 23.5
+    },
+    {
+     "record_id": "B0026-r04",
+     "electricity_kwh": 1928.172,
+     "steam_t": 37.5267,
+     "cooling_water_t": 693.698,
+     "ambient_c": 21.13
+    },
+    {
+     "record_id": "B0026-r05",
+     "electricity_kwh": 2436.085,
+     "steam_t": 45.8091,
+     "cooling_water_t": 701.386,
+     "ambient_c": 21.42
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0027",
+   "n_records": 8,
+   "output_t": 44.213,
+   "material_index": 1.0213,
+   "ambient_c_mean": 19.972,
+   "records": [
+    {
+     "record_id": "B0027-r01",
+     "electricity_kwh": 1079.982,
+     "steam_t": 16.5669,
+     "cooling_water_t": 432.486,
+     "ambient_c": 20.51
+    },
+    {
+     "record_id": "B0027-r02",
+     "electricity_kwh": 1084.718,
+     "steam_t": 16.7679,
+     "cooling_water_t": 378.727,
+     "ambient_c": 18.94
+    },
+    {
+     "record_id": "B0027-r03",
+     "electricity_kwh": 1031.426,
+     "steam_t": 15.1396,
+     "cooling_water_t": 355.614,
+     "ambient_c": 20.09
+    },
+    {
+     "record_id": "B0027-r04",
+     "electricity_kwh": 1093.382,
+     "steam_t": 16.4823,
+     "cooling_water_t": 296.063,
+     "ambient_c": 21.92
+    },
+    {
+     "record_id": "B0027-r05",
+     "electricity_kwh": 1082.201,
+     "steam_t": 19.4409,
+     "cooling_water_t": 351.413,
+     "ambient_c": 19.43
+    },
+    {
+     "record_id": "B0027-r06",
+     "electricity_kwh": 1110.009,
+     "steam_t": 18.6463,
+     "cooling_water_t": 353.048,
+     "ambient_c": 19.12
+    },
+    {
+     "record_id": "B0027-r07",
+     "electricity_kwh": 998.299,
+     "steam_t": 15.9074,
+     "cooling_water_t": 379.111,
+     "ambient_c": 17.98
+    },
+    {
+     "record_id": "B0027-r08",
+     "electricity_kwh": 1229.027,
+     "steam_t": 18.6611,
+     "cooling_water_t": 441.169,
+     "ambient_c": 21.65
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0028",
+   "n_records": 6,
+   "output_t": 106.366,
+   "material_index": 1.1399,
+   "ambient_c_mean": 11.342,
+   "records": [
+    {
+     "record_id": "B0028-r01",
+     "electricity_kwh": 2878.277,
+     "steam_t": 55.3854,
+     "cooling_water_t": 867.112,
+     "ambient_c": 12.17
+    },
+    {
+     "record_id": "B0028-r02",
+     "electricity_kwh": 2409.91,
+     "steam_t": 50.3168,
+     "cooling_water_t": 762.913,
+     "ambient_c": 11.4
+    },
+    {
+     "record_id": "B0028-r03",
+     "electricity_kwh": 2533.206,
+     "steam_t": 49.2337,
+     "cooling_water_t": 776.361,
+     "ambient_c": 12.33
+    },
+    {
+     "record_id": "B0028-r04",
+     "electricity_kwh": 2529.069,
+     "steam_t": 49.2621,
+     "cooling_water_t": 801.126,
+     "ambient_c": 10.9
+    },
+    {
+     "record_id": "B0028-r05",
+     "electricity_kwh": 2660.002,
+     "steam_t": 53.6723,
+     "cooling_water_t": 746.11,
+     "ambient_c": 13.34
+    },
+    {
+     "record_id": "B0028-r06",
+     "electricity_kwh": 2527.37,
+     "steam_t": 50.1308,
+     "cooling_water_t": 854.266,
+     "ambient_c": 11.72
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0029",
+   "n_records": 8,
+   "output_t": 85.923,
+   "material_index": 1.1288,
+   "ambient_c_mean": 25.855,
+   "records": [
+    {
+     "record_id": "B0029-r01",
+     "electricity_kwh": 2125.927,
+     "steam_t": 44.7201,
+     "cooling_water_t": 717.484,
+     "ambient_c": 27.75
+    },
+    {
+     "record_id": "B0029-r02",
+     "electricity_kwh": 2509.55,
+     "steam_t": 49.5453,
+     "cooling_water_t": 657.816,
+     "ambient_c": 25.12
+    },
+    {
+     "record_id": "B0029-r03",
+     "electricity_kwh": 2486.85,
+     "steam_t": 49.4258,
+     "cooling_water_t": 729.084,
+     "ambient_c": 25.0
+    },
+    {
+     "record_id": "B0029-r04",
+     "electricity_kwh": 2345.456,
+     "steam_t": 48.207,
+     "cooling_water_t": 588.257,
+     "ambient_c": 26.3
+    },
+    {
+     "record_id": "B0029-r05",
+     "electricity_kwh": 2598.557,
+     "steam_t": 51.5109,
+     "cooling_water_t": 707.121,
+     "ambient_c": 27.14
+    },
+    {
+     "record_id": "B0029-r06",
+     "electricity_kwh": 2558.169,
+     "steam_t": 52.4752,
+     "cooling_water_t": 772.91,
+     "ambient_c": 25.71
+    },
+    {
+     "record_id": "B0029-r07",
+     "electricity_kwh": 2306.709,
+     "steam_t": 49.5119,
+     "cooling_water_t": 673.802,
+     "ambient_c": 24.7
+    },
+    {
+     "record_id": "B0029-r08",
+     "electricity_kwh": 2413.362,
+     "steam_t": 49.2231,
+     "cooling_water_t": 685.277,
+     "ambient_c": 27.51
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0030",
+   "n_records": 9,
+   "output_t": 77.955,
+   "material_index": 1.1606,
+   "ambient_c_mean": 26.485,
+   "records": [
+    {
+     "record_id": "B0030-r01",
+     "electricity_kwh": 1864.073,
+     "steam_t": 35.7417,
+     "cooling_water_t": 724.105,
+     "ambient_c": 26.06
+    },
+    {
+     "record_id": "B0030-r02",
+     "electricity_kwh": 2360.055,
+     "steam_t": 42.628,
+     "cooling_water_t": 610.443,
+     "ambient_c": 26.12
+    },
+    {
+     "record_id": "B0030-r03",
+     "electricity_kwh": 1971.169,
+     "steam_t": 37.314,
+     "cooling_water_t": 639.295,
+     "ambient_c": 25.94
+    },
+    {
+     "record_id": "B0030-r04",
+     "electricity_kwh": 1701.446,
+     "steam_t": 33.1401,
+     "cooling_water_t": 717.723,
+     "ambient_c": 25.6
+    },
+    {
+     "record_id": "B0030-r05",
+     "electricity_kwh": 2227.861,
+     "steam_t": 40.0425,
+     "cooling_water_t": 740.469,
+     "ambient_c": 27.28
+    },
+    {
+     "record_id": "B0030-r06",
+     "electricity_kwh": 1946.217,
+     "steam_t": 37.4247,
+     "cooling_water_t": 781.193,
+     "ambient_c": 27.47
+    },
+    {
+     "record_id": "B0030-r07",
+     "electricity_kwh": 2152.981,
+     "steam_t": 40.0377,
+     "cooling_water_t": 658.202,
+     "ambient_c": 25.98
+    },
+    {
+     "record_id": "B0030-r08",
+     "electricity_kwh": 1913.763,
+     "steam_t": 37.3633,
+     "cooling_water_t": 661.399,
+     "ambient_c": 24.66
+    },
+    {
+     "record_id": "B0030-r09",
+     "electricity_kwh": 2123.018,
+     "steam_t": 39.8824,
+     "cooling_water_t": 646.446,
+     "ambient_c": 27.69
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0031",
+   "n_records": 7,
+   "output_t": 29.888,
+   "material_index": 1.1643,
+   "ambient_c_mean": 27.211,
+   "records": [
+    {
+     "record_id": "B0031-r01",
+     "electricity_kwh": 718.991,
+     "steam_t": 11.3223,
+     "cooling_water_t": 408.595,
+     "ambient_c": 25.83
+    },
+    {
+     "record_id": "B0031-r02",
+     "electricity_kwh": 871.42,
+     "steam_t": 13.2696,
+     "cooling_water_t": 391.539,
+     "ambient_c": 29.03
+    },
+    {
+     "record_id": "B0031-r03",
+     "electricity_kwh": 857.748,
+     "steam_t": 15.716,
+     "cooling_water_t": 383.423,
+     "ambient_c": 28.83
+    },
+    {
+     "record_id": "B0031-r04",
+     "electricity_kwh": 865.104,
+     "steam_t": 15.2667,
+     "cooling_water_t": 379.648,
+     "ambient_c": 26.03
+    },
+    {
+     "record_id": "B0031-r05",
+     "electricity_kwh": 669.6,
+     "steam_t": 10.8154,
+     "cooling_water_t": 309.919,
+     "ambient_c": 26.3
+    },
+    {
+     "record_id": "B0031-r06",
+     "electricity_kwh": 850.434,
+     "steam_t": 12.0325,
+     "cooling_water_t": 278.232,
+     "ambient_c": 25.56
+    },
+    {
+     "record_id": "B0031-r07",
+     "electricity_kwh": 945.947,
+     "steam_t": 15.3152,
+     "cooling_water_t": 372.084,
+     "ambient_c": 25.11
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0032",
+   "n_records": 5,
+   "output_t": 81.493,
+   "material_index": 0.9026,
+   "ambient_c_mean": 19.214,
+   "records": [
+    {
+     "record_id": "B0032-r01",
+     "electricity_kwh": 2378.674,
+     "steam_t": 51.0208,
+     "cooling_water_t": 688.763,
+     "ambient_c": 19.93
+    },
+    {
+     "record_id": "B0032-r02",
+     "electricity_kwh": 2258.942,
+     "steam_t": 50.2385,
+     "cooling_water_t": 645.707,
+     "ambient_c": 19.34
+    },
+    {
+     "record_id": "B0032-r03",
+     "electricity_kwh": 2549.316,
+     "steam_t": 52.3255,
+     "cooling_water_t": 646.3,
+     "ambient_c": 20.71
+    },
+    {
+     "record_id": "B0032-r04",
+     "electricity_kwh": 2305.169,
+     "steam_t": 48.7703,
+     "cooling_water_t": 610.967,
+     "ambient_c": 17.53
+    },
+    {
+     "record_id": "B0032-r05",
+     "electricity_kwh": 2339.814,
+     "steam_t": 50.2592,
+     "cooling_water_t": 691.688,
+     "ambient_c": 19.12
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0033",
+   "n_records": 7,
+   "output_t": 99.419,
+   "material_index": 0.9317,
+   "ambient_c_mean": 36.568,
+   "records": [
+    {
+     "record_id": "B0033-r01",
+     "electricity_kwh": 2438.146,
+     "steam_t": 44.1933,
+     "cooling_water_t": 832.407,
+     "ambient_c": 35.78
+    },
+    {
+     "record_id": "B0033-r02",
+     "electricity_kwh": 2682.671,
+     "steam_t": 48.3125,
+     "cooling_water_t": 801.886,
+     "ambient_c": 35.46
+    },
+    {
+     "record_id": "B0033-r03",
+     "electricity_kwh": 2477.015,
+     "steam_t": 43.5277,
+     "cooling_water_t": 789.277,
+     "ambient_c": 35.34
+    },
+    {
+     "record_id": "B0033-r04",
+     "electricity_kwh": 2820.373,
+     "steam_t": 48.327,
+     "cooling_water_t": 808.014,
+     "ambient_c": 38.52
+    },
+    {
+     "record_id": "B0033-r05",
+     "electricity_kwh": 2667.498,
+     "steam_t": 48.3527,
+     "cooling_water_t": 774.4,
+     "ambient_c": 34.99
+    },
+    {
+     "record_id": "B0033-r06",
+     "electricity_kwh": 2559.385,
+     "steam_t": 47.1444,
+     "cooling_water_t": 804.464,
+     "ambient_c": 36.11
+    },
+    {
+     "record_id": "B0033-r07",
+     "electricity_kwh": 2168.887,
+     "steam_t": 40.7755,
+     "cooling_water_t": 844.935,
+     "ambient_c": 37.01
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0034",
+   "n_records": 10,
+   "output_t": 117.143,
+   "material_index": 1.1188,
+   "ambient_c_mean": 17.589,
+   "records": [
+    {
+     "record_id": "B0034-r01",
+     "electricity_kwh": 3149.215,
+     "steam_t": 54.2104,
+     "cooling_water_t": 762.455,
+     "ambient_c": 17.88
+    },
+    {
+     "record_id": "B0034-r02",
+     "electricity_kwh": 3022.669,
+     "steam_t": 55.6629,
+     "cooling_water_t": 917.345,
+     "ambient_c": 16.58
+    },
+    {
+     "record_id": "B0034-r03",
+     "electricity_kwh": 3043.911,
+     "steam_t": 53.9399,
+     "cooling_water_t": 780.736,
+     "ambient_c": 16.98
+    },
+    {
+     "record_id": "B0034-r04",
+     "electricity_kwh": 3354.637,
+     "steam_t": 60.57,
+     "cooling_water_t": 834.567,
+     "ambient_c": 17.96
+    },
+    {
+     "record_id": "B0034-r05",
+     "electricity_kwh": 2899.188,
+     "steam_t": 54.3734,
+     "cooling_water_t": 874.662,
+     "ambient_c": 16.44
+    },
+    {
+     "record_id": "B0034-r06",
+     "electricity_kwh": 3242.185,
+     "steam_t": 57.4358,
+     "cooling_water_t": 846.392,
+     "ambient_c": 17.98
+    },
+    {
+     "record_id": "B0034-r07",
+     "electricity_kwh": 3383.372,
+     "steam_t": 61.4564,
+     "cooling_water_t": 753.761,
+     "ambient_c": 19.03
+    },
+    {
+     "record_id": "B0034-r08",
+     "electricity_kwh": 3253.31,
+     "steam_t": 58.0681,
+     "cooling_water_t": 800.323,
+     "ambient_c": 15.55
+    },
+    {
+     "record_id": "B0034-r09",
+     "electricity_kwh": 3285.087,
+     "steam_t": 56.2121,
+     "cooling_water_t": 783.12,
+     "ambient_c": 16.08
+    },
+    {
+     "record_id": "B0034-r10",
+     "electricity_kwh": 3274.755,
+     "steam_t": 57.919,
+     "cooling_water_t": 805.181,
+     "ambient_c": 18.42
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0035",
+   "n_records": 8,
+   "output_t": 106.208,
+   "material_index": 1.0019,
+   "ambient_c_mean": 24.516,
+   "records": [
+    {
+     "record_id": "B0035-r01",
+     "electricity_kwh": 2509.137,
+     "steam_t": 41.4691,
+     "cooling_water_t": 747.214,
+     "ambient_c": 24.23
+    },
+    {
+     "record_id": "B0035-r02",
+     "electricity_kwh": 2749.628,
+     "steam_t": 44.5332,
+     "cooling_water_t": 931.177,
+     "ambient_c": 23.81
+    },
+    {
+     "record_id": "B0035-r03",
+     "electricity_kwh": 2420.499,
+     "steam_t": 39.9825,
+     "cooling_water_t": 804.465,
+     "ambient_c": 25.23
+    },
+    {
+     "record_id": "B0035-r04",
+     "electricity_kwh": 1927.71,
+     "steam_t": 32.9369,
+     "cooling_water_t": 846.403,
+     "ambient_c": 22.44
+    },
+    {
+     "record_id": "B0035-r05",
+     "electricity_kwh": 2605.199,
+     "steam_t": 41.1342,
+     "cooling_water_t": 708.196,
+     "ambient_c": 24.9
+    },
+    {
+     "record_id": "B0035-r06",
+     "electricity_kwh": 2176.731,
+     "steam_t": 36.2936,
+     "cooling_water_t": 760.337,
+     "ambient_c": 22.76
+    },
+    {
+     "record_id": "B0035-r07",
+     "electricity_kwh": 2575.134,
+     "steam_t": 41.7882,
+     "cooling_water_t": 837.405,
+     "ambient_c": 24.88
+    },
+    {
+     "record_id": "B0035-r08",
+     "electricity_kwh": 2539.147,
+     "steam_t": 41.955,
+     "cooling_water_t": 786.139,
+     "ambient_c": 26.0
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0036",
+   "n_records": 10,
+   "output_t": 64.789,
+   "material_index": 1.0129,
+   "ambient_c_mean": 23.009,
+   "records": [
+    {
+     "record_id": "B0036-r01",
+     "electricity_kwh": 1929.467,
+     "steam_t": 31.7228,
+     "cooling_water_t": 554.942,
+     "ambient_c": 21.75
+    },
+    {
+     "record_id": "B0036-r02",
+     "electricity_kwh": 1681.545,
+     "steam_t": 26.2614,
+     "cooling_water_t": 550.292,
+     "ambient_c": 21.62
+    },
+    {
+     "record_id": "B0036-r03",
+     "electricity_kwh": 1571.725,
+     "steam_t": 28.2151,
+     "cooling_water_t": 609.726,
+     "ambient_c": 20.81
+    },
+    {
+     "record_id": "B0036-r04",
+     "electricity_kwh": 1336.061,
+     "steam_t": 23.5167,
+     "cooling_water_t": 586.675,
+     "ambient_c": 24.14
+    },
+    {
+     "record_id": "B0036-r05",
+     "electricity_kwh": 1563.405,
+     "steam_t": 26.6501,
+     "cooling_water_t": 574.092,
+     "ambient_c": 25.01
+    },
+    {
+     "record_id": "B0036-r06",
+     "electricity_kwh": 1650.972,
+     "steam_t": 29.2399,
+     "cooling_water_t": 502.83,
+     "ambient_c": 21.82
+    },
+    {
+     "record_id": "B0036-r07",
+     "electricity_kwh": 1665.001,
+     "steam_t": 25.7917,
+     "cooling_water_t": 570.439,
+     "ambient_c": 23.48
+    },
+    {
+     "record_id": "B0036-r08",
+     "electricity_kwh": 1752.044,
+     "steam_t": 29.8454,
+     "cooling_water_t": 550.958,
+     "ambient_c": 20.98
+    },
+    {
+     "record_id": "B0036-r09",
+     "electricity_kwh": 1628.954,
+     "steam_t": 28.4132,
+     "cooling_water_t": 611.723,
+     "ambient_c": 22.16
+    },
+    {
+     "record_id": "B0036-r10",
+     "electricity_kwh": 1479.434,
+     "steam_t": 27.3431,
+     "cooling_water_t": 557.184,
+     "ambient_c": 25.73
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0037",
+   "n_records": 8,
+   "output_t": 35.522,
+   "material_index": 1.0909,
+   "ambient_c_mean": 20.352,
+   "records": [
+    {
+     "record_id": "B0037-r01",
+     "electricity_kwh": 1316.212,
+     "steam_t": 32.425,
+     "cooling_water_t": 403.382,
+     "ambient_c": 19.59
+    },
+    {
+     "record_id": "B0037-r02",
+     "electricity_kwh": 1464.775,
+     "steam_t": 32.8602,
+     "cooling_water_t": 367.941,
+     "ambient_c": 20.21
+    },
+    {
+     "record_id": "B0037-r03",
+     "electricity_kwh": 1274.487,
+     "steam_t": 30.8015,
+     "cooling_water_t": 375.127,
+     "ambient_c": 18.93
+    },
+    {
+     "record_id": "B0037-r04",
+     "electricity_kwh": 1423.302,
+     "steam_t": 32.6807,
+     "cooling_water_t": 384.988,
+     "ambient_c": 20.0
+    },
+    {
+     "record_id": "B0037-r05",
+     "electricity_kwh": 1322.342,
+     "steam_t": 31.3445,
+     "cooling_water_t": 364.6,
+     "ambient_c": 19.29
+    },
+    {
+     "record_id": "B0037-r06",
+     "electricity_kwh": 1493.948,
+     "steam_t": 34.5159,
+     "cooling_water_t": 286.441,
+     "ambient_c": 20.78
+    },
+    {
+     "record_id": "B0037-r07",
+     "electricity_kwh": 1457.441,
+     "steam_t": 33.9888,
+     "cooling_water_t": 447.49,
+     "ambient_c": 19.85
+    },
+    {
+     "record_id": "B0037-r08",
+     "electricity_kwh": 1463.456,
+     "steam_t": 34.4523,
+     "cooling_water_t": 441.874,
+     "ambient_c": 19.48
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0038",
+   "n_records": 10,
+   "output_t": 71.939,
+   "material_index": 0.9369,
+   "ambient_c_mean": 17.207,
+   "records": [
+    {
+     "record_id": "B0038-r01",
+     "electricity_kwh": 1722.597,
+     "steam_t": 36.6796,
+     "cooling_water_t": 526.901,
+     "ambient_c": 17.94
+    },
+    {
+     "record_id": "B0038-r02",
+     "electricity_kwh": 1621.696,
+     "steam_t": 34.5713,
+     "cooling_water_t": 720.166,
+     "ambient_c": 19.21
+    },
+    {
+     "record_id": "B0038-r03",
+     "electricity_kwh": 1632.292,
+     "steam_t": 33.8742,
+     "cooling_water_t": 533.381,
+     "ambient_c": 16.7
+    },
+    {
+     "record_id": "B0038-r04",
+     "electricity_kwh": 1522.702,
+     "steam_t": 31.657,
+     "cooling_water_t": 626.002,
+     "ambient_c": 15.92
+    },
+    {
+     "record_id": "B0038-r05",
+     "electricity_kwh": 1783.322,
+     "steam_t": 35.8251,
+     "cooling_water_t": 563.542,
+     "ambient_c": 16.61
+    },
+    {
+     "record_id": "B0038-r06",
+     "electricity_kwh": 1938.389,
+     "steam_t": 36.5947,
+     "cooling_water_t": 630.565,
+     "ambient_c": 16.77
+    },
+    {
+     "record_id": "B0038-r07",
+     "electricity_kwh": 1958.654,
+     "steam_t": 37.1944,
+     "cooling_water_t": 581.231,
+     "ambient_c": 17.09
+    },
+    {
+     "record_id": "B0038-r08",
+     "electricity_kwh": 1746.672,
+     "steam_t": 35.0611,
+     "cooling_water_t": 529.67,
+     "ambient_c": 15.99
+    },
+    {
+     "record_id": "B0038-r09",
+     "electricity_kwh": 1936.74,
+     "steam_t": 38.1806,
+     "cooling_water_t": 658.834,
+     "ambient_c": 17.91
+    },
+    {
+     "record_id": "B0038-r10",
+     "electricity_kwh": 1942.775,
+     "steam_t": 40.0485,
+     "cooling_water_t": 572.601,
+     "ambient_c": 17.72
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0039",
+   "n_records": 7,
+   "output_t": 106.941,
+   "material_index": 1.1247,
+   "ambient_c_mean": 21.034,
+   "records": [
+    {
+     "record_id": "B0039-r01",
+     "electricity_kwh": 2737.491,
+     "steam_t": 44.1763,
+     "cooling_water_t": 783.226,
+     "ambient_c": 19.79
+    },
+    {
+     "record_id": "B0039-r02",
+     "electricity_kwh": 2202.967,
+     "steam_t": 39.8225,
+     "cooling_water_t": 747.23,
+     "ambient_c": 19.79
+    },
+    {
+     "record_id": "B0039-r03",
+     "electricity_kwh": 2652.707,
+     "steam_t": 45.0996,
+     "cooling_water_t": 747.915,
+     "ambient_c": 21.5
+    },
+    {
+     "record_id": "B0039-r04",
+     "electricity_kwh": 2822.577,
+     "steam_t": 45.5198,
+     "cooling_water_t": 853.176,
+     "ambient_c": 19.91
+    },
+    {
+     "record_id": "B0039-r05",
+     "electricity_kwh": 2640.114,
+     "steam_t": 42.1893,
+     "cooling_water_t": 799.766,
+     "ambient_c": 20.29
+    },
+    {
+     "record_id": "B0039-r06",
+     "electricity_kwh": 2559.657,
+     "steam_t": 42.9458,
+     "cooling_water_t": 701.413,
+     "ambient_c": 19.17
+    },
+    {
+     "record_id": "B0039-r07",
+     "electricity_kwh": 2823.886,
+     "steam_t": 45.9678,
+     "cooling_water_t": 795.604,
+     "ambient_c": 18.69
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0040",
+   "n_records": 7,
+   "output_t": 99.313,
+   "material_index": 0.8537,
+   "ambient_c_mean": 26.811,
+   "records": [
+    {
+     "record_id": "B0040-r01",
+     "electricity_kwh": 2349.257,
+     "steam_t": 40.5386,
+     "cooling_water_t": 775.984,
+     "ambient_c": 27.72
+    },
+    {
+     "record_id": "B0040-r02",
+     "electricity_kwh": 2286.494,
+     "steam_t": 42.3922,
+     "cooling_water_t": 856.613,
+     "ambient_c": 26.9
+    },
+    {
+     "record_id": "B0040-r03",
+     "electricity_kwh": 2438.32,
+     "steam_t": 41.5768,
+     "cooling_water_t": 753.902,
+     "ambient_c": 28.23
+    },
+    {
+     "record_id": "B0040-r04",
+     "electricity_kwh": 2279.245,
+     "steam_t": 38.5646,
+     "cooling_water_t": 794.716,
+     "ambient_c": 26.01
+    },
+    {
+     "record_id": "B0040-r05",
+     "electricity_kwh": 2360.009,
+     "steam_t": 38.8629,
+     "cooling_water_t": 779.755,
+     "ambient_c": 27.79
+    },
+    {
+     "record_id": "B0040-r06",
+     "electricity_kwh": 2226.195,
+     "steam_t": 38.0596,
+     "cooling_water_t": 860.346,
+     "ambient_c": 25.29
+    },
+    {
+     "record_id": "B0040-r07",
+     "electricity_kwh": 2399.119,
+     "steam_t": 41.6481,
+     "cooling_water_t": 832.309,
+     "ambient_c": 27.93
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0041",
+   "n_records": 8,
+   "output_t": 58.202,
+   "material_index": 1.1269,
+   "ambient_c_mean": 17.42,
+   "records": [
+    {
+     "record_id": "B0041-r01",
+     "electricity_kwh": 1855.099,
+     "steam_t": 41.9206,
+     "cooling_water_t": 477.176,
+     "ambient_c": 19.39
+    },
+    {
+     "record_id": "B0041-r02",
+     "electricity_kwh": 2066.393,
+     "steam_t": 46.0136,
+     "cooling_water_t": 516.153,
+     "ambient_c": 16.54
+    },
+    {
+     "record_id": "B0041-r03",
+     "electricity_kwh": 1588.876,
+     "steam_t": 37.6951,
+     "cooling_water_t": 519.67,
+     "ambient_c": 19.25
+    },
+    {
+     "record_id": "B0041-r04",
+     "electricity_kwh": 2038.857,
+     "steam_t": 44.8267,
+     "cooling_water_t": 530.322,
+     "ambient_c": 16.49
+    },
+    {
+     "record_id": "B0041-r05",
+     "electricity_kwh": 2065.864,
+     "steam_t": 47.2123,
+     "cooling_water_t": 559.211,
+     "ambient_c": 16.34
+    },
+    {
+     "record_id": "B0041-r06",
+     "electricity_kwh": 2040.092,
+     "steam_t": 44.6463,
+     "cooling_water_t": 556.179,
+     "ambient_c": 19.55
+    },
+    {
+     "record_id": "B0041-r07",
+     "electricity_kwh": 1814.745,
+     "steam_t": 41.7133,
+     "cooling_water_t": 474.437,
+     "ambient_c": 16.59
+    },
+    {
+     "record_id": "B0041-r08",
+     "electricity_kwh": 1913.331,
+     "steam_t": 44.7906,
+     "cooling_water_t": 424.687,
+     "ambient_c": 17.91
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0042",
+   "n_records": 9,
+   "output_t": 104.642,
+   "material_index": 0.8228,
+   "ambient_c_mean": 29.071,
+   "records": [
+    {
+     "record_id": "B0042-r01",
+     "electricity_kwh": 2529.419,
+     "steam_t": 38.6264,
+     "cooling_water_t": 809.097,
+     "ambient_c": 30.48
+    },
+    {
+     "record_id": "B0042-r02",
+     "electricity_kwh": 2404.408,
+     "steam_t": 37.2573,
+     "cooling_water_t": 874.187,
+     "ambient_c": 29.87
+    },
+    {
+     "record_id": "B0042-r03",
+     "electricity_kwh": 2337.418,
+     "steam_t": 35.6567,
+     "cooling_water_t": 840.323,
+     "ambient_c": 29.24
+    },
+    {
+     "record_id": "B0042-r04",
+     "electricity_kwh": 2459.295,
+     "steam_t": 38.8396,
+     "cooling_water_t": 869.633,
+     "ambient_c": 28.25
+    },
+    {
+     "record_id": "B0042-r05",
+     "electricity_kwh": 2449.598,
+     "steam_t": 37.9638,
+     "cooling_water_t": 825.778,
+     "ambient_c": 27.73
+    },
+    {
+     "record_id": "B0042-r06",
+     "electricity_kwh": 2447.409,
+     "steam_t": 36.3226,
+     "cooling_water_t": 866.812,
+     "ambient_c": 31.12
+    },
+    {
+     "record_id": "B0042-r07",
+     "electricity_kwh": 2430.942,
+     "steam_t": 38.8324,
+     "cooling_water_t": 861.741,
+     "ambient_c": 28.9
+    },
+    {
+     "record_id": "B0042-r08",
+     "electricity_kwh": 2323.295,
+     "steam_t": 36.3907,
+     "cooling_water_t": 782.523,
+     "ambient_c": 25.68
+    },
+    {
+     "record_id": "B0042-r09",
+     "electricity_kwh": 2480.942,
+     "steam_t": 37.7618,
+     "cooling_water_t": 871.824,
+     "ambient_c": 28.62
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0043",
+   "n_records": 10,
+   "output_t": 78.766,
+   "material_index": 1.1995,
+   "ambient_c_mean": 24.395,
+   "records": [
+    {
+     "record_id": "B0043-r01",
+     "electricity_kwh": 2270.417,
+     "steam_t": 37.585,
+     "cooling_water_t": 638.354,
+     "ambient_c": 22.23
+    },
+    {
+     "record_id": "B0043-r02",
+     "electricity_kwh": 1901.734,
+     "steam_t": 33.7448,
+     "cooling_water_t": 680.987,
+     "ambient_c": 24.65
+    },
+    {
+     "record_id": "B0043-r03",
+     "electricity_kwh": 2069.268,
+     "steam_t": 35.9215,
+     "cooling_water_t": 539.91,
+     "ambient_c": 25.66
+    },
+    {
+     "record_id": "B0043-r04",
+     "electricity_kwh": 2477.765,
+     "steam_t": 41.5107,
+     "cooling_water_t": 586.106,
+     "ambient_c": 24.58
+    },
+    {
+     "record_id": "B0043-r05",
+     "electricity_kwh": 1913.425,
+     "steam_t": 30.6662,
+     "cooling_water_t": 646.671,
+     "ambient_c": 25.18
+    },
+    {
+     "record_id": "B0043-r06",
+     "electricity_kwh": 2125.297,
+     "steam_t": 36.2964,
+     "cooling_water_t": 735.23,
+     "ambient_c": 23.77
+    },
+    {
+     "record_id": "B0043-r07",
+     "electricity_kwh": 1775.318,
+     "steam_t": 31.1347,
+     "cooling_water_t": 648.093,
+     "ambient_c": 24.03
+    },
+    {
+     "record_id": "B0043-r08",
+     "electricity_kwh": 2371.738,
+     "steam_t": 39.0961,
+     "cooling_water_t": 600.355,
+     "ambient_c": 23.6
+    },
+    {
+     "record_id": "B0043-r09",
+     "electricity_kwh": 2174.386,
+     "steam_t": 34.8901,
+     "cooling_water_t": 710.051,
+     "ambient_c": 25.41
+    },
+    {
+     "record_id": "B0043-r10",
+     "electricity_kwh": 2041.306,
+     "steam_t": 34.9586,
+     "cooling_water_t": 585.973,
+     "ambient_c": 25.88
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0044",
+   "n_records": 5,
+   "output_t": 107.553,
+   "material_index": 1.0079,
+   "ambient_c_mean": 18.795,
+   "records": [
+    {
+     "record_id": "B0044-r01",
+     "electricity_kwh": 2657.456,
+     "steam_t": 44.8241,
+     "cooling_water_t": 804.296,
+     "ambient_c": 17.79
+    },
+    {
+     "record_id": "B0044-r02",
+     "electricity_kwh": 2620.129,
+     "steam_t": 42.5447,
+     "cooling_water_t": 830.073,
+     "ambient_c": 18.27
+    },
+    {
+     "record_id": "B0044-r03",
+     "electricity_kwh": 2784.097,
+     "steam_t": 42.7497,
+     "cooling_water_t": 767.477,
+     "ambient_c": 19.73
+    },
+    {
+     "record_id": "B0044-r04",
+     "electricity_kwh": 2671.235,
+     "steam_t": 43.7839,
+     "cooling_water_t": 759.846,
+     "ambient_c": 17.38
+    },
+    {
+     "record_id": "B0044-r05",
+     "electricity_kwh": 2444.307,
+     "steam_t": 40.3617,
+     "cooling_water_t": 813.288,
+     "ambient_c": 16.86
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0045",
+   "n_records": 5,
+   "output_t": 28.999,
+   "material_index": 1.1816,
+   "ambient_c_mean": 24.329,
+   "records": [
+    {
+     "record_id": "B0045-r01",
+     "electricity_kwh": 1206.9,
+     "steam_t": 30.713,
+     "cooling_water_t": 422.969,
+     "ambient_c": 24.47
+    },
+    {
+     "record_id": "B0045-r02",
+     "electricity_kwh": 1152.76,
+     "steam_t": 30.1863,
+     "cooling_water_t": 279.396,
+     "ambient_c": 24.85
+    },
+    {
+     "record_id": "B0045-r03",
+     "electricity_kwh": 1203.783,
+     "steam_t": 29.0863,
+     "cooling_water_t": 349.07,
+     "ambient_c": 22.08
+    },
+    {
+     "record_id": "B0045-r04",
+     "electricity_kwh": 1184.977,
+     "steam_t": 29.3448,
+     "cooling_water_t": 355.205,
+     "ambient_c": 23.67
+    },
+    {
+     "record_id": "B0045-r05",
+     "electricity_kwh": 1334.776,
+     "steam_t": 31.6807,
+     "cooling_water_t": 323.778,
+     "ambient_c": 23.48
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0046",
+   "n_records": 8,
+   "output_t": 114.744,
+   "material_index": 0.8154,
+   "ambient_c_mean": 20.839,
+   "records": [
+    {
+     "record_id": "B0046-r01",
+     "electricity_kwh": 3041.557,
+     "steam_t": 55.2718,
+     "cooling_water_t": 761.491,
+     "ambient_c": 19.04
+    },
+    {
+     "record_id": "B0046-r02",
+     "electricity_kwh": 2773.184,
+     "steam_t": 52.569,
+     "cooling_water_t": 868.49,
+     "ambient_c": 21.87
+    },
+    {
+     "record_id": "B0046-r03",
+     "electricity_kwh": 2898.597,
+     "steam_t": 52.7606,
+     "cooling_water_t": 749.679,
+     "ambient_c": 20.27
+    },
+    {
+     "record_id": "B0046-r04",
+     "electricity_kwh": 2800.826,
+     "steam_t": 52.2975,
+     "cooling_water_t": 857.635,
+     "ambient_c": 21.08
+    },
+    {
+     "record_id": "B0046-r05",
+     "electricity_kwh": 2758.805,
+     "steam_t": 50.3056,
+     "cooling_water_t": 712.579,
+     "ambient_c": 20.84
+    },
+    {
+     "record_id": "B0046-r06",
+     "electricity_kwh": 2838.718,
+     "steam_t": 50.6652,
+     "cooling_water_t": 816.257,
+     "ambient_c": 20.33
+    },
+    {
+     "record_id": "B0046-r07",
+     "electricity_kwh": 3006.728,
+     "steam_t": 53.66,
+     "cooling_water_t": 721.091,
+     "ambient_c": 23.12
+    },
+    {
+     "record_id": "B0046-r08",
+     "electricity_kwh": 2615.118,
+     "steam_t": 48.5972,
+     "cooling_water_t": 769.942,
+     "ambient_c": 20.27
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0047",
+   "n_records": 8,
+   "output_t": 41.491,
+   "material_index": 1.1052,
+   "ambient_c_mean": 30.113,
+   "records": [
+    {
+     "record_id": "B0047-r01",
+     "electricity_kwh": 1644.132,
+     "steam_t": 36.8752,
+     "cooling_water_t": 444.14,
+     "ambient_c": 31.01
+    },
+    {
+     "record_id": "B0047-r02",
+     "electricity_kwh": 1610.051,
+     "steam_t": 37.5263,
+     "cooling_water_t": 431.506,
+     "ambient_c": 29.99
+    },
+    {
+     "record_id": "B0047-r03",
+     "electricity_kwh": 1473.387,
+     "steam_t": 35.3177,
+     "cooling_water_t": 461.687,
+     "ambient_c": 29.68
+    },
+    {
+     "record_id": "B0047-r04",
+     "electricity_kwh": 1622.437,
+     "steam_t": 37.7072,
+     "cooling_water_t": 361.177,
+     "ambient_c": 31.31
+    },
+    {
+     "record_id": "B0047-r05",
+     "electricity_kwh": 1588.265,
+     "steam_t": 36.8742,
+     "cooling_water_t": 396.26,
+     "ambient_c": 31.64
+    },
+    {
+     "record_id": "B0047-r06",
+     "electricity_kwh": 1547.103,
+     "steam_t": 35.2183,
+     "cooling_water_t": 426.348,
+     "ambient_c": 31.72
+    },
+    {
+     "record_id": "B0047-r07",
+     "electricity_kwh": 1524.17,
+     "steam_t": 36.3893,
+     "cooling_water_t": 557.92,
+     "ambient_c": 29.09
+    },
+    {
+     "record_id": "B0047-r08",
+     "electricity_kwh": 1407.587,
+     "steam_t": 32.4665,
+     "cooling_water_t": 451.949,
+     "ambient_c": 28.35
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0048",
+   "n_records": 10,
+   "output_t": 58.507,
+   "material_index": 0.8088,
+   "ambient_c_mean": 17.241,
+   "records": [
+    {
+     "record_id": "B0048-r01",
+     "electricity_kwh": 1477.443,
+     "steam_t": 21.0705,
+     "cooling_water_t": 411.869,
+     "ambient_c": 17.85
+    },
+    {
+     "record_id": "B0048-r02",
+     "electricity_kwh": 1133.978,
+     "steam_t": 15.1174,
+     "cooling_water_t": 431.362,
+     "ambient_c": 16.34
+    },
+    {
+     "record_id": "B0048-r03",
+     "electricity_kwh": 1496.862,
+     "steam_t": 22.2311,
+     "cooling_water_t": 499.254,
+     "ambient_c": 14.99
+    },
+    {
+     "record_id": "B0048-r04",
+     "electricity_kwh": 1421.415,
+     "steam_t": 17.9674,
+     "cooling_water_t": 463.218,
+     "ambient_c": 18.67
+    },
+    {
+     "record_id": "B0048-r05",
+     "electricity_kwh": 1226.668,
+     "steam_t": 17.3386,
+     "cooling_water_t": 408.317,
+     "ambient_c": 15.74
+    },
+    {
+     "record_id": "B0048-r06",
+     "electricity_kwh": 1510.25,
+     "steam_t": 23.8281,
+     "cooling_water_t": 454.63,
+     "ambient_c": 17.33
+    },
+    {
+     "record_id": "B0048-r07",
+     "electricity_kwh": 1381.33,
+     "steam_t": 20.0901,
+     "cooling_water_t": 401.933,
+     "ambient_c": 14.68
+    },
+    {
+     "record_id": "B0048-r08",
+     "electricity_kwh": 1320.62,
+     "steam_t": 19.0463,
+     "cooling_water_t": 412.066,
+     "ambient_c": 17.75
+    },
+    {
+     "record_id": "B0048-r09",
+     "electricity_kwh": 1305.204,
+     "steam_t": 20.4465,
+     "cooling_water_t": 478.604,
+     "ambient_c": 19.21
+    },
+    {
+     "record_id": "B0048-r10",
+     "electricity_kwh": 1250.084,
+     "steam_t": 19.8104,
+     "cooling_water_t": 491.426,
+     "ambient_c": 18.29
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0049",
+   "n_records": 7,
+   "output_t": 60.623,
+   "material_index": 1.0853,
+   "ambient_c_mean": 23.427,
+   "records": [
+    {
+     "record_id": "B0049-r01",
+     "electricity_kwh": 1468.242,
+     "steam_t": 18.6976,
+     "cooling_water_t": 569.248,
+     "ambient_c": 24.82
+    },
+    {
+     "record_id": "B0049-r02",
+     "electricity_kwh": 1272.357,
+     "steam_t": 14.6045,
+     "cooling_water_t": 439.801,
+     "ambient_c": 24.04
+    },
+    {
+     "record_id": "B0049-r03",
+     "electricity_kwh": 1419.308,
+     "steam_t": 18.0191,
+     "cooling_water_t": 503.589,
+     "ambient_c": 22.27
+    },
+    {
+     "record_id": "B0049-r04",
+     "electricity_kwh": 1567.485,
+     "steam_t": 18.6136,
+     "cooling_water_t": 562.224,
+     "ambient_c": 24.24
+    },
+    {
+     "record_id": "B0049-r05",
+     "electricity_kwh": 1445.658,
+     "steam_t": 18.1945,
+     "cooling_water_t": 494.05,
+     "ambient_c": 21.67
+    },
+    {
+     "record_id": "B0049-r06",
+     "electricity_kwh": 1394.471,
+     "steam_t": 18.3816,
+     "cooling_water_t": 481.508,
+     "ambient_c": 25.48
+    },
+    {
+     "record_id": "B0049-r07",
+     "electricity_kwh": 1422.898,
+     "steam_t": 17.2345,
+     "cooling_water_t": 441.341,
+     "ambient_c": 25.06
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0050",
+   "n_records": 10,
+   "output_t": 65.356,
+   "material_index": 0.9498,
+   "ambient_c_mean": 18.908,
+   "records": [
+    {
+     "record_id": "B0050-r01",
+     "electricity_kwh": 1511.221,
+     "steam_t": 23.9875,
+     "cooling_water_t": 461.086,
+     "ambient_c": 19.56
+    },
+    {
+     "record_id": "B0050-r02",
+     "electricity_kwh": 1463.804,
+     "steam_t": 23.4236,
+     "cooling_water_t": 528.618,
+     "ambient_c": 17.85
+    },
+    {
+     "record_id": "B0050-r03",
+     "electricity_kwh": 1778.932,
+     "steam_t": 28.4532,
+     "cooling_water_t": 523.629,
+     "ambient_c": 19.59
+    },
+    {
+     "record_id": "B0050-r04",
+     "electricity_kwh": 1487.052,
+     "steam_t": 25.105,
+     "cooling_water_t": 513.87,
+     "ambient_c": 19.33
+    },
+    {
+     "record_id": "B0050-r05",
+     "electricity_kwh": 1409.205,
+     "steam_t": 25.0965,
+     "cooling_water_t": 525.0,
+     "ambient_c": 18.56
+    },
+    {
+     "record_id": "B0050-r06",
+     "electricity_kwh": 1470.696,
+     "steam_t": 23.2847,
+     "cooling_water_t": 528.09,
+     "ambient_c": 18.87
+    },
+    {
+     "record_id": "B0050-r07",
+     "electricity_kwh": 1445.984,
+     "steam_t": 25.9236,
+     "cooling_water_t": 509.984,
+     "ambient_c": 17.77
+    },
+    {
+     "record_id": "B0050-r08",
+     "electricity_kwh": 1728.282,
+     "steam_t": 27.9357,
+     "cooling_water_t": 464.758,
+     "ambient_c": 18.49
+    },
+    {
+     "record_id": "B0050-r09",
+     "electricity_kwh": 1624.935,
+     "steam_t": 23.953,
+     "cooling_water_t": 550.24,
+     "ambient_c": 21.67
+    },
+    {
+     "record_id": "B0050-r10",
+     "electricity_kwh": 1538.395,
+     "steam_t": 26.6195,
+     "cooling_water_t": 582.38,
+     "ambient_c": 18.53
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0051",
+   "n_records": 9,
+   "output_t": 86.588,
+   "material_index": 1.0699,
+   "ambient_c_mean": 14.051,
+   "records": [
+    {
+     "record_id": "B0051-r01",
+     "electricity_kwh": 1941.824,
+     "steam_t": 29.1408,
+     "cooling_water_t": 599.252,
+     "ambient_c": 14.53
+    },
+    {
+     "record_id": "B0051-r02",
+     "electricity_kwh": 2213.012,
+     "steam_t": 32.4437,
+     "cooling_water_t": 546.919,
+     "ambient_c": 13.32
+    },
+    {
+     "record_id": "B0051-r03",
+     "electricity_kwh": 1805.847,
+     "steam_t": 28.1004,
+     "cooling_water_t": 606.902,
+     "ambient_c": 14.14
+    },
+    {
+     "record_id": "B0051-r04",
+     "electricity_kwh": 2298.522,
+     "steam_t": 33.1735,
+     "cooling_water_t": 597.365,
+     "ambient_c": 13.6
+    },
+    {
+     "record_id": "B0051-r05",
+     "electricity_kwh": 1961.713,
+     "steam_t": 28.3099,
+     "cooling_water_t": 582.57,
+     "ambient_c": 15.79
+    },
+    {
+     "record_id": "B0051-r06",
+     "electricity_kwh": 2184.893,
+     "steam_t": 31.8661,
+     "cooling_water_t": 596.324,
+     "ambient_c": 14.63
+    },
+    {
+     "record_id": "B0051-r07",
+     "electricity_kwh": 2143.528,
+     "steam_t": 31.285,
+     "cooling_water_t": 603.285,
+     "ambient_c": 14.85
+    },
+    {
+     "record_id": "B0051-r08",
+     "electricity_kwh": 1986.521,
+     "steam_t": 31.1231,
+     "cooling_water_t": 607.567,
+     "ambient_c": 13.83
+    },
+    {
+     "record_id": "B0051-r09",
+     "electricity_kwh": 2195.733,
+     "steam_t": 32.6396,
+     "cooling_water_t": 562.645,
+     "ambient_c": 14.07
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0052",
+   "n_records": 8,
+   "output_t": 102.775,
+   "material_index": 1.0653,
+   "ambient_c_mean": 26.65,
+   "records": [
+    {
+     "record_id": "B0052-r01",
+     "electricity_kwh": 2272.321,
+     "steam_t": 34.7613,
+     "cooling_water_t": 852.15,
+     "ambient_c": 26.62
+    },
+    {
+     "record_id": "B0052-r02",
+     "electricity_kwh": 2289.718,
+     "steam_t": 35.1945,
+     "cooling_water_t": 737.682,
+     "ambient_c": 25.76
+    },
+    {
+     "record_id": "B0052-r03",
+     "electricity_kwh": 2595.718,
+     "steam_t": 38.2244,
+     "cooling_water_t": 787.386,
+     "ambient_c": 25.05
+    },
+    {
+     "record_id": "B0052-r04",
+     "electricity_kwh": 2324.14,
+     "steam_t": 36.8033,
+     "cooling_water_t": 754.064,
+     "ambient_c": 25.66
+    },
+    {
+     "record_id": "B0052-r05",
+     "electricity_kwh": 2967.78,
+     "steam_t": 45.8717,
+     "cooling_water_t": 732.289,
+     "ambient_c": 26.03
+    },
+    {
+     "record_id": "B0052-r06",
+     "electricity_kwh": 2357.593,
+     "steam_t": 35.6963,
+     "cooling_water_t": 781.6,
+     "ambient_c": 27.46
+    },
+    {
+     "record_id": "B0052-r07",
+     "electricity_kwh": 2718.425,
+     "steam_t": 41.497,
+     "cooling_water_t": 687.563,
+     "ambient_c": 24.71
+    },
+    {
+     "record_id": "B0052-r08",
+     "electricity_kwh": 2542.338,
+     "steam_t": 37.1799,
+     "cooling_water_t": 697.659,
+     "ambient_c": 26.59
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0053",
+   "n_records": 7,
+   "output_t": 31.947,
+   "material_index": 0.8045,
+   "ambient_c_mean": 30.446,
+   "records": [
+    {
+     "record_id": "B0053-r01",
+     "electricity_kwh": 913.371,
+     "steam_t": 12.9477,
+     "cooling_water_t": 431.671,
+     "ambient_c": 29.95
+    },
+    {
+     "record_id": "B0053-r02",
+     "electricity_kwh": 827.162,
+     "steam_t": 10.8357,
+     "cooling_water_t": 343.227,
+     "ambient_c": 29.67
+    },
+    {
+     "record_id": "B0053-r03",
+     "electricity_kwh": 666.987,
+     "steam_t": 10.0866,
+     "cooling_water_t": 339.857,
+     "ambient_c": 31.18
+    },
+    {
+     "record_id": "B0053-r04",
+     "electricity_kwh": 955.762,
+     "steam_t": 13.69,
+     "cooling_water_t": 328.787,
+     "ambient_c": 31.53
+    },
+    {
+     "record_id": "B0053-r05",
+     "electricity_kwh": 696.989,
+     "steam_t": 9.3554,
+     "cooling_water_t": 363.517,
+     "ambient_c": 31.65
+    },
+    {
+     "record_id": "B0053-r06",
+     "electricity_kwh": 718.07,
+     "steam_t": 10.6631,
+     "cooling_water_t": 446.165,
+     "ambient_c": 30.98
+    },
+    {
+     "record_id": "B0053-r07",
+     "electricity_kwh": 712.859,
+     "steam_t": 11.5548,
+     "cooling_water_t": 300.115,
+     "ambient_c": 29.48
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0054",
+   "n_records": 4,
+   "output_t": 50.601,
+   "material_index": 1.0955,
+   "ambient_c_mean": 19.413,
+   "records": [
+    {
+     "record_id": "B0054-r01",
+     "electricity_kwh": 1309.251,
+     "steam_t": 21.2604,
+     "cooling_water_t": 470.534,
+     "ambient_c": 18.94
+    },
+    {
+     "record_id": "B0054-r02",
+     "electricity_kwh": 1356.92,
+     "steam_t": 24.7612,
+     "cooling_water_t": 526.67,
+     "ambient_c": 18.63
+    },
+    {
+     "record_id": "B0054-r03",
+     "electricity_kwh": 1354.933,
+     "steam_t": 23.4929,
+     "cooling_water_t": 442.392,
+     "ambient_c": 16.99
+    },
+    {
+     "record_id": "B0054-r04",
+     "electricity_kwh": 1452.759,
+     "steam_t": 24.3551,
+     "cooling_water_t": 469.423,
+     "ambient_c": 18.66
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0055",
+   "n_records": 7,
+   "output_t": 90.334,
+   "material_index": 0.9884,
+   "ambient_c_mean": 15.71,
+   "records": [
+    {
+     "record_id": "B0055-r01",
+     "electricity_kwh": 2657.605,
+     "steam_t": 59.2731,
+     "cooling_water_t": 713.227,
+     "ambient_c": 15.52
+    },
+    {
+     "record_id": "B0055-r02",
+     "electricity_kwh": 2898.6,
+     "steam_t": 62.5849,
+     "cooling_water_t": 782.355,
+     "ambient_c": 14.93
+    },
+    {
+     "record_id": "B0055-r03",
+     "electricity_kwh": 2716.733,
+     "steam_t": 60.9434,
+     "cooling_water_t": 719.85,
+     "ambient_c": 15.39
+    },
+    {
+     "record_id": "B0055-r04",
+     "electricity_kwh": 2458.166,
+     "steam_t": 57.6368,
+     "cooling_water_t": 559.972,
+     "ambient_c": 15.51
+    },
+    {
+     "record_id": "B0055-r05",
+     "electricity_kwh": 3082.061,
+     "steam_t": 67.581,
+     "cooling_water_t": 679.284,
+     "ambient_c": 13.21
+    },
+    {
+     "record_id": "B0055-r06",
+     "electricity_kwh": 2681.772,
+     "steam_t": 59.5391,
+     "cooling_water_t": 802.903,
+     "ambient_c": 17.52
+    },
+    {
+     "record_id": "B0055-r07",
+     "electricity_kwh": 3189.949,
+     "steam_t": 67.944,
+     "cooling_water_t": 680.736,
+     "ambient_c": 14.05
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0056",
+   "n_records": 10,
+   "output_t": 71.647,
+   "material_index": 0.9339,
+   "ambient_c_mean": 17.369,
+   "records": [
+    {
+     "record_id": "B0056-r01",
+     "electricity_kwh": 1437.607,
+     "steam_t": 23.2169,
+     "cooling_water_t": 587.535,
+     "ambient_c": 15.31
+    },
+    {
+     "record_id": "B0056-r02",
+     "electricity_kwh": 1661.624,
+     "steam_t": 28.4354,
+     "cooling_water_t": 595.682,
+     "ambient_c": 14.74
+    },
+    {
+     "record_id": "B0056-r03",
+     "electricity_kwh": 1751.925,
+     "steam_t": 28.691,
+     "cooling_water_t": 489.315,
+     "ambient_c": 17.83
+    },
+    {
+     "record_id": "B0056-r04",
+     "electricity_kwh": 1757.023,
+     "steam_t": 29.6455,
+     "cooling_water_t": 580.247,
+     "ambient_c": 17.98
+    },
+    {
+     "record_id": "B0056-r05",
+     "electricity_kwh": 1666.792,
+     "steam_t": 30.5477,
+     "cooling_water_t": 591.706,
+     "ambient_c": 19.1
+    },
+    {
+     "record_id": "B0056-r06",
+     "electricity_kwh": 1512.193,
+     "steam_t": 26.739,
+     "cooling_water_t": 604.495,
+     "ambient_c": 17.74
+    },
+    {
+     "record_id": "B0056-r07",
+     "electricity_kwh": 1731.178,
+     "steam_t": 29.4856,
+     "cooling_water_t": 658.093,
+     "ambient_c": 19.45
+    },
+    {
+     "record_id": "B0056-r08",
+     "electricity_kwh": 1890.913,
+     "steam_t": 30.4242,
+     "cooling_water_t": 514.27,
+     "ambient_c": 16.88
+    },
+    {
+     "record_id": "B0056-r09",
+     "electricity_kwh": 1687.367,
+     "steam_t": 29.6437,
+     "cooling_water_t": 525.911,
+     "ambient_c": 17.39
+    },
+    {
+     "record_id": "B0056-r10",
+     "electricity_kwh": 1860.519,
+     "steam_t": 33.8797,
+     "cooling_water_t": 529.136,
+     "ambient_c": 17.72
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0057",
+   "n_records": 5,
+   "output_t": 76.313,
+   "material_index": 1.1731,
+   "ambient_c_mean": 22.112,
+   "records": [
+    {
+     "record_id": "B0057-r01",
+     "electricity_kwh": 2106.257,
+     "steam_t": 40.8319,
+     "cooling_water_t": 692.022,
+     "ambient_c": 22.86
+    },
+    {
+     "record_id": "B0057-r02",
+     "electricity_kwh": 1787.289,
+     "steam_t": 34.8701,
+     "cooling_water_t": 616.869,
+     "ambient_c": 24.31
+    },
+    {
+     "record_id": "B0057-r03",
+     "electricity_kwh": 1939.793,
+     "steam_t": 37.8159,
+     "cooling_water_t": 581.653,
+     "ambient_c": 22.9
+    },
+    {
+     "record_id": "B0057-r04",
+     "electricity_kwh": 1876.855,
+     "steam_t": 38.5025,
+     "cooling_water_t": 614.768,
+     "ambient_c": 21.99
+    },
+    {
+     "record_id": "B0057-r05",
+     "electricity_kwh": 1834.832,
+     "steam_t": 35.6488,
+     "cooling_water_t": 610.869,
+     "ambient_c": 23.38
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0058",
+   "n_records": 7,
+   "output_t": 87.503,
+   "material_index": 0.968,
+   "ambient_c_mean": 21.916,
+   "records": [
+    {
+     "record_id": "B0058-r01",
+     "electricity_kwh": 2129.334,
+     "steam_t": 34.9582,
+     "cooling_water_t": 708.992,
+     "ambient_c": 21.36
+    },
+    {
+     "record_id": "B0058-r02",
+     "electricity_kwh": 2213.967,
+     "steam_t": 36.3322,
+     "cooling_water_t": 719.892,
+     "ambient_c": 19.63
+    },
+    {
+     "record_id": "B0058-r03",
+     "electricity_kwh": 2271.419,
+     "steam_t": 40.012,
+     "cooling_water_t": 699.595,
+     "ambient_c": 21.44
+    },
+    {
+     "record_id": "B0058-r04",
+     "electricity_kwh": 1950.589,
+     "steam_t": 32.1521,
+     "cooling_water_t": 741.298,
+     "ambient_c": 22.35
+    },
+    {
+     "record_id": "B0058-r05",
+     "electricity_kwh": 2262.289,
+     "steam_t": 39.7758,
+     "cooling_water_t": 689.374,
+     "ambient_c": 20.88
+    },
+    {
+     "record_id": "B0058-r06",
+     "electricity_kwh": 1978.121,
+     "steam_t": 34.1754,
+     "cooling_water_t": 780.575,
+     "ambient_c": 23.87
+    },
+    {
+     "record_id": "B0058-r07",
+     "electricity_kwh": 2320.754,
+     "steam_t": 38.1647,
+     "cooling_water_t": 816.923,
+     "ambient_c": 20.42
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0059",
+   "n_records": 4,
+   "output_t": 27.695,
+   "material_index": 1.1454,
+   "ambient_c_mean": 23.127,
+   "records": [
+    {
+     "record_id": "B0059-r01",
+     "electricity_kwh": 743.978,
+     "steam_t": 6.8993,
+     "cooling_water_t": 376.981,
+     "ambient_c": 23.21
+    },
+    {
+     "record_id": "B0059-r02",
+     "electricity_kwh": 622.072,
+     "steam_t": 4.7412,
+     "cooling_water_t": 347.243,
+     "ambient_c": 23.84
+    },
+    {
+     "record_id": "B0059-r03",
+     "electricity_kwh": 831.071,
+     "steam_t": 7.0349,
+     "cooling_water_t": 333.611,
+     "ambient_c": 25.15
+    },
+    {
+     "record_id": "B0059-r04",
+     "electricity_kwh": 747.881,
+     "steam_t": 6.178,
+     "cooling_water_t": 304.688,
+     "ambient_c": 23.58
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0060",
+   "n_records": 4,
+   "output_t": 118.405,
+   "material_index": 1.2237,
+   "ambient_c_mean": 23.262,
+   "records": [
+    {
+     "record_id": "B0060-r01",
+     "electricity_kwh": 3174.325,
+     "steam_t": 52.6319,
+     "cooling_water_t": 819.944,
+     "ambient_c": 22.97
+    },
+    {
+     "record_id": "B0060-r02",
+     "electricity_kwh": 3063.5,
+     "steam_t": 47.1132,
+     "cooling_water_t": 866.572,
+     "ambient_c": 23.71
+    },
+    {
+     "record_id": "B0060-r03",
+     "electricity_kwh": 3032.994,
+     "steam_t": 49.1452,
+     "cooling_water_t": 855.318,
+     "ambient_c": 23.05
+    },
+    {
+     "record_id": "B0060-r04",
+     "electricity_kwh": 3120.433,
+     "steam_t": 49.8746,
+     "cooling_water_t": 902.068,
+     "ambient_c": 21.99
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0061",
+   "n_records": 10,
+   "output_t": 115.814,
+   "material_index": 0.9349,
+   "ambient_c_mean": 16.302,
+   "records": [
+    {
+     "record_id": "B0061-r01",
+     "electricity_kwh": 3194.535,
+     "steam_t": 68.0403,
+     "cooling_water_t": 835.81,
+     "ambient_c": 16.65
+    },
+    {
+     "record_id": "B0061-r02",
+     "electricity_kwh": 3361.915,
+     "steam_t": 71.8967,
+     "cooling_water_t": 858.867,
+     "ambient_c": 16.82
+    },
+    {
+     "record_id": "B0061-r03",
+     "electricity_kwh": 3500.8,
+     "steam_t": 73.4957,
+     "cooling_water_t": 852.237,
+     "ambient_c": 17.62
+    },
+    {
+     "record_id": "B0061-r04",
+     "electricity_kwh": 2748.077,
+     "steam_t": 62.6162,
+     "cooling_water_t": 805.497,
+     "ambient_c": 16.33
+    },
+    {
+     "record_id": "B0061-r05",
+     "electricity_kwh": 3145.559,
+     "steam_t": 69.191,
+     "cooling_water_t": 872.786,
+     "ambient_c": 16.26
+    },
+    {
+     "record_id": "B0061-r06",
+     "electricity_kwh": 3320.892,
+     "steam_t": 69.5637,
+     "cooling_water_t": 867.105,
+     "ambient_c": 15.71
+    },
+    {
+     "record_id": "B0061-r07",
+     "electricity_kwh": 3278.761,
+     "steam_t": 70.7545,
+     "cooling_water_t": 918.204,
+     "ambient_c": 15.91
+    },
+    {
+     "record_id": "B0061-r08",
+     "electricity_kwh": 3174.552,
+     "steam_t": 66.8691,
+     "cooling_water_t": 796.514,
+     "ambient_c": 16.65
+    },
+    {
+     "record_id": "B0061-r09",
+     "electricity_kwh": 3061.432,
+     "steam_t": 66.7781,
+     "cooling_water_t": 957.184,
+     "ambient_c": 14.14
+    },
+    {
+     "record_id": "B0061-r10",
+     "electricity_kwh": 3364.496,
+     "steam_t": 73.4216,
+     "cooling_water_t": 898.017,
+     "ambient_c": 17.03
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0062",
+   "n_records": 9,
+   "output_t": 90.085,
+   "material_index": 0.9101,
+   "ambient_c_mean": 25.14,
+   "records": [
+    {
+     "record_id": "B0062-r01",
+     "electricity_kwh": 1977.187,
+     "steam_t": 31.1956,
+     "cooling_water_t": 672.837,
+     "ambient_c": 26.03
+    },
+    {
+     "record_id": "B0062-r02",
+     "electricity_kwh": 2237.205,
+     "steam_t": 34.247,
+     "cooling_water_t": 640.902,
+     "ambient_c": 25.54
+    },
+    {
+     "record_id": "B0062-r03",
+     "electricity_kwh": 2047.22,
+     "steam_t": 33.0012,
+     "cooling_water_t": 759.162,
+     "ambient_c": 27.38
+    },
+    {
+     "record_id": "B0062-r04",
+     "electricity_kwh": 2003.342,
+     "steam_t": 32.7568,
+     "cooling_water_t": 665.724,
+     "ambient_c": 24.78
+    },
+    {
+     "record_id": "B0062-r05",
+     "electricity_kwh": 2160.438,
+     "steam_t": 31.0369,
+     "cooling_water_t": 617.952,
+     "ambient_c": 25.08
+    },
+    {
+     "record_id": "B0062-r06",
+     "electricity_kwh": 2112.903,
+     "steam_t": 32.2495,
+     "cooling_water_t": 648.111,
+     "ambient_c": 23.11
+    },
+    {
+     "record_id": "B0062-r07",
+     "electricity_kwh": 2306.262,
+     "steam_t": 33.7428,
+     "cooling_water_t": 704.316,
+     "ambient_c": 26.49
+    },
+    {
+     "record_id": "B0062-r08",
+     "electricity_kwh": 2111.672,
+     "steam_t": 33.1626,
+     "cooling_water_t": 768.868,
+     "ambient_c": 25.93
+    },
+    {
+     "record_id": "B0062-r09",
+     "electricity_kwh": 2091.515,
+     "steam_t": 32.973,
+     "cooling_water_t": 733.176,
+     "ambient_c": 26.75
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0063",
+   "n_records": 8,
+   "output_t": 85.727,
+   "material_index": 1.0476,
+   "ambient_c_mean": 13.196,
+   "records": [
+    {
+     "record_id": "B0063-r01",
+     "electricity_kwh": 2172.376,
+     "steam_t": 43.2058,
+     "cooling_water_t": 618.111,
+     "ambient_c": 12.22
+    },
+    {
+     "record_id": "B0063-r02",
+     "electricity_kwh": 2273.253,
+     "steam_t": 45.1179,
+     "cooling_water_t": 588.029,
+     "ambient_c": 13.8
+    },
+    {
+     "record_id": "B0063-r03",
+     "electricity_kwh": 2328.914,
+     "steam_t": 43.5993,
+     "cooling_water_t": 705.194,
+     "ambient_c": 14.78
+    },
+    {
+     "record_id": "B0063-r04",
+     "electricity_kwh": 2152.014,
+     "steam_t": 43.8076,
+     "cooling_water_t": 712.439,
+     "ambient_c": 14.64
+    },
+    {
+     "record_id": "B0063-r05",
+     "electricity_kwh": 2324.28,
+     "steam_t": 43.1335,
+     "cooling_water_t": 633.485,
+     "ambient_c": 13.6
+    },
+    {
+     "record_id": "B0063-r06",
+     "electricity_kwh": 2375.147,
+     "steam_t": 45.1651,
+     "cooling_water_t": 684.808,
+     "ambient_c": 12.87
+    },
+    {
+     "record_id": "B0063-r07",
+     "electricity_kwh": 2131.496,
+     "steam_t": 41.5257,
+     "cooling_water_t": 684.581,
+     "ambient_c": 14.37
+    },
+    {
+     "record_id": "B0063-r08",
+     "electricity_kwh": 2362.669,
+     "steam_t": 44.3406,
+     "cooling_water_t": 680.179,
+     "ambient_c": 11.83
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0064",
+   "n_records": 10,
+   "output_t": 100.424,
+   "material_index": 0.9952,
+   "ambient_c_mean": 34.342,
+   "records": [
+    {
+     "record_id": "B0064-r01",
+     "electricity_kwh": 3020.001,
+     "steam_t": 60.7699,
+     "cooling_water_t": 890.147,
+     "ambient_c": 33.81
+    },
+    {
+     "record_id": "B0064-r02",
+     "electricity_kwh": 2749.193,
+     "steam_t": 56.625,
+     "cooling_water_t": 870.85,
+     "ambient_c": 34.6
+    },
+    {
+     "record_id": "B0064-r03",
+     "electricity_kwh": 2744.093,
+     "steam_t": 57.9283,
+     "cooling_water_t": 875.507,
+     "ambient_c": 35.61
+    },
+    {
+     "record_id": "B0064-r04",
+     "electricity_kwh": 3338.126,
+     "steam_t": 66.0143,
+     "cooling_water_t": 879.802,
+     "ambient_c": 35.73
+    },
+    {
+     "record_id": "B0064-r05",
+     "electricity_kwh": 3225.865,
+     "steam_t": 64.7477,
+     "cooling_water_t": 864.255,
+     "ambient_c": 33.38
+    },
+    {
+     "record_id": "B0064-r06",
+     "electricity_kwh": 3021.784,
+     "steam_t": 60.1627,
+     "cooling_water_t": 865.936,
+     "ambient_c": 33.91
+    },
+    {
+     "record_id": "B0064-r07",
+     "electricity_kwh": 2950.421,
+     "steam_t": 62.3336,
+     "cooling_water_t": 874.158,
+     "ambient_c": 32.31
+    },
+    {
+     "record_id": "B0064-r08",
+     "electricity_kwh": 2521.291,
+     "steam_t": 55.5447,
+     "cooling_water_t": 890.162,
+     "ambient_c": 34.35
+    },
+    {
+     "record_id": "B0064-r09",
+     "electricity_kwh": 2747.163,
+     "steam_t": 60.0493,
+     "cooling_water_t": 806.583,
+     "ambient_c": 33.53
+    },
+    {
+     "record_id": "B0064-r10",
+     "electricity_kwh": 2859.44,
+     "steam_t": 58.8647,
+     "cooling_water_t": 793.275,
+     "ambient_c": 35.0
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0065",
+   "n_records": 9,
+   "output_t": 50.816,
+   "material_index": 0.9009,
+   "ambient_c_mean": 20.737,
+   "records": [
+    {
+     "record_id": "B0065-r01",
+     "electricity_kwh": 913.026,
+     "steam_t": 14.8461,
+     "cooling_water_t": 449.657,
+     "ambient_c": 17.7
+    },
+    {
+     "record_id": "B0065-r02",
+     "electricity_kwh": 1318.678,
+     "steam_t": 20.9711,
+     "cooling_water_t": 395.126,
+     "ambient_c": 20.84
+    },
+    {
+     "record_id": "B0065-r03",
+     "electricity_kwh": 1263.649,
+     "steam_t": 19.545,
+     "cooling_water_t": 385.463,
+     "ambient_c": 21.26
+    },
+    {
+     "record_id": "B0065-r04",
+     "electricity_kwh": 1219.89,
+     "steam_t": 18.6769,
+     "cooling_water_t": 398.414,
+     "ambient_c": 22.56
+    },
+    {
+     "record_id": "B0065-r05",
+     "electricity_kwh": 1091.969,
+     "steam_t": 17.7138,
+     "cooling_water_t": 523.578,
+     "ambient_c": 21.18
+    },
+    {
+     "record_id": "B0065-r06",
+     "electricity_kwh": 1216.713,
+     "steam_t": 18.5228,
+     "cooling_water_t": 416.791,
+     "ambient_c": 20.4
+    },
+    {
+     "record_id": "B0065-r07",
+     "electricity_kwh": 1223.871,
+     "steam_t": 18.9248,
+     "cooling_water_t": 479.507,
+     "ambient_c": 20.12
+    },
+    {
+     "record_id": "B0065-r08",
+     "electricity_kwh": 1210.258,
+     "steam_t": 17.4085,
+     "cooling_water_t": 409.853,
+     "ambient_c": 20.97
+    },
+    {
+     "record_id": "B0065-r09",
+     "electricity_kwh": 1014.148,
+     "steam_t": 16.048,
+     "cooling_water_t": 465.223,
+     "ambient_c": 21.0
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0066",
+   "n_records": 5,
+   "output_t": 118.676,
+   "material_index": 0.8698,
+   "ambient_c_mean": 23.941,
+   "records": [
+    {
+     "record_id": "B0066-r01",
+     "electricity_kwh": 2758.726,
+     "steam_t": 43.1211,
+     "cooling_water_t": 879.559,
+     "ambient_c": 20.99
+    },
+    {
+     "record_id": "B0066-r02",
+     "electricity_kwh": 2744.631,
+     "steam_t": 42.7223,
+     "cooling_water_t": 831.47,
+     "ambient_c": 23.1
+    },
+    {
+     "record_id": "B0066-r03",
+     "electricity_kwh": 2906.964,
+     "steam_t": 45.5654,
+     "cooling_water_t": 894.652,
+     "ambient_c": 21.84
+    },
+    {
+     "record_id": "B0066-r04",
+     "electricity_kwh": 2897.4,
+     "steam_t": 44.7791,
+     "cooling_water_t": 911.43,
+     "ambient_c": 24.31
+    },
+    {
+     "record_id": "B0066-r05",
+     "electricity_kwh": 2486.186,
+     "steam_t": 39.7104,
+     "cooling_water_t": 860.375,
+     "ambient_c": 22.16
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0067",
+   "n_records": 9,
+   "output_t": 74.973,
+   "material_index": 1.2477,
+   "ambient_c_mean": 19.74,
+   "records": [
+    {
+     "record_id": "B0067-r01",
+     "electricity_kwh": 2517.706,
+     "steam_t": 51.5057,
+     "cooling_water_t": 543.08,
+     "ambient_c": 20.17
+    },
+    {
+     "record_id": "B0067-r02",
+     "electricity_kwh": 2452.217,
+     "steam_t": 47.9933,
+     "cooling_water_t": 623.232,
+     "ambient_c": 19.28
+    },
+    {
+     "record_id": "B0067-r03",
+     "electricity_kwh": 2306.312,
+     "steam_t": 48.7817,
+     "cooling_water_t": 555.466,
+     "ambient_c": 18.97
+    },
+    {
+     "record_id": "B0067-r04",
+     "electricity_kwh": 2739.848,
+     "steam_t": 53.7403,
+     "cooling_water_t": 567.825,
+     "ambient_c": 20.64
+    },
+    {
+     "record_id": "B0067-r05",
+     "electricity_kwh": 2554.413,
+     "steam_t": 52.1076,
+     "cooling_water_t": 581.529,
+     "ambient_c": 19.18
+    },
+    {
+     "record_id": "B0067-r06",
+     "electricity_kwh": 2605.476,
+     "steam_t": 52.5531,
+     "cooling_water_t": 574.184,
+     "ambient_c": 18.71
+    },
+    {
+     "record_id": "B0067-r07",
+     "electricity_kwh": 2442.673,
+     "steam_t": 49.511,
+     "cooling_water_t": 545.444,
+     "ambient_c": 18.25
+    },
+    {
+     "record_id": "B0067-r08",
+     "electricity_kwh": 2677.039,
+     "steam_t": 54.6145,
+     "cooling_water_t": 635.77,
+     "ambient_c": 18.0
+    },
+    {
+     "record_id": "B0067-r09",
+     "electricity_kwh": 2302.408,
+     "steam_t": 49.4432,
+     "cooling_water_t": 578.189,
+     "ambient_c": 20.24
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0068",
+   "n_records": 4,
+   "output_t": 99.152,
+   "material_index": 0.9289,
+   "ambient_c_mean": 19.08,
+   "records": [
+    {
+     "record_id": "B0068-r01",
+     "electricity_kwh": 2709.612,
+     "steam_t": 45.2041,
+     "cooling_water_t": 784.266,
+     "ambient_c": 18.7
+    },
+    {
+     "record_id": "B0068-r02",
+     "electricity_kwh": 2622.8,
+     "steam_t": 47.7183,
+     "cooling_water_t": 786.755,
+     "ambient_c": 18.88
+    },
+    {
+     "record_id": "B0068-r03",
+     "electricity_kwh": 2637.804,
+     "steam_t": 45.4397,
+     "cooling_water_t": 787.222,
+     "ambient_c": 19.94
+    },
+    {
+     "record_id": "B0068-r04",
+     "electricity_kwh": 2113.519,
+     "steam_t": 37.8473,
+     "cooling_water_t": 741.143,
+     "ambient_c": 18.58
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0069",
+   "n_records": 4,
+   "output_t": 104.043,
+   "material_index": 1.1655,
+   "ambient_c_mean": 17.873,
+   "records": [
+    {
+     "record_id": "B0069-r01",
+     "electricity_kwh": 2315.39,
+     "steam_t": 40.2314,
+     "cooling_water_t": 770.912,
+     "ambient_c": 17.91
+    },
+    {
+     "record_id": "B0069-r02",
+     "electricity_kwh": 2503.352,
+     "steam_t": 43.4113,
+     "cooling_water_t": 720.178,
+     "ambient_c": 19.47
+    },
+    {
+     "record_id": "B0069-r03",
+     "electricity_kwh": 2616.754,
+     "steam_t": 45.0822,
+     "cooling_water_t": 834.381,
+     "ambient_c": 18.32
+    },
+    {
+     "record_id": "B0069-r04",
+     "electricity_kwh": 2366.542,
+     "steam_t": 43.7403,
+     "cooling_water_t": 833.708,
+     "ambient_c": 17.24
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0070",
+   "n_records": 6,
+   "output_t": 115.84,
+   "material_index": 0.8247,
+   "ambient_c_mean": 27.411,
+   "records": [
+    {
+     "record_id": "B0070-r01",
+     "electricity_kwh": 2404.853,
+     "steam_t": 43.5855,
+     "cooling_water_t": 900.097,
+     "ambient_c": 26.79
+    },
+    {
+     "record_id": "B0070-r02",
+     "electricity_kwh": 2470.115,
+     "steam_t": 42.5124,
+     "cooling_water_t": 942.137,
+     "ambient_c": 28.95
+    },
+    {
+     "record_id": "B0070-r03",
+     "electricity_kwh": 2929.728,
+     "steam_t": 49.9564,
+     "cooling_water_t": 879.2,
+     "ambient_c": 27.5
+    },
+    {
+     "record_id": "B0070-r04",
+     "electricity_kwh": 2842.477,
+     "steam_t": 47.4227,
+     "cooling_water_t": 896.05,
+     "ambient_c": 27.95
+    },
+    {
+     "record_id": "B0070-r05",
+     "electricity_kwh": 2338.508,
+     "steam_t": 40.1804,
+     "cooling_water_t": 960.613,
+     "ambient_c": 27.21
+    },
+    {
+     "record_id": "B0070-r06",
+     "electricity_kwh": 2728.151,
+     "steam_t": 46.9954,
+     "cooling_water_t": 937.704,
+     "ambient_c": 27.86
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0071",
+   "n_records": 6,
+   "output_t": 82.905,
+   "material_index": 0.9148,
+   "ambient_c_mean": 16.811,
+   "records": [
+    {
+     "record_id": "B0071-r01",
+     "electricity_kwh": 2004.725,
+     "steam_t": 33.6781,
+     "cooling_water_t": 630.472,
+     "ambient_c": 17.12
+    },
+    {
+     "record_id": "B0071-r02",
+     "electricity_kwh": 1818.128,
+     "steam_t": 28.7985,
+     "cooling_water_t": 626.26,
+     "ambient_c": 18.45
+    },
+    {
+     "record_id": "B0071-r03",
+     "electricity_kwh": 1782.583,
+     "steam_t": 28.9719,
+     "cooling_water_t": 649.093,
+     "ambient_c": 18.62
+    },
+    {
+     "record_id": "B0071-r04",
+     "electricity_kwh": 1874.747,
+     "steam_t": 29.6031,
+     "cooling_water_t": 633.583,
+     "ambient_c": 17.45
+    },
+    {
+     "record_id": "B0071-r05",
+     "electricity_kwh": 1817.177,
+     "steam_t": 30.0025,
+     "cooling_water_t": 636.633,
+     "ambient_c": 16.16
+    },
+    {
+     "record_id": "B0071-r06",
+     "electricity_kwh": 1977.229,
+     "steam_t": 31.9008,
+     "cooling_water_t": 609.057,
+     "ambient_c": 18.53
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0072",
+   "n_records": 8,
+   "output_t": 71.678,
+   "material_index": 0.8292,
+   "ambient_c_mean": 13.727,
+   "records": [
+    {
+     "record_id": "B0072-r01",
+     "electricity_kwh": 1655.623,
+     "steam_t": 25.1818,
+     "cooling_water_t": 581.332,
+     "ambient_c": 11.92
+    },
+    {
+     "record_id": "B0072-r02",
+     "electricity_kwh": 1401.021,
+     "steam_t": 21.472,
+     "cooling_water_t": 508.719,
+     "ambient_c": 15.48
+    },
+    {
+     "record_id": "B0072-r03",
+     "electricity_kwh": 1487.99,
+     "steam_t": 22.7598,
+     "cooling_water_t": 487.321,
+     "ambient_c": 16.05
+    },
+    {
+     "record_id": "B0072-r04",
+     "electricity_kwh": 1722.102,
+     "steam_t": 24.7801,
+     "cooling_water_t": 552.574,
+     "ambient_c": 15.03
+    },
+    {
+     "record_id": "B0072-r05",
+     "electricity_kwh": 1710.454,
+     "steam_t": 25.4641,
+     "cooling_water_t": 493.495,
+     "ambient_c": 13.67
+    },
+    {
+     "record_id": "B0072-r06",
+     "electricity_kwh": 1641.689,
+     "steam_t": 24.5278,
+     "cooling_water_t": 484.538,
+     "ambient_c": 12.94
+    },
+    {
+     "record_id": "B0072-r07",
+     "electricity_kwh": 1570.19,
+     "steam_t": 22.838,
+     "cooling_water_t": 544.475,
+     "ambient_c": 11.99
+    },
+    {
+     "record_id": "B0072-r08",
+     "electricity_kwh": 1597.616,
+     "steam_t": 22.262,
+     "cooling_water_t": 534.733,
+     "ambient_c": 15.14
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0073",
+   "n_records": 6,
+   "output_t": 38.816,
+   "material_index": 1.1807,
+   "ambient_c_mean": 12.812,
+   "records": [
+    {
+     "record_id": "B0073-r01",
+     "electricity_kwh": 1062.134,
+     "steam_t": 16.3384,
+     "cooling_water_t": 336.454,
+     "ambient_c": 14.7
+    },
+    {
+     "record_id": "B0073-r02",
+     "electricity_kwh": 928.222,
+     "steam_t": 12.1616,
+     "cooling_water_t": 376.409,
+     "ambient_c": 14.66
+    },
+    {
+     "record_id": "B0073-r03",
+     "electricity_kwh": 1146.366,
+     "steam_t": 16.5775,
+     "cooling_water_t": 308.717,
+     "ambient_c": 13.29
+    },
+    {
+     "record_id": "B0073-r04",
+     "electricity_kwh": 1082.814,
+     "steam_t": 15.0707,
+     "cooling_water_t": 233.245,
+     "ambient_c": 13.0
+    },
+    {
+     "record_id": "B0073-r05",
+     "electricity_kwh": 1039.484,
+     "steam_t": 16.3,
+     "cooling_water_t": 313.686,
+     "ambient_c": 13.78
+    },
+    {
+     "record_id": "B0073-r06",
+     "electricity_kwh": 827.867,
+     "steam_t": 12.6814,
+     "cooling_water_t": 346.006,
+     "ambient_c": 12.12
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0074",
+   "n_records": 7,
+   "output_t": 111.966,
+   "material_index": 1.1398,
+   "ambient_c_mean": 22.182,
+   "records": [
+    {
+     "record_id": "B0074-r01",
+     "electricity_kwh": 2948.091,
+     "steam_t": 51.4393,
+     "cooling_water_t": 812.823,
+     "ambient_c": 20.74
+    },
+    {
+     "record_id": "B0074-r02",
+     "electricity_kwh": 2607.966,
+     "steam_t": 46.0426,
+     "cooling_water_t": 837.674,
+     "ambient_c": 21.62
+    },
+    {
+     "record_id": "B0074-r03",
+     "electricity_kwh": 2707.588,
+     "steam_t": 47.1182,
+     "cooling_water_t": 795.932,
+     "ambient_c": 22.89
+    },
+    {
+     "record_id": "B0074-r04",
+     "electricity_kwh": 2672.147,
+     "steam_t": 46.8192,
+     "cooling_water_t": 849.427,
+     "ambient_c": 22.25
+    },
+    {
+     "record_id": "B0074-r05",
+     "electricity_kwh": 2687.244,
+     "steam_t": 45.9059,
+     "cooling_water_t": 872.858,
+     "ambient_c": 23.56
+    },
+    {
+     "record_id": "B0074-r06",
+     "electricity_kwh": 2574.884,
+     "steam_t": 46.9764,
+     "cooling_water_t": 844.734,
+     "ambient_c": 24.48
+    },
+    {
+     "record_id": "B0074-r07",
+     "electricity_kwh": 2803.863,
+     "steam_t": 47.6196,
+     "cooling_water_t": 823.509,
+     "ambient_c": 23.41
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0075",
+   "n_records": 4,
+   "output_t": 72.463,
+   "material_index": 1.2202,
+   "ambient_c_mean": 18.656,
+   "records": [
+    {
+     "record_id": "B0075-r01",
+     "electricity_kwh": 2398.681,
+     "steam_t": 54.7088,
+     "cooling_water_t": 575.607,
+     "ambient_c": 17.7
+    },
+    {
+     "record_id": "B0075-r02",
+     "electricity_kwh": 2390.391,
+     "steam_t": 56.1599,
+     "cooling_water_t": 623.052,
+     "ambient_c": 18.69
+    },
+    {
+     "record_id": "B0075-r03",
+     "electricity_kwh": 2431.117,
+     "steam_t": 56.8716,
+     "cooling_water_t": 567.589,
+     "ambient_c": 21.18
+    },
+    {
+     "record_id": "B0075-r04",
+     "electricity_kwh": 2499.596,
+     "steam_t": 57.1249,
+     "cooling_water_t": 595.898,
+     "ambient_c": 20.23
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0076",
+   "n_records": 9,
+   "output_t": 89.185,
+   "material_index": 0.9397,
+   "ambient_c_mean": 22.895,
+   "records": [
+    {
+     "record_id": "B0076-r01",
+     "electricity_kwh": 1865.179,
+     "steam_t": 31.0434,
+     "cooling_water_t": 717.824,
+     "ambient_c": 23.42
+    },
+    {
+     "record_id": "B0076-r02",
+     "electricity_kwh": 2030.552,
+     "steam_t": 35.2843,
+     "cooling_water_t": 710.013,
+     "ambient_c": 22.28
+    },
+    {
+     "record_id": "B0076-r03",
+     "electricity_kwh": 2018.547,
+     "steam_t": 33.771,
+     "cooling_water_t": 695.005,
+     "ambient_c": 23.62
+    },
+    {
+     "record_id": "B0076-r04",
+     "electricity_kwh": 2327.964,
+     "steam_t": 37.8766,
+     "cooling_water_t": 708.548,
+     "ambient_c": 22.74
+    },
+    {
+     "record_id": "B0076-r05",
+     "electricity_kwh": 2370.396,
+     "steam_t": 37.9639,
+     "cooling_water_t": 729.444,
+     "ambient_c": 22.6
+    },
+    {
+     "record_id": "B0076-r06",
+     "electricity_kwh": 1953.645,
+     "steam_t": 31.7602,
+     "cooling_water_t": 669.939,
+     "ambient_c": 22.25
+    },
+    {
+     "record_id": "B0076-r07",
+     "electricity_kwh": 2359.601,
+     "steam_t": 38.6213,
+     "cooling_water_t": 664.028,
+     "ambient_c": 24.48
+    },
+    {
+     "record_id": "B0076-r08",
+     "electricity_kwh": 2128.383,
+     "steam_t": 36.0967,
+     "cooling_water_t": 659.824,
+     "ambient_c": 21.88
+    },
+    {
+     "record_id": "B0076-r09",
+     "electricity_kwh": 1987.337,
+     "steam_t": 31.284,
+     "cooling_water_t": 704.606,
+     "ambient_c": 24.82
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0077",
+   "n_records": 10,
+   "output_t": 93.014,
+   "material_index": 0.8247,
+   "ambient_c_mean": 13.568,
+   "records": [
+    {
+     "record_id": "B0077-r01",
+     "electricity_kwh": 1973.704,
+     "steam_t": 27.8898,
+     "cooling_water_t": 633.435,
+     "ambient_c": 14.61
+    },
+    {
+     "record_id": "B0077-r02",
+     "electricity_kwh": 2042.356,
+     "steam_t": 30.5821,
+     "cooling_water_t": 658.689,
+     "ambient_c": 15.15
+    },
+    {
+     "record_id": "B0077-r03",
+     "electricity_kwh": 2023.598,
+     "steam_t": 30.425,
+     "cooling_water_t": 669.188,
+     "ambient_c": 14.31
+    },
+    {
+     "record_id": "B0077-r04",
+     "electricity_kwh": 2057.864,
+     "steam_t": 29.5034,
+     "cooling_water_t": 650.846,
+     "ambient_c": 11.04
+    },
+    {
+     "record_id": "B0077-r05",
+     "electricity_kwh": 1895.628,
+     "steam_t": 25.9548,
+     "cooling_water_t": 635.716,
+     "ambient_c": 13.35
+    },
+    {
+     "record_id": "B0077-r06",
+     "electricity_kwh": 2034.028,
+     "steam_t": 29.7139,
+     "cooling_water_t": 646.315,
+     "ambient_c": 15.21
+    },
+    {
+     "record_id": "B0077-r07",
+     "electricity_kwh": 2288.01,
+     "steam_t": 31.8226,
+     "cooling_water_t": 746.258,
+     "ambient_c": 15.5
+    },
+    {
+     "record_id": "B0077-r08",
+     "electricity_kwh": 1948.885,
+     "steam_t": 27.9978,
+     "cooling_water_t": 757.82,
+     "ambient_c": 14.24
+    },
+    {
+     "record_id": "B0077-r09",
+     "electricity_kwh": 1828.581,
+     "steam_t": 27.6497,
+     "cooling_water_t": 654.66,
+     "ambient_c": 12.9
+    },
+    {
+     "record_id": "B0077-r10",
+     "electricity_kwh": 2031.368,
+     "steam_t": 28.5119,
+     "cooling_water_t": 523.711,
+     "ambient_c": 14.16
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0078",
+   "n_records": 7,
+   "output_t": 41.722,
+   "material_index": 1.2067,
+   "ambient_c_mean": 11.401,
+   "records": [
+    {
+     "record_id": "B0078-r01",
+     "electricity_kwh": 1169.277,
+     "steam_t": 17.6493,
+     "cooling_water_t": 376.25,
+     "ambient_c": 13.18
+    },
+    {
+     "record_id": "B0078-r02",
+     "electricity_kwh": 1044.197,
+     "steam_t": 19.0252,
+     "cooling_water_t": 339.901,
+     "ambient_c": 11.6
+    },
+    {
+     "record_id": "B0078-r03",
+     "electricity_kwh": 1196.599,
+     "steam_t": 17.6677,
+     "cooling_water_t": 331.764,
+     "ambient_c": 10.45
+    },
+    {
+     "record_id": "B0078-r04",
+     "electricity_kwh": 1130.758,
+     "steam_t": 17.6138,
+     "cooling_water_t": 244.03,
+     "ambient_c": 11.6
+    },
+    {
+     "record_id": "B0078-r05",
+     "electricity_kwh": 1217.796,
+     "steam_t": 20.6797,
+     "cooling_water_t": 346.537,
+     "ambient_c": 10.53
+    },
+    {
+     "record_id": "B0078-r06",
+     "electricity_kwh": 1216.187,
+     "steam_t": 18.0591,
+     "cooling_water_t": 439.86,
+     "ambient_c": 11.25
+    },
+    {
+     "record_id": "B0078-r07",
+     "electricity_kwh": 1089.968,
+     "steam_t": 18.0765,
+     "cooling_water_t": 320.217,
+     "ambient_c": 11.5
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0079",
+   "n_records": 8,
+   "output_t": 65.348,
+   "material_index": 0.8578,
+   "ambient_c_mean": 28.331,
+   "records": [
+    {
+     "record_id": "B0079-r01",
+     "electricity_kwh": 1491.83,
+     "steam_t": 22.3333,
+     "cooling_water_t": 546.925,
+     "ambient_c": 28.05
+    },
+    {
+     "record_id": "B0079-r02",
+     "electricity_kwh": 1433.043,
+     "steam_t": 21.8869,
+     "cooling_water_t": 577.742,
+     "ambient_c": 27.64
+    },
+    {
+     "record_id": "B0079-r03",
+     "electricity_kwh": 1698.79,
+     "steam_t": 26.103,
+     "cooling_water_t": 616.481,
+     "ambient_c": 28.55
+    },
+    {
+     "record_id": "B0079-r04",
+     "electricity_kwh": 1389.511,
+     "steam_t": 22.5132,
+     "cooling_water_t": 660.79,
+     "ambient_c": 28.22
+    },
+    {
+     "record_id": "B0079-r05",
+     "electricity_kwh": 1447.691,
+     "steam_t": 20.9875,
+     "cooling_water_t": 575.425,
+     "ambient_c": 30.92
+    },
+    {
+     "record_id": "B0079-r06",
+     "electricity_kwh": 1546.619,
+     "steam_t": 22.502,
+     "cooling_water_t": 731.556,
+     "ambient_c": 26.86
+    },
+    {
+     "record_id": "B0079-r07",
+     "electricity_kwh": 1243.282,
+     "steam_t": 19.1709,
+     "cooling_water_t": 558.172,
+     "ambient_c": 29.59
+    },
+    {
+     "record_id": "B0079-r08",
+     "electricity_kwh": 1328.738,
+     "steam_t": 20.6461,
+     "cooling_water_t": 567.015,
+     "ambient_c": 28.87
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0080",
+   "n_records": 7,
+   "output_t": 117.734,
+   "material_index": 0.9581,
+   "ambient_c_mean": 21.104,
+   "records": [
+    {
+     "record_id": "B0080-r01",
+     "electricity_kwh": 3351.882,
+     "steam_t": 63.7096,
+     "cooling_water_t": 921.703,
+     "ambient_c": 22.84
+    },
+    {
+     "record_id": "B0080-r02",
+     "electricity_kwh": 3410.45,
+     "steam_t": 63.6826,
+     "cooling_water_t": 843.854,
+     "ambient_c": 20.77
+    },
+    {
+     "record_id": "B0080-r03",
+     "electricity_kwh": 3642.432,
+     "steam_t": 65.5752,
+     "cooling_water_t": 829.812,
+     "ambient_c": 21.46
+    },
+    {
+     "record_id": "B0080-r04",
+     "electricity_kwh": 2790.856,
+     "steam_t": 54.3968,
+     "cooling_water_t": 814.957,
+     "ambient_c": 20.48
+    },
+    {
+     "record_id": "B0080-r05",
+     "electricity_kwh": 3119.638,
+     "steam_t": 61.5026,
+     "cooling_water_t": 843.093,
+     "ambient_c": 20.34
+    },
+    {
+     "record_id": "B0080-r06",
+     "electricity_kwh": 3289.637,
+     "steam_t": 62.7593,
+     "cooling_water_t": 884.634,
+     "ambient_c": 22.63
+    },
+    {
+     "record_id": "B0080-r07",
+     "electricity_kwh": 3327.5,
+     "steam_t": 62.5447,
+     "cooling_water_t": 787.245,
+     "ambient_c": 19.61
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0081",
+   "n_records": 6,
+   "output_t": 118.774,
+   "material_index": 1.2063,
+   "ambient_c_mean": 21.802,
+   "records": [
+    {
+     "record_id": "B0081-r01",
+     "electricity_kwh": 3509.62,
+     "steam_t": 54.3706,
+     "cooling_water_t": 843.494,
+     "ambient_c": 21.42
+    },
+    {
+     "record_id": "B0081-r02",
+     "electricity_kwh": 3324.89,
+     "steam_t": 49.621,
+     "cooling_water_t": 771.764,
+     "ambient_c": 18.98
+    },
+    {
+     "record_id": "B0081-r03",
+     "electricity_kwh": 2982.947,
+     "steam_t": 43.9284,
+     "cooling_water_t": 852.084,
+     "ambient_c": 24.19
+    },
+    {
+     "record_id": "B0081-r04",
+     "electricity_kwh": 3152.124,
+     "steam_t": 47.2969,
+     "cooling_water_t": 799.42,
+     "ambient_c": 20.54
+    },
+    {
+     "record_id": "B0081-r05",
+     "electricity_kwh": 2854.921,
+     "steam_t": 42.6603,
+     "cooling_water_t": 838.169,
+     "ambient_c": 21.65
+    },
+    {
+     "record_id": "B0081-r06",
+     "electricity_kwh": 3431.845,
+     "steam_t": 51.9589,
+     "cooling_water_t": 866.991,
+     "ambient_c": 23.79
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0082",
+   "n_records": 5,
+   "output_t": 108.836,
+   "material_index": 0.8642,
+   "ambient_c_mean": 23.379,
+   "records": [
+    {
+     "record_id": "B0082-r01",
+     "electricity_kwh": 2596.453,
+     "steam_t": 39.0137,
+     "cooling_water_t": 786.518,
+     "ambient_c": 24.66
+    },
+    {
+     "record_id": "B0082-r02",
+     "electricity_kwh": 2382.845,
+     "steam_t": 37.3564,
+     "cooling_water_t": 740.219,
+     "ambient_c": 24.21
+    },
+    {
+     "record_id": "B0082-r03",
+     "electricity_kwh": 2041.886,
+     "steam_t": 31.5395,
+     "cooling_water_t": 807.742,
+     "ambient_c": 22.26
+    },
+    {
+     "record_id": "B0082-r04",
+     "electricity_kwh": 2304.499,
+     "steam_t": 35.4557,
+     "cooling_water_t": 858.002,
+     "ambient_c": 24.73
+    },
+    {
+     "record_id": "B0082-r05",
+     "electricity_kwh": 2595.134,
+     "steam_t": 38.2362,
+     "cooling_water_t": 797.739,
+     "ambient_c": 24.97
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0083",
+   "n_records": 5,
+   "output_t": 117.387,
+   "material_index": 0.9512,
+   "ambient_c_mean": 34.037,
+   "records": [
+    {
+     "record_id": "B0083-r01",
+     "electricity_kwh": 2763.695,
+     "steam_t": 50.9349,
+     "cooling_water_t": 1023.414,
+     "ambient_c": 33.28
+    },
+    {
+     "record_id": "B0083-r02",
+     "electricity_kwh": 2898.364,
+     "steam_t": 52.4617,
+     "cooling_water_t": 985.813,
+     "ambient_c": 33.61
+    },
+    {
+     "record_id": "B0083-r03",
+     "electricity_kwh": 3299.308,
+     "steam_t": 61.9093,
+     "cooling_water_t": 928.458,
+     "ambient_c": 33.44
+    },
+    {
+     "record_id": "B0083-r04",
+     "electricity_kwh": 2854.964,
+     "steam_t": 55.6059,
+     "cooling_water_t": 1047.015,
+     "ambient_c": 34.17
+    },
+    {
+     "record_id": "B0083-r05",
+     "electricity_kwh": 3057.723,
+     "steam_t": 58.5646,
+     "cooling_water_t": 972.508,
+     "ambient_c": 35.23
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0084",
+   "n_records": 8,
+   "output_t": 88.892,
+   "material_index": 1.1722,
+   "ambient_c_mean": 15.403,
+   "records": [
+    {
+     "record_id": "B0084-r01",
+     "electricity_kwh": 2588.701,
+     "steam_t": 55.1052,
+     "cooling_water_t": 666.2,
+     "ambient_c": 16.15
+    },
+    {
+     "record_id": "B0084-r02",
+     "electricity_kwh": 2916.313,
+     "steam_t": 61.331,
+     "cooling_water_t": 615.103,
+     "ambient_c": 15.33
+    },
+    {
+     "record_id": "B0084-r03",
+     "electricity_kwh": 2731.298,
+     "steam_t": 57.193,
+     "cooling_water_t": 677.242,
+     "ambient_c": 14.0
+    },
+    {
+     "record_id": "B0084-r04",
+     "electricity_kwh": 2703.381,
+     "steam_t": 56.0421,
+     "cooling_water_t": 664.67,
+     "ambient_c": 14.61
+    },
+    {
+     "record_id": "B0084-r05",
+     "electricity_kwh": 2645.897,
+     "steam_t": 55.8579,
+     "cooling_water_t": 647.161,
+     "ambient_c": 15.63
+    },
+    {
+     "record_id": "B0084-r06",
+     "electricity_kwh": 2925.765,
+     "steam_t": 60.7806,
+     "cooling_water_t": 694.617,
+     "ambient_c": 15.65
+    },
+    {
+     "record_id": "B0084-r07",
+     "electricity_kwh": 2686.035,
+     "steam_t": 56.7595,
+     "cooling_water_t": 660.845,
+     "ambient_c": 16.45
+    },
+    {
+     "record_id": "B0084-r08",
+     "electricity_kwh": 2630.404,
+     "steam_t": 54.9871,
+     "cooling_water_t": 569.354,
+     "ambient_c": 15.69
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0085",
+   "n_records": 8,
+   "output_t": 27.926,
+   "material_index": 1.0876,
+   "ambient_c_mean": 20.212,
+   "records": [
+    {
+     "record_id": "B0085-r01",
+     "electricity_kwh": 754.768,
+     "steam_t": 11.0913,
+     "cooling_water_t": 405.972,
+     "ambient_c": 20.11
+    },
+    {
+     "record_id": "B0085-r02",
+     "electricity_kwh": 868.778,
+     "steam_t": 12.7925,
+     "cooling_water_t": 285.117,
+     "ambient_c": 19.41
+    },
+    {
+     "record_id": "B0085-r03",
+     "electricity_kwh": 763.16,
+     "steam_t": 10.2846,
+     "cooling_water_t": 293.791,
+     "ambient_c": 21.48
+    },
+    {
+     "record_id": "B0085-r04",
+     "electricity_kwh": 818.98,
+     "steam_t": 12.0126,
+     "cooling_water_t": 196.728,
+     "ambient_c": 18.46
+    },
+    {
+     "record_id": "B0085-r05",
+     "electricity_kwh": 570.066,
+     "steam_t": 7.5387,
+     "cooling_water_t": 376.336,
+     "ambient_c": 19.25
+    },
+    {
+     "record_id": "B0085-r06",
+     "electricity_kwh": 620.964,
+     "steam_t": 8.7803,
+     "cooling_water_t": 326.35,
+     "ambient_c": 19.87
+    },
+    {
+     "record_id": "B0085-r07",
+     "electricity_kwh": 800.075,
+     "steam_t": 9.8922,
+     "cooling_water_t": 277.007,
+     "ambient_c": 19.62
+    },
+    {
+     "record_id": "B0085-r08",
+     "electricity_kwh": 883.921,
+     "steam_t": 12.7158,
+     "cooling_water_t": 293.033,
+     "ambient_c": 18.87
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0086",
+   "n_records": 7,
+   "output_t": 117.186,
+   "material_index": 1.1123,
+   "ambient_c_mean": 29.43,
+   "records": [
+    {
+     "record_id": "B0086-r01",
+     "electricity_kwh": 3152.59,
+     "steam_t": 49.5034,
+     "cooling_water_t": 937.307,
+     "ambient_c": 29.15
+    },
+    {
+     "record_id": "B0086-r02",
+     "electricity_kwh": 3117.719,
+     "steam_t": 50.4236,
+     "cooling_water_t": 854.289,
+     "ambient_c": 28.28
+    },
+    {
+     "record_id": "B0086-r03",
+     "electricity_kwh": 3109.119,
+     "steam_t": 49.4055,
+     "cooling_water_t": 758.213,
+     "ambient_c": 29.34
+    },
+    {
+     "record_id": "B0086-r04",
+     "electricity_kwh": 2592.097,
+     "steam_t": 42.2769,
+     "cooling_water_t": 857.142,
+     "ambient_c": 29.48
+    },
+    {
+     "record_id": "B0086-r05",
+     "electricity_kwh": 3114.315,
+     "steam_t": 47.0117,
+     "cooling_water_t": 906.355,
+     "ambient_c": 30.82
+    },
+    {
+     "record_id": "B0086-r06",
+     "electricity_kwh": 2910.48,
+     "steam_t": 46.2412,
+     "cooling_water_t": 909.586,
+     "ambient_c": 29.96
+    },
+    {
+     "record_id": "B0086-r07",
+     "electricity_kwh": 2818.46,
+     "steam_t": 42.7282,
+     "cooling_water_t": 887.466,
+     "ambient_c": 29.15
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0087",
+   "n_records": 5,
+   "output_t": 23.366,
+   "material_index": 1.0073,
+   "ambient_c_mean": 18.443,
+   "records": [
+    {
+     "record_id": "B0087-r01",
+     "electricity_kwh": 639.407,
+     "steam_t": 4.3939,
+     "cooling_water_t": 251.378,
+     "ambient_c": 18.49
+    },
+    {
+     "record_id": "B0087-r02",
+     "electricity_kwh": 633.72,
+     "steam_t": 1.8749,
+     "cooling_water_t": 259.74,
+     "ambient_c": 18.97
+    },
+    {
+     "record_id": "B0087-r03",
+     "electricity_kwh": 607.984,
+     "steam_t": 4.3823,
+     "cooling_water_t": 276.275,
+     "ambient_c": 19.1
+    },
+    {
+     "record_id": "B0087-r04",
+     "electricity_kwh": 575.004,
+     "steam_t": 3.0762,
+     "cooling_water_t": 108.862,
+     "ambient_c": 17.13
+    },
+    {
+     "record_id": "B0087-r05",
+     "electricity_kwh": 662.775,
+     "steam_t": 5.0319,
+     "cooling_water_t": 227.291,
+     "ambient_c": 19.11
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0088",
+   "n_records": 4,
+   "output_t": 104.589,
+   "material_index": 0.801,
+   "ambient_c_mean": 29.466,
+   "records": [
+    {
+     "record_id": "B0088-r01",
+     "electricity_kwh": 2025.935,
+     "steam_t": 26.2601,
+     "cooling_water_t": 803.218,
+     "ambient_c": 28.93
+    },
+    {
+     "record_id": "B0088-r02",
+     "electricity_kwh": 2296.47,
+     "steam_t": 32.1339,
+     "cooling_water_t": 754.81,
+     "ambient_c": 29.1
+    },
+    {
+     "record_id": "B0088-r03",
+     "electricity_kwh": 2173.461,
+     "steam_t": 30.0232,
+     "cooling_water_t": 887.738,
+     "ambient_c": 28.02
+    },
+    {
+     "record_id": "B0088-r04",
+     "electricity_kwh": 2158.871,
+     "steam_t": 28.5969,
+     "cooling_water_t": 884.997,
+     "ambient_c": 26.81
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0089",
+   "n_records": 4,
+   "output_t": 106.754,
+   "material_index": 1.1435,
+   "ambient_c_mean": 30.186,
+   "records": [
+    {
+     "record_id": "B0089-r01",
+     "electricity_kwh": 3330.686,
+     "steam_t": 66.7081,
+     "cooling_water_t": 871.425,
+     "ambient_c": 29.64
+    },
+    {
+     "record_id": "B0089-r02",
+     "electricity_kwh": 3126.295,
+     "steam_t": 62.2042,
+     "cooling_water_t": 860.686,
+     "ambient_c": 29.98
+    },
+    {
+     "record_id": "B0089-r03",
+     "electricity_kwh": 3644.66,
+     "steam_t": 72.1319,
+     "cooling_water_t": 916.741,
+     "ambient_c": 30.36
+    },
+    {
+     "record_id": "B0089-r04",
+     "electricity_kwh": 2938.687,
+     "steam_t": 62.4763,
+     "cooling_water_t": 781.682,
+     "ambient_c": 31.15
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0090",
+   "n_records": 4,
+   "output_t": 94.534,
+   "material_index": 0.8561,
+   "ambient_c_mean": 26.035,
+   "records": [
+    {
+     "record_id": "B0090-r01",
+     "electricity_kwh": 2427.472,
+     "steam_t": 41.6339,
+     "cooling_water_t": 775.146,
+     "ambient_c": 27.04
+    },
+    {
+     "record_id": "B0090-r02",
+     "electricity_kwh": 2075.225,
+     "steam_t": 35.4869,
+     "cooling_water_t": 758.938,
+     "ambient_c": 28.09
+    },
+    {
+     "record_id": "B0090-r03",
+     "electricity_kwh": 2334.392,
+     "steam_t": 41.5291,
+     "cooling_water_t": 764.906,
+     "ambient_c": 26.39
+    },
+    {
+     "record_id": "B0090-r04",
+     "electricity_kwh": 2124.965,
+     "steam_t": 37.5699,
+     "cooling_water_t": 744.166,
+     "ambient_c": 25.37
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0091",
+   "n_records": 10,
+   "output_t": 28.986,
+   "material_index": 0.976,
+   "ambient_c_mean": 7.087,
+   "records": [
+    {
+     "record_id": "B0091-r01",
+     "electricity_kwh": 685.576,
+     "steam_t": 7.3336,
+     "cooling_water_t": 160.259,
+     "ambient_c": 8.89
+    },
+    {
+     "record_id": "B0091-r02",
+     "electricity_kwh": 680.334,
+     "steam_t": 7.0575,
+     "cooling_water_t": 195.276,
+     "ambient_c": 8.15
+    },
+    {
+     "record_id": "B0091-r03",
+     "electricity_kwh": 876.071,
+     "steam_t": 9.6096,
+     "cooling_water_t": 209.013,
+     "ambient_c": 7.63
+    },
+    {
+     "record_id": "B0091-r04",
+     "electricity_kwh": 687.072,
+     "steam_t": 7.4646,
+     "cooling_water_t": 164.105,
+     "ambient_c": 6.93
+    },
+    {
+     "record_id": "B0091-r05",
+     "electricity_kwh": 793.828,
+     "steam_t": 9.8332,
+     "cooling_water_t": 249.286,
+     "ambient_c": 5.94
+    },
+    {
+     "record_id": "B0091-r06",
+     "electricity_kwh": 804.568,
+     "steam_t": 8.077,
+     "cooling_water_t": 275.594,
+     "ambient_c": 6.07
+    },
+    {
+     "record_id": "B0091-r07",
+     "electricity_kwh": 733.382,
+     "steam_t": 8.3309,
+     "cooling_water_t": 190.607,
+     "ambient_c": 8.28
+    },
+    {
+     "record_id": "B0091-r08",
+     "electricity_kwh": 673.62,
+     "steam_t": 6.7581,
+     "cooling_water_t": 245.309,
+     "ambient_c": 8.25
+    },
+    {
+     "record_id": "B0091-r09",
+     "electricity_kwh": 663.412,
+     "steam_t": 7.0443,
+     "cooling_water_t": 134.704,
+     "ambient_c": 5.25
+    },
+    {
+     "record_id": "B0091-r10",
+     "electricity_kwh": 651.326,
+     "steam_t": 7.1303,
+     "cooling_water_t": 142.74,
+     "ambient_c": 8.04
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0092",
+   "n_records": 7,
+   "output_t": 76.02,
+   "material_index": 1.0176,
+   "ambient_c_mean": 12.322,
+   "records": [
+    {
+     "record_id": "B0092-r01",
+     "electricity_kwh": 2253.563,
+     "steam_t": 49.3532,
+     "cooling_water_t": 550.068,
+     "ambient_c": 10.88
+    },
+    {
+     "record_id": "B0092-r02",
+     "electricity_kwh": 2348.137,
+     "steam_t": 52.7347,
+     "cooling_water_t": 512.922,
+     "ambient_c": 13.18
+    },
+    {
+     "record_id": "B0092-r03",
+     "electricity_kwh": 2455.487,
+     "steam_t": 53.1891,
+     "cooling_water_t": 565.907,
+     "ambient_c": 13.04
+    },
+    {
+     "record_id": "B0092-r04",
+     "electricity_kwh": 2329.494,
+     "steam_t": 52.0317,
+     "cooling_water_t": 548.197,
+     "ambient_c": 12.79
+    },
+    {
+     "record_id": "B0092-r05",
+     "electricity_kwh": 2420.839,
+     "steam_t": 51.9486,
+     "cooling_water_t": 526.523,
+     "ambient_c": 11.77
+    },
+    {
+     "record_id": "B0092-r06",
+     "electricity_kwh": 2477.908,
+     "steam_t": 53.5992,
+     "cooling_water_t": 489.67,
+     "ambient_c": 13.3
+    },
+    {
+     "record_id": "B0092-r07",
+     "electricity_kwh": 2210.252,
+     "steam_t": 52.0296,
+     "cooling_water_t": 548.946,
+     "ambient_c": 11.95
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0093",
+   "n_records": 6,
+   "output_t": 34.749,
+   "material_index": 1.2402,
+   "ambient_c_mean": 15.14,
+   "records": [
+    {
+     "record_id": "B0093-r01",
+     "electricity_kwh": 769.169,
+     "steam_t": 9.8639,
+     "cooling_water_t": 270.925,
+     "ambient_c": 13.95
+    },
+    {
+     "record_id": "B0093-r02",
+     "electricity_kwh": 1025.718,
+     "steam_t": 13.077,
+     "cooling_water_t": 249.567,
+     "ambient_c": 13.85
+    },
+    {
+     "record_id": "B0093-r03",
+     "electricity_kwh": 918.933,
+     "steam_t": 13.8428,
+     "cooling_water_t": 215.245,
+     "ambient_c": 16.96
+    },
+    {
+     "record_id": "B0093-r04",
+     "electricity_kwh": 1026.777,
+     "steam_t": 14.9165,
+     "cooling_water_t": 321.076,
+     "ambient_c": 14.13
+    },
+    {
+     "record_id": "B0093-r05",
+     "electricity_kwh": 1054.276,
+     "steam_t": 13.5911,
+     "cooling_water_t": 259.544,
+     "ambient_c": 14.15
+    },
+    {
+     "record_id": "B0093-r06",
+     "electricity_kwh": 989.491,
+     "steam_t": 14.7177,
+     "cooling_water_t": 358.657,
+     "ambient_c": 14.44
+    }
+   ],
+   "split": "calibrate"
+  },
+  {
+   "batch_id": "B0094",
+   "n_records": 7,
+   "output_t": 110.853,
+   "material_index": 1.0201,
+   "ambient_c_mean": 17.369,
+   "records": [
+    {
+     "record_id": "B0094-r01",
+     "electricity_kwh": 2863.399,
+     "steam_t": 42.7939,
+     "cooling_water_t": 776.824,
+     "ambient_c": 17.83
+    },
+    {
+     "record_id": "B0094-r02",
+     "electricity_kwh": 2380.061,
+     "steam_t": 38.9777,
+     "cooling_water_t": 729.376,
+     "ambient_c": 17.9
+    },
+    {
+     "record_id": "B0094-r03",
+     "electricity_kwh": 2911.697,
+     "steam_t": 43.8348,
+     "cooling_water_t": 806.633,
+     "ambient_c": 19.33
+    },
+    {
+     "record_id": "B0094-r04",
+     "electricity_kwh": 2344.089,
+     "steam_t": 35.6393,
+     "cooling_water_t": 773.448,
+     "ambient_c": 18.41
+    },
+    {
+     "record_id": "B0094-r05",
+     "electricity_kwh": 2648.769,
+     "steam_t": 42.3927,
+     "cooling_water_t": 758.27,
+     "ambient_c": 18.76
+    },
+    {
+     "record_id": "B0094-r06",
+     "electricity_kwh": 2583.341,
+     "steam_t": 40.0686,
+     "cooling_water_t": 681.802,
+     "ambient_c": 18.12
+    },
+    {
+     "record_id": "B0094-r07",
+     "electricity_kwh": 2310.924,
+     "steam_t": 35.5253,
+     "cooling_water_t": 768.071,
+     "ambient_c": 18.58
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0095",
+   "n_records": 9,
+   "output_t": 99.49,
+   "material_index": 1.064,
+   "ambient_c_mean": 13.869,
+   "records": [
+    {
+     "record_id": "B0095-r01",
+     "electricity_kwh": 2390.08,
+     "steam_t": 36.8483,
+     "cooling_water_t": 790.847,
+     "ambient_c": 14.53
+    },
+    {
+     "record_id": "B0095-r02",
+     "electricity_kwh": 2120.002,
+     "steam_t": 34.5781,
+     "cooling_water_t": 671.224,
+     "ambient_c": 15.52
+    },
+    {
+     "record_id": "B0095-r03",
+     "electricity_kwh": 2130.759,
+     "steam_t": 33.2201,
+     "cooling_water_t": 673.422,
+     "ambient_c": 15.32
+    },
+    {
+     "record_id": "B0095-r04",
+     "electricity_kwh": 2063.602,
+     "steam_t": 32.6297,
+     "cooling_water_t": 656.494,
+     "ambient_c": 14.5
+    },
+    {
+     "record_id": "B0095-r05",
+     "electricity_kwh": 2370.845,
+     "steam_t": 38.5823,
+     "cooling_water_t": 736.439,
+     "ambient_c": 14.7
+    },
+    {
+     "record_id": "B0095-r06",
+     "electricity_kwh": 2358.11,
+     "steam_t": 37.1908,
+     "cooling_water_t": 755.518,
+     "ambient_c": 13.62
+    },
+    {
+     "record_id": "B0095-r07",
+     "electricity_kwh": 2079.296,
+     "steam_t": 32.3111,
+     "cooling_water_t": 725.262,
+     "ambient_c": 15.13
+    },
+    {
+     "record_id": "B0095-r08",
+     "electricity_kwh": 2185.068,
+     "steam_t": 34.2458,
+     "cooling_water_t": 634.861,
+     "ambient_c": 15.27
+    },
+    {
+     "record_id": "B0095-r09",
+     "electricity_kwh": 1850.829,
+     "steam_t": 27.9734,
+     "cooling_water_t": 656.296,
+     "ambient_c": 14.75
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0096",
+   "n_records": 6,
+   "output_t": 76.644,
+   "material_index": 1.2254,
+   "ambient_c_mean": 22.757,
+   "records": [
+    {
+     "record_id": "B0096-r01",
+     "electricity_kwh": 2469.13,
+     "steam_t": 50.4439,
+     "cooling_water_t": 586.06,
+     "ambient_c": 23.98
+    },
+    {
+     "record_id": "B0096-r02",
+     "electricity_kwh": 2615.284,
+     "steam_t": 53.8775,
+     "cooling_water_t": 570.211,
+     "ambient_c": 22.75
+    },
+    {
+     "record_id": "B0096-r03",
+     "electricity_kwh": 2240.723,
+     "steam_t": 46.7037,
+     "cooling_water_t": 664.115,
+     "ambient_c": 23.3
+    },
+    {
+     "record_id": "B0096-r04",
+     "electricity_kwh": 2549.68,
+     "steam_t": 52.3828,
+     "cooling_water_t": 660.539,
+     "ambient_c": 24.4
+    },
+    {
+     "record_id": "B0096-r05",
+     "electricity_kwh": 2528.119,
+     "steam_t": 52.4259,
+     "cooling_water_t": 639.261,
+     "ambient_c": 23.55
+    },
+    {
+     "record_id": "B0096-r06",
+     "electricity_kwh": 2431.697,
+     "steam_t": 51.1894,
+     "cooling_water_t": 538.693,
+     "ambient_c": 23.67
+    }
+   ],
+   "split": "check"
+  },
+  {
+   "batch_id": "B0097",
+   "n_records": 10,
+   "output_t": 97.596,
+   "material_index": 1.0429,
+   "ambient_c_mean": 22.731,
+   "records": [
+    {
+     "record_id": "B0097-r01",
+     "electricity_kwh": 2306.884,
+     "steam_t": 40.4826,
+     "cooling_water_t": 695.232,
+     "ambient_c": 23.7
+    },
+    {
+     "record_id": "B0097-r02",
+     "electricity_kwh": 2690.064,
+     "steam_t": 46.7183,
+     "cooling_water_t": 714.496,
+     "ambient_c": 21.75
+    },
+    {
+     "record_id": "B0097-r03",
+     "electricity_kwh": 2184.037,
+     "steam_t": 39.3675,
+     "cooling_water_t": 705.862,
+     "ambient_c": 21.38
+    },
+    {
+     "record_id": "B0097-r04",
+     "electricity_kwh": 2044.15,
+     "steam_t": 38.2546,
+     "cooling_water_t": 777.995,
+     "ambient_c": 23.02
+    },
+    {
+     "record_id": "B0097-r05",
+     "electricity_kwh": 2325.964,
+     "steam_t": 42.0048,
+     "cooling_water_t": 800.203,
+     "ambient_c": 24.66
+    },
+    {
+     "record_id": "B0097-r06",
+     "electricity_kwh": 2811.563,
+     "steam_t": 47.292,
+     "cooling_water_t": 881.662,
+     "ambient_c": 22.5
+    },
+    {
+     "record_id": "B0097-r07",
+     "electricity_kwh": 2183.567,
+     "steam_t": 40.5741,
+     "cooling_water_t": 815.859,
+     "ambient_c": 22.69
+    },
+    {
+     "record_id": "B0097-r08",
+     "electricity_kwh": 2408.398,
+     "steam_t": 43.7334,
+     "cooling_water_t": 781.273,
+     "ambient_c": 20.44
+    },
+    {
+     "record_id": "B0097-r09",
+     "electricity_kwh": 2615.215,
+     "steam_t": 44.3039,
+     "cooling_water_t": 778.558,
+     "ambient_c": 21.92
+    },
+    {
+     "record_id": "B0097-r10",
+     "electricity_kwh": 2197.162,
+     "steam_t": 40.0445,
+     "cooling_water_t": 829.634,
+     "ambient_c": 22.0
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0098",
+   "n_records": 4,
+   "output_t": 63.037,
+   "material_index": 1.0796,
+   "ambient_c_mean": 27.509,
+   "records": [
+    {
+     "record_id": "B0098-r01",
+     "electricity_kwh": 1511.839,
+     "steam_t": 22.7167,
+     "cooling_water_t": 529.077,
+     "ambient_c": 29.15
+    },
+    {
+     "record_id": "B0098-r02",
+     "electricity_kwh": 1343.45,
+     "steam_t": 19.9428,
+     "cooling_water_t": 543.3,
+     "ambient_c": 27.52
+    },
+    {
+     "record_id": "B0098-r03",
+     "electricity_kwh": 1611.127,
+     "steam_t": 23.954,
+     "cooling_water_t": 564.585,
+     "ambient_c": 26.77
+    },
+    {
+     "record_id": "B0098-r04",
+     "electricity_kwh": 1474.867,
+     "steam_t": 20.7121,
+     "cooling_water_t": 562.259,
+     "ambient_c": 27.21
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0099",
+   "n_records": 10,
+   "output_t": 55.71,
+   "material_index": 0.9663,
+   "ambient_c_mean": 23.144,
+   "records": [
+    {
+     "record_id": "B0099-r01",
+     "electricity_kwh": 1296.043,
+     "steam_t": 23.1988,
+     "cooling_water_t": 524.451,
+     "ambient_c": 21.41
+    },
+    {
+     "record_id": "B0099-r02",
+     "electricity_kwh": 1368.447,
+     "steam_t": 25.5303,
+     "cooling_water_t": 466.006,
+     "ambient_c": 24.76
+    },
+    {
+     "record_id": "B0099-r03",
+     "electricity_kwh": 1202.183,
+     "steam_t": 21.5936,
+     "cooling_water_t": 478.263,
+     "ambient_c": 22.46
+    },
+    {
+     "record_id": "B0099-r04",
+     "electricity_kwh": 1600.639,
+     "steam_t": 28.4366,
+     "cooling_water_t": 599.085,
+     "ambient_c": 23.25
+    },
+    {
+     "record_id": "B0099-r05",
+     "electricity_kwh": 1439.4,
+     "steam_t": 25.7331,
+     "cooling_water_t": 599.917,
+     "ambient_c": 21.32
+    },
+    {
+     "record_id": "B0099-r06",
+     "electricity_kwh": 1570.095,
+     "steam_t": 26.7041,
+     "cooling_water_t": 520.672,
+     "ambient_c": 24.08
+    },
+    {
+     "record_id": "B0099-r07",
+     "electricity_kwh": 1365.242,
+     "steam_t": 22.6046,
+     "cooling_water_t": 496.071,
+     "ambient_c": 24.25
+    },
+    {
+     "record_id": "B0099-r08",
+     "electricity_kwh": 1240.618,
+     "steam_t": 23.4641,
+     "cooling_water_t": 502.519,
+     "ambient_c": 21.94
+    },
+    {
+     "record_id": "B0099-r09",
+     "electricity_kwh": 1317.881,
+     "steam_t": 22.119,
+     "cooling_water_t": 510.038,
+     "ambient_c": 22.83
+    },
+    {
+     "record_id": "B0099-r10",
+     "electricity_kwh": 1403.95,
+     "steam_t": 24.3819,
+     "cooling_water_t": 479.403,
+     "ambient_c": 23.51
+    }
+   ],
+   "split": "train"
+  },
+  {
+   "batch_id": "B0100",
+   "n_records": 5,
+   "output_t": 44.063,
+   "material_index": 0.9022,
+   "ambient_c_mean": 21.184,
+   "records": [
+    {
+     "record_id": "B0100-r01",
+     "electricity_kwh": 1247.451,
+     "steam_t": 23.286,
+     "cooling_water_t": 422.086,
+     "ambient_c": 21.35
+    },
+    {
+     "record_id": "B0100-r02",
+     "electricity_kwh": 1222.592,
+     "steam_t": 22.8029,
+     "cooling_water_t": 411.459,
+     "ambient_c": 21.06
+    },
+    {
+     "record_id": "B0100-r03",
+     "electricity_kwh": 1173.504,
+     "steam_t": 23.5518,
+     "cooling_water_t": 483.326,
+     "ambient_c": 21.57
+    },
+    {
+     "record_id": "B0100-r04",
+     "electricity_kwh": 1027.902,
+     "steam_t": 20.2076,
+     "cooling_water_t": 461.325,
+     "ambient_c": 21.76
+    },
+    {
+     "record_id": "B0100-r05",
+     "electricity_kwh": 1118.869,
+     "steam_t": 20.3785,
+     "cooling_water_t": 446.033,
+     "ambient_c": 20.62
+    }
+   ],
+   "split": "train"
+  }
+ ]
+}

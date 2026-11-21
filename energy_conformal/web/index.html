@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>批次能耗联合预测区域 · 共形分析</title>
+<link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+<div class="viz-root" id="app">
+
+  <header class="page-header">
+    <div>
+      <h1>批次能耗联合预测区域</h1>
+      <p class="subtitle">同一批次同时预测电力、蒸汽、冷却水——给出的是<em>三项一起落入</em>的联合把握，而非三个各自区间拼接出的虚假整体可靠性。</p>
+    </div>
+    <div class="header-actions">
+      <button id="themeToggle" class="btn btn-ghost" type="button">切换深浅色</button>
+    </div>
+  </header>
+
+  <!-- 全局控制行：一处控制，联动下方所有视图 -->
+  <section class="control-row card" aria-label="全局控制">
+    <div class="control-group">
+      <label for="levelSelect">共形水平（名义联合覆盖）</label>
+      <select id="levelSelect"></select>
+    </div>
+    <div class="control-group">
+      <label for="splitFilter">批次视图</label>
+      <select id="splitFilter">
+        <option value="check" selected>检查批次（最终检查）</option>
+        <option value="calibrate">校准批次（用于形成区域，不参与检验）</option>
+      </select>
+    </div>
+    <div class="control-group control-regen">
+      <label>重新生成本地数据</label>
+      <div class="regen-controls">
+        <label class="mini">训练 <input id="cfgTrain" type="number" min="3" value="45"></label>
+        <label class="mini">校准 <input id="cfgCal" type="number" min="3" value="25"></label>
+        <label class="mini">检查 <input id="cfgCheck" type="number" min="3" value="30"></label>
+        <label class="mini">种子 <input id="cfgSeed" type="number" value="20261122"></label>
+        <label class="mini check-inline"><input id="cfgDrift" type="checkbox" checked> 注入漂移</label>
+        <button id="regenBtn" class="btn" type="button">重新生成</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 方法边界声明 -->
+  <section class="boundary-strip" id="boundaryStrip"></section>
+
+  <main>
+    <!-- KPI 行 -->
+    <section class="kpi-row" id="kpiRow"></section>
+
+    <!-- 数据划分 -->
+    <section class="card">
+      <h2>1 · 按独立生产批次划分，同批记录先汇总</h2>
+      <p class="card-note" id="splitNote"></p>
+      <div id="splitBars"></div>
+      <p class="card-note" id="driftNote"></p>
+    </section>
+
+    <!-- 模型与协方差退化 -->
+    <section class="card">
+      <h2>2 · 预测模型与误差尺度（仅由训练批次决定）</h2>
+      <div class="two-col">
+        <div>
+          <h3>模型拟合情况</h3>
+          <div id="modelInfo"></div>
+          <h3 class="mt">残差相关系数矩阵（训练集）</h3>
+          <div id="corrMatrix"></div>
+        </div>
+        <div>
+          <h3>协方差退化的显式处理</h3>
+          <div id="degeneracy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 校准 -->
+    <section class="card">
+      <h2>3 · 校准：每个批次一个联合分数，小样本分位边界</h2>
+      <p class="card-note" id="scoreDef"></p>
+      <div id="calChart"></div>
+      <div id="quantileTable"></div>
+    </section>
+
+    <!-- 检查集覆盖 -->
+    <section class="card">
+      <h2>4 · 最终检查：联合覆盖 vs 各项边际覆盖 vs 朴素独立区间</h2>
+      <div id="coverageBars"></div>
+      <div id="coverageTable"></div>
+      <div id="driftPanel"></div>
+    </section>
+
+    <!-- 检查批次明细 -->
+    <section class="card">
+      <h2>5 · 批次明细：点击超出区域的批次查看偏离方向</h2>
+      <div class="two-col">
+        <div>
+          <h3 id="scoreChartTitle">批次联合非一致性分数与区域阈值</h3>
+          <div id="scoreChart"></div>
+        </div>
+        <div>
+          <h3>批次详情</h3>
+          <div id="batchDetail" class="batch-detail">
+            <p class="placeholder-text">点击左侧（或下方表格中）任一批次查看预测、实际与各方向标准化偏离。</p>
+          </div>
+        </div>
+      </div>
+      <div id="batchTableWrap"></div>
+    </section>
+
+    <!-- 费用范围 -->
+    <section class="card">
+      <h2>6 · 线性价格下的费用范围（联合椭球的精确投影）</h2>
+      <div class="price-row">
+        <label class="mini">电价 元/kWh <input id="priceElec" type="number" min="0" step="0.01" value="0.80"></label>
+        <label class="mini">蒸汽价 元/t <input id="priceSteam" type="number" min="0" step="1" value="220"></label>
+        <label class="mini">冷却价 元/t <input id="priceCool" type="number" min="0" step="0.01" value="0.30"></label>
+        <button id="priceApply" class="btn" type="button">应用价格</button>
+      </div>
+      <p class="card-note">联合范围为线性费用在联合预测椭球上的闭式投影；朴素盒子范围把三项当作独立区间取角点，会高估费用不确定性。</p>
+      <div id="costChart"></div>
+      <div id="costTableWrap"></div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>全部数据由本地随机过程合成（按批次划分训练 / 校准 / 检查）。模型与误差尺度仅在训练集估计，校准集每批次贡献一个联合分数，检查集只做最终检验。</p>
+    <p>共形保证以交换性为前提；出现分布漂移时页面会显式声明前提变弱，不继续宣称无条件可靠。</p>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+</div>
+<script src="/web/app.js"></script>
+</body>
+</html>

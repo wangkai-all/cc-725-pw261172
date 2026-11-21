@@ -1,0 +1,5418 @@
+{
+ "meta": {
+  "seed": 20261122,
+  "n_batches": {
+   "train": 45,
+   "calibrate": 25,
+   "check": 30
+  },
+  "n_records_total": 711,
+  "drift_injected": true,
+  "drift_note": "检查集注入漂移：蒸汽基线 +7.2~23.4 t/记录，电力 +180~585 kWh/记录（随批次顺序增强），冷却水不漂移。",
+  "energy_names": [
+   "electricity_kwh",
+   "steam_t",
+   "cooling_water_t"
+  ],
+  "energy_labels": [
+   "电力 (kWh)",
+   "蒸汽 (t)",
+   "冷却水 (t)"
+  ]
+ },
+ "split_summary": {
+  "batch_counts": {
+   "train": 45,
+   "calibrate": 25,
+   "check": 30
+  },
+  "record_counts": {
+   "train": 321,
+   "calibrate": 160,
+   "check": 230
+  },
+  "note": "划分单位是整个生产批次；同批记录先汇总为一个批次分数，校准集每个批次只贡献一个联合非一致性样本。"
+ },
+ "model": {
+  "features": [
+   "截距",
+   "产量 output_t",
+   "原料指数 material_index",
+   "平均环境温度 ambient_c"
+  ],
+  "coefficients": [
+   [
+    2045.1569,
+    -30.1877,
+    2294.1591
+   ],
+   [
+    144.2963,
+    2.4951,
+    37.7422
+   ],
+   [
+    1027.7852,
+    59.6759,
+    -1287.9361
+   ],
+   [
+    -46.2639,
+    -0.4015,
+    20.5977
+   ]
+  ],
+  "r2": [
+   0.5113,
+   0.4863,
+   0.4477
+  ],
+  "sigma_raw": [
+   [
+    16580194.572,
+    291516.047,
+    5362904.254
+   ],
+   [
+    291516.047,
+    5452.916,
+    95241.86
+   ],
+   [
+    5362904.254,
+    95241.86,
+    1780686.749
+   ]
+  ],
+  "sigma_used": [
+   [
+    16580196.699,
+    291320.326,
+    5362908.316
+   ],
+   [
+    291320.326,
+    23459.731,
+    94868.136
+   ],
+   [
+    5362908.316,
+    94868.136,
+    1780694.505
+   ]
+  ],
+  "degeneracy": {
+   "is_degenerate": true,
+   "condition_number_raw": 59563.2,
+   "condition_number_capped": 1000.0,
+   "eigenvalues_raw": [
+    307.6453,
+    41682.7054,
+    18324343.886
+   ],
+   "eigenvalues_floored": [
+    18324.3439,
+    41682.7054,
+    18324343.886
+   ],
+   "near_linear_pairs": [
+    {
+     "vars": [
+      "电力 (kWh)",
+      "蒸汽 (t)"
+     ],
+     "correlation": 0.9695
+    },
+    {
+     "vars": [
+      "电力 (kWh)",
+      "冷却水 (t)"
+     ],
+     "correlation": 0.987
+    },
+    {
+     "vars": [
+      "蒸汽 (t)",
+      "冷却水 (t)"
+     ],
+     "correlation": 0.9665
+    }
+   ],
+   "floored_directions": [
+    {
+     "direction_index": 0,
+     "lambda_raw": 307.64525308169453,
+     "lambda_floor": 18324.343886026334,
+     "dominant_variable": "蒸汽 (t)",
+     "vector": [
+      0.011,
+      -1.0,
+      0.021
+     ]
+    }
+   ],
+   "method": "特征值截断（eigenvalue floor）：保留特征向量方向，仅把低于 λmax/1000 的特征值抬到下限，相关结构不被抹掉；不采用对角化（那会把三项误差当成互相独立）。",
+   "independence_check": {
+    "corr_elec_steam": 0.9695,
+    "corr_elec_cooling": 0.987,
+    "corr_steam_cooling": 0.9665
+   }
+  }
+ },
+ "calibration": {
+  "scores_sorted": [
+   0.346,
+   0.404,
+   0.511,
+   0.566,
+   0.882,
+   0.915,
+   0.95,
+   1.005,
+   1.03,
+   1.033,
+   1.119,
+   1.292,
+   1.359,
+   1.452,
+   1.462,
+   1.614,
+   1.626,
+   1.635,
+   1.652,
+   1.725,
+   2.01,
+   2.096,
+   2.626,
+   3.032,
+   3.131
+  ],
+  "scores_full": [
+   0.3458185539269915,
+   0.40399912714878905,
+   0.5112045572392335,
+   0.5663006385654089,
+   0.8824434564318224,
+   0.914613792137579,
+   0.9497145688809302,
+   1.0050546049685216,
+   1.0299773502337934,
+   1.033497601827723,
+   1.1189299483975579,
+   1.292354772262994,
+   1.359209509111926,
+   1.452496652599271,
+   1.46241471442701,
+   1.6137795152604433,
+   1.6264687922821843,
+   1.6351978124309432,
+   1.652251085169812,
+   1.7248618673523282,
+   2.010213811910039,
+   2.096054737180073,
+   2.626475533815521,
+   3.032318262515924,
+   3.1307017776224666
+  ],
+  "batch_ids": [
+   "B0008",
+   "B0072",
+   "B0093",
+   "B0049",
+   "B0019",
+   "B0001",
+   "B0058",
+   "B0023",
+   "B0054",
+   "B0083",
+   "B0044",
+   "B0057",
+   "B0026",
+   "B0038",
+   "B0036",
+   "B0068",
+   "B0005",
+   "B0053",
+   "B0007",
+   "B0048",
+   "B0051",
+   "B0010",
+   "B0028",
+   "B0081",
+   "B0069"
+  ],
+  "quantiles": [
+   {
+    "level": 0.8,
+    "k": 21,
+    "n_calibrate": 25,
+    "finite": true,
+    "q": 2.010213811910039,
+    "reason": null
+   },
+   {
+    "level": 0.9,
+    "k": 24,
+    "n_calibrate": 25,
+    "finite": true,
+    "q": 3.032318262515924,
+    "reason": null
+   },
+   {
+    "level": 0.95,
+    "k": 25,
+    "n_calibrate": 25,
+    "finite": true,
+    "q": 3.1307017776224666,
+    "reason": null
+   },
+   {
+    "level": 0.99,
+    "k": 26,
+    "n_calibrate": 25,
+    "finite": false,
+    "q": null,
+    "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+   }
+  ],
+  "score_definition": "s(B) = sqrt(r_B' Σ_reg^-1 r_B)，r_B 为批次三维总耗残差，Σ_reg 为退化处理后的残差协方差；每批次一个分数。"
+ },
+ "evaluation": {
+  "per_level": [
+   {
+    "level": 0.8,
+    "finite": true,
+    "joint_halfwidths": [
+     8185.34693940567,
+     307.89579924950453,
+     2682.482898563497
+    ],
+    "naive_halfwidths": [
+     5213.282985932483,
+     91.13137443887692,
+     1785.8406476792015
+    ],
+    "joint_coverage": 0.03333333333333333,
+    "marginal_coverage": 0.9,
+    "marginal_coverage_each": [
+     0.8333333333333334,
+     0.9333333333333333,
+     0.9333333333333333
+    ],
+    "naive_joint_coverage": 0.23333333333333334,
+    "naive_marginal_coverage_each": [
+     0.7,
+     0.26666666666666666,
+     0.7666666666666667
+    ],
+    "naive_nominal_joint_if_independent": 0.5120000000000001
+   },
+   {
+    "level": 0.9,
+    "finite": true,
+    "joint_halfwidths": [
+     12347.232350276681,
+     464.4471396448606,
+     4046.406324545124
+    ],
+    "naive_halfwidths": [
+     7627.145977361168,
+     130.6634226212056,
+     2133.6277472655624
+    ],
+    "joint_coverage": 0.23333333333333334,
+    "marginal_coverage": 0.9666666666666667,
+    "marginal_coverage_each": [
+     0.9,
+     1.0,
+     1.0
+    ],
+    "naive_joint_coverage": 0.4,
+    "naive_marginal_coverage_each": [
+     0.8,
+     0.4,
+     0.8666666666666667
+    ],
+    "naive_nominal_joint_if_independent": 0.7290000000000001
+   },
+   {
+    "level": 0.95,
+    "finite": true,
+    "joint_halfwidths": [
+     12747.838096538138,
+     479.5161192913203,
+     4177.691909794935
+    ],
+    "naive_halfwidths": [
+     7839.780868585676,
+     161.37533296658648,
+     2358.1536741508335
+    ],
+    "joint_coverage": 0.3,
+    "marginal_coverage": 0.9777777777777777,
+    "marginal_coverage_each": [
+     0.9333333333333333,
+     1.0,
+     1.0
+    ],
+    "naive_joint_coverage": 0.5666666666666667,
+    "naive_marginal_coverage_each": [
+     0.8,
+     0.5666666666666667,
+     0.8666666666666667
+    ],
+    "naive_nominal_joint_if_independent": 0.8573749999999999
+   },
+   {
+    "level": 0.99,
+    "finite": false,
+    "joint_halfwidths": null,
+    "naive_halfwidths": [
+     null,
+     null,
+     null
+    ],
+    "joint_coverage": null,
+    "marginal_coverage": null,
+    "marginal_coverage_each": null,
+    "naive_joint_coverage": 0.0,
+    "naive_marginal_coverage_each": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "naive_nominal_joint_if_independent": 0.970299
+   }
+  ],
+  "batches": [
+   {
+    "batch_id": "B0003",
+    "n_records": 10,
+    "prediction": [
+     10059.9,
+     160.0,
+     3926.6
+    ],
+    "actual": [
+     16285.4,
+     333.2,
+     5750.4
+    ],
+    "residual": [
+     6225.6,
+     173.2,
+     1823.8
+    ],
+    "standardized_residual": [
+     1.53,
+     1.13,
+     1.37
+    ],
+    "score": 1.8335152330181448,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": true,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.53
+     },
+     {
+      "variable": "冷却水 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.37
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.13
+     }
+    ]
+   },
+   {
+    "batch_id": "B0017",
+    "n_records": 8,
+    "prediction": [
+     11810.4,
+     194.9,
+     4149.3
+    ],
+    "actual": [
+     16424.8,
+     368.3,
+     5238.9
+    ],
+    "residual": [
+     4614.4,
+     173.4,
+     1089.6
+    ],
+    "standardized_residual": [
+     1.13,
+     1.13,
+     0.82
+    ],
+    "score": 2.3092598225318053,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.13
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.13
+     }
+    ]
+   },
+   {
+    "batch_id": "B0075",
+    "n_records": 4,
+    "prediction": [
+     12892.3,
+     215.9,
+     3841.8
+    ],
+    "actual": [
+     9719.8,
+     224.9,
+     2362.1
+    ],
+    "residual": [
+     -3172.5,
+     8.9,
+     -1479.7
+    ],
+    "standardized_residual": [
+     -0.78,
+     0.06,
+     -1.11
+    ],
+    "score": 2.3125752529659045,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "冷却水 (t)",
+    "dominant_sign": "低于预测",
+    "direction_detail": [
+     {
+      "variable": "冷却水 (t)",
+      "sign": "低于预测",
+      "standardized_residual": -1.11
+     }
+    ]
+   },
+   {
+    "batch_id": "B0006",
+    "n_records": 9,
+    "prediction": [
+     10443.5,
+     162.9,
+     3727.9
+    ],
+    "actual": [
+     14711.8,
+     304.8,
+     4651.4
+    ],
+    "residual": [
+     4268.3,
+     141.9,
+     923.5
+    ],
+    "standardized_residual": [
+     1.05,
+     0.93,
+     0.69
+    ],
+    "score": 2.4350883034164355,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.05
+     }
+    ]
+   },
+   {
+    "batch_id": "B0024",
+    "n_records": 7,
+    "prediction": [
+     13069.3,
+     203.1,
+     4570.3
+    ],
+    "actual": [
+     14308.0,
+     295.2,
+     4444.2
+    ],
+    "residual": [
+     1238.6,
+     92.1,
+     -126.1
+    ],
+    "standardized_residual": [
+     0.3,
+     0.6,
+     -0.09
+    ],
+    "score": 2.539173705027245,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "蒸汽 (t)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0045",
+    "n_records": 5,
+    "prediction": [
+     6318.5,
+     102.9,
+     2367.9
+    ],
+    "actual": [
+     6083.2,
+     151.0,
+     1730.4
+    ],
+    "residual": [
+     -235.3,
+     48.1,
+     -637.5
+    ],
+    "standardized_residual": [
+     -0.06,
+     0.31,
+     -0.48
+    ],
+    "score": 2.654211859724362,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "冷却水 (t)",
+    "dominant_sign": "低于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0009",
+    "n_records": 8,
+    "prediction": [
+     10702.4,
+     179.1,
+     3232.5
+    ],
+    "actual": [
+     13907.3,
+     272.2,
+     3723.0
+    ],
+    "residual": [
+     3204.9,
+     93.2,
+     490.6
+    ],
+    "standardized_residual": [
+     0.79,
+     0.61,
+     0.37
+    ],
+    "score": 2.6837960853334977,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": true,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0033",
+    "n_records": 7,
+    "prediction": [
+     15656.8,
+     258.8,
+     5599.7
+    ],
+    "actual": [
+     17814.0,
+     320.6,
+     5655.4
+    ],
+    "residual": [
+     2157.2,
+     61.8,
+     55.7
+    ],
+    "standardized_residual": [
+     0.53,
+     0.4,
+     0.04
+    ],
+    "score": 3.0483412584223673,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0025",
+    "n_records": 8,
+    "prediction": [
+     10626.2,
+     172.6,
+     3806.6
+    ],
+    "actual": [
+     15196.8,
+     342.9,
+     4693.8
+    ],
+    "residual": [
+     4570.6,
+     170.2,
+     887.2
+    ],
+    "standardized_residual": [
+     1.12,
+     1.11,
+     0.66
+    ],
+    "score": 3.06173902165584,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": true,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.12
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.11
+     }
+    ]
+   },
+   {
+    "batch_id": "B0032",
+    "n_records": 5,
+    "prediction": [
+     13843.1,
+     219.3,
+     4603.2
+    ],
+    "actual": [
+     11831.9,
+     252.6,
+     3283.4
+    ],
+    "residual": [
+     -2011.1,
+     33.3,
+     -1319.7
+    ],
+    "standardized_residual": [
+     -0.49,
+     0.22,
+     -0.99
+    ],
+    "score": 3.2095792690372584,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "冷却水 (t)",
+    "dominant_sign": "低于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0016",
+    "n_records": 7,
+    "prediction": [
+     15225.4,
+     260.4,
+     5521.5
+    ],
+    "actual": [
+     19600.3,
+     340.5,
+     6283.4
+    ],
+    "residual": [
+     4375.0,
+     80.1,
+     762.0
+    ],
+    "standardized_residual": [
+     1.07,
+     0.52,
+     0.57
+    ],
+    "score": 3.229008535108072,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.07
+     }
+    ]
+   },
+   {
+    "batch_id": "B0089",
+    "n_records": 4,
+    "prediction": [
+     17228.1,
+     292.3,
+     5472.3
+    ],
+    "actual": [
+     13040.3,
+     263.5,
+     3430.5
+    ],
+    "residual": [
+     -4187.8,
+     -28.8,
+     -2041.8
+    ],
+    "standardized_residual": [
+     -1.03,
+     -0.19,
+     -1.53
+    ],
+    "score": 3.387450937539485,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "冷却水 (t)",
+    "dominant_sign": "低于预测",
+    "direction_detail": [
+     {
+      "variable": "冷却水 (t)",
+      "sign": "低于预测",
+      "standardized_residual": -1.53
+     },
+     {
+      "variable": "电力 (kWh)",
+      "sign": "低于预测",
+      "standardized_residual": -1.03
+     }
+    ]
+   },
+   {
+    "batch_id": "B0029",
+    "n_records": 8,
+    "prediction": [
+     14407.5,
+     241.2,
+     4615.8
+    ],
+    "actual": [
+     19344.6,
+     394.6,
+     5531.8
+    ],
+    "residual": [
+     4937.0,
+     153.4,
+     915.9
+    ],
+    "standardized_residual": [
+     1.21,
+     1.0,
+     0.69
+    ],
+    "score": 3.4433452698454845,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.21
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.0
+     }
+    ]
+   },
+   {
+    "batch_id": "B0018",
+    "n_records": 10,
+    "prediction": [
+     14138.3,
+     225.0,
+     4649.4
+    ],
+    "actual": [
+     22012.3,
+     426.1,
+     6515.0
+    ],
+    "residual": [
+     7874.0,
+     201.1,
+     1865.6
+    ],
+    "standardized_residual": [
+     1.93,
+     1.31,
+     1.4
+    ],
+    "score": 3.755596014316331,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.93
+     },
+     {
+      "variable": "冷却水 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.4
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.31
+     }
+    ]
+   },
+   {
+    "batch_id": "B0013",
+    "n_records": 9,
+    "prediction": [
+     17871.4,
+     303.1,
+     5252.9
+    ],
+    "actual": [
+     27480.7,
+     603.8,
+     7761.1
+    ],
+    "residual": [
+     9609.2,
+     300.6,
+     2508.2
+    ],
+    "standardized_residual": [
+     2.36,
+     1.96,
+     1.88
+    ],
+    "score": 3.8022398598254163,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 2.36
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.96
+     },
+     {
+      "variable": "冷却水 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.88
+     }
+    ]
+   },
+   {
+    "batch_id": "B0037",
+    "n_records": 8,
+    "prediction": [
+     7350.5,
+     115.4,
+     2649.0
+    ],
+    "actual": [
+     11216.0,
+     263.1,
+     3071.8
+    ],
+    "residual": [
+     3865.5,
+     147.7,
+     422.8
+    ],
+    "standardized_residual": [
+     0.95,
+     0.96,
+     0.32
+    ],
+    "score": 4.028111548361843,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "蒸汽 (t)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0041",
+    "n_records": 8,
+    "prediction": [
+     10795.8,
+     175.3,
+     3398.3
+    ],
+    "actual": [
+     15383.3,
+     348.8,
+     4057.8
+    ],
+    "residual": [
+     4587.5,
+     173.5,
+     659.6
+    ],
+    "standardized_residual": [
+     1.13,
+     1.13,
+     0.49
+    ],
+    "score": 4.076525860338425,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "蒸汽 (t)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.13
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.13
+     }
+    ]
+   },
+   {
+    "batch_id": "B0096",
+    "n_records": 6,
+    "prediction": [
+     13311.2,
+     225.0,
+     4077.4
+    ],
+    "actual": [
+     14834.6,
+     307.0,
+     3658.9
+    ],
+    "residual": [
+     1523.4,
+     82.0,
+     -418.5
+    ],
+    "standardized_residual": [
+     0.37,
+     0.54,
+     -0.31
+    ],
+    "score": 4.292349918311542,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "蒸汽 (t)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0020",
+    "n_records": 8,
+    "prediction": [
+     17985.5,
+     299.8,
+     5599.3
+    ],
+    "actual": [
+     24496.2,
+     515.1,
+     6848.8
+    ],
+    "residual": [
+     6510.7,
+     215.4,
+     1249.4
+    ],
+    "standardized_residual": [
+     1.6,
+     1.41,
+     0.94
+    ],
+    "score": 4.379677856212624,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.6
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.41
+     }
+    ]
+   },
+   {
+    "batch_id": "B0047",
+    "n_records": 8,
+    "prediction": [
+     7774.9,
+     127.2,
+     3057.0
+    ],
+    "actual": [
+     12417.1,
+     288.4,
+     3531.0
+    ],
+    "residual": [
+     4642.2,
+     161.2,
+     474.0
+    ],
+    "standardized_residual": [
+     1.14,
+     1.05,
+     0.36
+    ],
+    "score": 4.970726757431988,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.14
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.05
+     }
+    ]
+   },
+   {
+    "batch_id": "B0046",
+    "n_records": 8,
+    "prediction": [
+     18476.3,
+     296.4,
+     6003.9
+    ],
+    "actual": [
+     22733.5,
+     416.1,
+     6257.2
+    ],
+    "residual": [
+     4257.3,
+     119.7,
+     253.3
+    ],
+    "standardized_residual": [
+     1.05,
+     0.78,
+     0.19
+    ],
+    "score": 5.358908036129406,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.05
+     }
+    ]
+   },
+   {
+    "batch_id": "B0022",
+    "n_records": 7,
+    "prediction": [
+     15543.7,
+     260.6,
+     4348.1
+    ],
+    "actual": [
+     18995.7,
+     343.3,
+     4240.0
+    ],
+    "residual": [
+     3452.1,
+     82.7,
+     -108.1
+    ],
+    "standardized_residual": [
+     0.85,
+     0.54,
+     -0.08
+    ],
+    "score": 5.776872714835172,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0055",
+    "n_records": 7,
+    "prediction": [
+     15369.1,
+     247.9,
+     4754.2
+    ],
+    "actual": [
+     19684.9,
+     435.5,
+     4938.3
+    ],
+    "residual": [
+     4315.8,
+     187.6,
+     184.2
+    ],
+    "standardized_residual": [
+     1.06,
+     1.22,
+     0.14
+    ],
+    "score": 5.823688277985183,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "蒸汽 (t)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.22
+     },
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.06
+     }
+    ]
+   },
+   {
+    "batch_id": "B0080",
+    "n_records": 7,
+    "prediction": [
+     19042.1,
+     312.3,
+     5938.4
+    ],
+    "actual": [
+     22932.4,
+     434.2,
+     5925.3
+    ],
+    "residual": [
+     3890.3,
+     121.9,
+     -13.1
+    ],
+    "standardized_residual": [
+     0.96,
+     0.8,
+     -0.01
+    ],
+    "score": 6.024621461380807,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0092",
+    "n_records": 7,
+    "prediction": [
+     13490.4,
+     215.3,
+     4106.5
+    ],
+    "actual": [
+     16495.7,
+     364.9,
+     3742.2
+    ],
+    "residual": [
+     3005.3,
+     149.6,
+     -364.3
+    ],
+    "standardized_residual": [
+     0.74,
+     0.98,
+     -0.27
+    ],
+    "score": 6.328819228152086,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "蒸汽 (t)",
+    "dominant_sign": "高于预测",
+    "direction_detail": []
+   },
+   {
+    "batch_id": "B0064",
+    "n_records": 10,
+    "prediction": [
+     15970.0,
+     266.0,
+     5510.0
+    ],
+    "actual": [
+     29177.4,
+     603.0,
+     8610.7
+    ],
+    "residual": [
+     13207.4,
+     337.1,
+     3100.7
+    ],
+    "standardized_residual": [
+     3.24,
+     2.2,
+     2.32
+    ],
+    "score": 6.412133137112461,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 3.24
+     },
+     {
+      "variable": "冷却水 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 2.32
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 2.2
+     }
+    ]
+   },
+   {
+    "batch_id": "B0084",
+    "n_records": 8,
+    "prediction": [
+     15364.1,
+     255.4,
+     4456.7
+    ],
+    "actual": [
+     21827.8,
+     458.1,
+     5195.2
+    ],
+    "residual": [
+     6463.7,
+     202.7,
+     738.5
+    ],
+    "standardized_residual": [
+     1.59,
+     1.32,
+     0.55
+    ],
+    "score": 6.546903367217923,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 1.59
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.32
+     }
+    ]
+   },
+   {
+    "batch_id": "B0061",
+    "n_records": 10,
+    "prediction": [
+     18963.4,
+     308.0,
+     5796.9
+    ],
+    "actual": [
+     32151.0,
+     692.6,
+     8662.2
+    ],
+    "residual": [
+     13187.7,
+     384.6,
+     2865.3
+    ],
+    "standardized_residual": [
+     3.24,
+     2.51,
+     2.15
+    ],
+    "score": 7.395362604870247,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 3.24
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 2.51
+     },
+     {
+      "variable": "冷却水 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 2.15
+     }
+    ]
+   },
+   {
+    "batch_id": "B0034",
+    "n_records": 10,
+    "prediction": [
+     19284.6,
+     321.8,
+     5636.7
+    ],
+    "actual": [
+     31908.3,
+     569.8,
+     8158.5
+    ],
+    "residual": [
+     12623.7,
+     248.0,
+     2521.8
+    ],
+    "standardized_residual": [
+     3.1,
+     1.62,
+     1.89
+    ],
+    "score": 7.917048993223609,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 3.1
+     },
+     {
+      "variable": "冷却水 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.89
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.62
+     }
+    ]
+   },
+   {
+    "batch_id": "B0067",
+    "n_records": 9,
+    "prediction": [
+     13232.6,
+     223.4,
+     3923.4
+    ],
+    "actual": [
+     22598.1,
+     460.3,
+     5204.7
+    ],
+    "residual": [
+     9365.5,
+     236.8,
+     1281.3
+    ],
+    "standardized_residual": [
+     2.3,
+     1.55,
+     0.96
+    ],
+    "score": 8.494447301466645,
+    "thresholds": {
+     "0.8": 2.010213811910039,
+     "0.9": 3.032318262515924,
+     "0.95": 3.1307017776224666,
+     "0.99": null
+    },
+    "inside": {
+     "0.8": {
+      "inside": false,
+      "finite": true
+     },
+     "0.9": {
+      "inside": false,
+      "finite": true
+     },
+     "0.95": {
+      "inside": false,
+      "finite": true
+     },
+     "0.99": {
+      "inside": null,
+      "finite": false
+     }
+    },
+    "dominant_direction": "电力 (kWh)",
+    "dominant_sign": "高于预测",
+    "direction_detail": [
+     {
+      "variable": "电力 (kWh)",
+      "sign": "高于预测",
+      "standardized_residual": 2.3
+     },
+     {
+      "variable": "蒸汽 (t)",
+      "sign": "高于预测",
+      "standardized_residual": 1.55
+     }
+    ]
+   }
+  ],
+  "drift": {
+   "mean_shift_standardized": [
+    1.13,
+    0.99,
+    0.46
+   ],
+   "mean_shift_domains": [
+    {
+     "variable": "电力 (kWh)",
+     "shift_sd": 1.13,
+     "flagged": true
+    },
+    {
+     "variable": "蒸汽 (t)",
+     "shift_sd": 0.99,
+     "flagged": false
+    },
+    {
+     "variable": "冷却水 (t)",
+     "shift_sd": 0.46,
+     "flagged": false
+    }
+   ],
+   "cal_score_median": 1.359,
+   "check_score_median": 3.915,
+   "check_above_max_cal_fraction": 0.7,
+   "warnings": [
+    "80% 水平名义联合覆盖，检查集实际仅 3.3%（缺口 76.7 个百分点），交换性前提因漂移变弱，该覆盖保证不再无条件成立。",
+    "90% 水平名义联合覆盖，检查集实际仅 23.3%（缺口 66.7 个百分点），交换性前提因漂移变弱，该覆盖保证不再无条件成立。",
+    "95% 水平名义联合覆盖，检查集实际仅 30.0%（缺口 65.0 个百分点），交换性前提因漂移变弱，该覆盖保证不再无条件成立。",
+    "电力 (kWh)检查集平均残差偏移 +1.13 个误差标准差，提示该变量分布已漂移。"
+   ],
+   "premise_status": "weakened"
+  }
+ },
+ "costs": {
+  "prices": [
+   0.8,
+   220.0,
+   0.3
+  ],
+  "batches": [
+   {
+    "batch_id": "B0008",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 47308.7,
+      "joint_range": [
+       -24156.2,
+       118773.5
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -27781.4,
+       122398.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 47308.7,
+      "joint_range": [
+       -60492.9,
+       155110.2
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -65961.4,
+       160578.8
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 47308.7,
+      "joint_range": [
+       -63990.5,
+       158607.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -69636.4,
+       164253.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0072",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 53727.1,
+      "joint_range": [
+       -17737.8,
+       125191.9
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -21363.0,
+       128817.2
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 53727.1,
+      "joint_range": [
+       -54074.5,
+       161528.6
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -59543.0,
+       166997.1
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 53727.1,
+      "joint_range": [
+       -57572.1,
+       165026.2
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -63218.1,
+       170672.2
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0093",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 34181.2,
+      "joint_range": [
+       -37283.7,
+       105646.0
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -40908.9,
+       109271.3
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 34181.2,
+      "joint_range": [
+       -73620.4,
+       141982.7
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -79088.9,
+       147451.2
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 34181.2,
+      "joint_range": [
+       -77118.0,
+       145480.3
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -82764.0,
+       151126.3
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0049",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 48575.3,
+      "joint_range": [
+       -22889.6,
+       120040.1
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -26514.8,
+       123665.4
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 48575.3,
+      "joint_range": [
+       -59226.3,
+       156376.8
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -64694.8,
+       161845.3
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 48575.3,
+      "joint_range": [
+       -62723.9,
+       159874.4
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -68369.9,
+       165520.4
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0019",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 73911.0,
+      "joint_range": [
+       2446.1,
+       145375.8
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -1179.1,
+       149001.1
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 73911.0,
+      "joint_range": [
+       -33890.6,
+       181712.5
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -39359.1,
+       187181.0
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 73911.0,
+      "joint_range": [
+       -37388.2,
+       185210.1
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -43034.2,
+       190856.1
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0001",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 64842.3,
+      "joint_range": [
+       -6622.6,
+       136307.1
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -10247.8,
+       139932.4
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 64842.3,
+      "joint_range": [
+       -42959.3,
+       172643.8
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -48427.8,
+       178112.4
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 64842.3,
+      "joint_range": [
+       -46456.9,
+       176141.5
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -52102.8,
+       181787.4
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0058",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 65326.7,
+      "joint_range": [
+       -6138.1,
+       136791.6
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -9763.4,
+       140416.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 65326.7,
+      "joint_range": [
+       -42474.8,
+       173128.3
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -47943.3,
+       178596.8
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 65326.7,
+      "joint_range": [
+       -45972.4,
+       176625.9
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -51618.4,
+       182271.9
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0023",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 33127.5,
+      "joint_range": [
+       -38337.4,
+       104592.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -41962.6,
+       108217.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 33127.5,
+      "joint_range": [
+       -74674.1,
+       140929.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -80142.6,
+       146397.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 33127.5,
+      "joint_range": [
+       -78171.7,
+       144426.6
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -83817.6,
+       150072.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0054",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 42420.2,
+      "joint_range": [
+       -29044.6,
+       113885.0
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -32669.9,
+       117510.3
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 42420.2,
+      "joint_range": [
+       -65381.3,
+       150221.7
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -70849.9,
+       155690.3
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 42420.2,
+      "joint_range": [
+       -68879.0,
+       153719.4
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -74524.9,
+       159365.3
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0083",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 83846.7,
+      "joint_range": [
+       12381.9,
+       155311.6
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       8756.6,
+       158936.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 83846.7,
+      "joint_range": [
+       -23954.8,
+       191648.3
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -29423.3,
+       197116.8
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 83846.7,
+      "joint_range": [
+       -27452.4,
+       195145.9
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -33098.4,
+       200791.9
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0044",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 79787.5,
+      "joint_range": [
+       8322.6,
+       151252.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       4697.4,
+       154877.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 79787.5,
+      "joint_range": [
+       -28014.1,
+       187589.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -33482.6,
+       193057.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 79787.5,
+      "joint_range": [
+       -31511.7,
+       191086.6
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -37157.6,
+       196732.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0057",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 60524.5,
+      "joint_range": [
+       -10940.3,
+       131989.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -14565.6,
+       135614.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 60524.5,
+      "joint_range": [
+       -47277.0,
+       168326.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -52745.6,
+       173794.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 60524.5,
+      "joint_range": [
+       -50774.7,
+       171823.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -56420.6,
+       177469.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0026",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 61361.4,
+      "joint_range": [
+       -10103.5,
+       132826.2
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -13728.7,
+       136451.5
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 61361.4,
+      "joint_range": [
+       -46440.2,
+       169162.9
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -51908.7,
+       174631.4
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 61361.4,
+      "joint_range": [
+       -49937.8,
+       172660.5
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -55583.8,
+       178306.5
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0038",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 54949.6,
+      "joint_range": [
+       -16515.2,
+       126414.5
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -20140.5,
+       130039.7
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 54949.6,
+      "joint_range": [
+       -52851.9,
+       162751.2
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -58320.5,
+       168219.7
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 54949.6,
+      "joint_range": [
+       -56349.5,
+       166248.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -61995.5,
+       171894.7
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0036",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 50457.9,
+      "joint_range": [
+       -21006.9,
+       121922.8
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -24632.2,
+       125548.0
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 50457.9,
+      "joint_range": [
+       -57343.6,
+       158259.5
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -62812.2,
+       163728.0
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 50457.9,
+      "joint_range": [
+       -60841.2,
+       161757.1
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -66487.2,
+       167403.0
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0068",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 73005.4,
+      "joint_range": [
+       1540.6,
+       144470.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -2084.6,
+       148095.5
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 73005.4,
+      "joint_range": [
+       -34796.1,
+       180807.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -40264.6,
+       186275.5
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 73005.4,
+      "joint_range": [
+       -38293.7,
+       184304.6
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -43939.7,
+       189950.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0005",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 79643.0,
+      "joint_range": [
+       8178.2,
+       151107.9
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       4552.9,
+       154733.1
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 79643.0,
+      "joint_range": [
+       -28158.5,
+       187444.6
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -33627.1,
+       192913.1
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 79643.0,
+      "joint_range": [
+       -31656.1,
+       190942.2
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -37302.1,
+       196588.1
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0053",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 24553.8,
+      "joint_range": [
+       -46911.0,
+       96018.6
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -50536.3,
+       99643.9
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 24553.8,
+      "joint_range": [
+       -83247.7,
+       132355.3
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -88716.3,
+       137823.9
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 24553.8,
+      "joint_range": [
+       -86745.4,
+       135853.0
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -92391.3,
+       141498.9
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0007",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 79168.9,
+      "joint_range": [
+       7704.0,
+       150633.7
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       4078.8,
+       154259.0
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 79168.9,
+      "joint_range": [
+       -28632.7,
+       186970.4
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -34101.2,
+       192438.9
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 79168.9,
+      "joint_range": [
+       -32130.3,
+       190468.0
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -37776.3,
+       196114.0
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0048",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 44132.1,
+      "joint_range": [
+       -27332.8,
+       115596.9
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -30958.0,
+       119222.2
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 44132.1,
+      "joint_range": [
+       -63669.5,
+       151933.6
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -69138.0,
+       157402.2
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 44132.1,
+      "joint_range": [
+       -67167.1,
+       155431.2
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -72813.0,
+       161077.2
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0051",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 67028.0,
+      "joint_range": [
+       -4436.9,
+       138492.8
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -8062.1,
+       142118.1
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 67028.0,
+      "joint_range": [
+       -40773.6,
+       174829.5
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -46242.1,
+       180298.1
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 67028.0,
+      "joint_range": [
+       -44271.2,
+       178327.1
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -49917.1,
+       183973.1
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0010",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 84394.6,
+      "joint_range": [
+       12929.8,
+       155859.4
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       9304.5,
+       159484.7
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 84394.6,
+      "joint_range": [
+       -23406.9,
+       192196.1
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -28875.5,
+       197664.7
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 84394.6,
+      "joint_range": [
+       -26904.6,
+       195693.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -32550.5,
+       201339.7
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0028",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 81664.1,
+      "joint_range": [
+       10199.3,
+       153129.0
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       6574.0,
+       156754.2
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 81664.1,
+      "joint_range": [
+       -26137.4,
+       189465.7
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -31606.0,
+       194934.2
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 81664.1,
+      "joint_range": [
+       -29635.0,
+       192963.3
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -35281.0,
+       198609.2
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0081",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 89702.3,
+      "joint_range": [
+       18237.4,
+       161167.1
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       14612.2,
+       164792.4
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 89702.3,
+      "joint_range": [
+       -18099.3,
+       197503.8
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -23567.8,
+       202972.3
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 89702.3,
+      "joint_range": [
+       -21596.9,
+       201001.4
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -27242.9,
+       206647.4
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0069",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 79663.5,
+      "joint_range": [
+       8198.6,
+       151128.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       4573.4,
+       154753.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 79663.5,
+      "joint_range": [
+       -28138.1,
+       187465.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -33606.6,
+       192933.5
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 79663.5,
+      "joint_range": [
+       -31635.7,
+       190962.6
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -37281.7,
+       196608.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0003",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 44416.7,
+      "joint_range": [
+       -27048.2,
+       115881.5
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -30673.4,
+       119506.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 44416.7,
+      "joint_range": [
+       -63384.9,
+       152218.2
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -68853.4,
+       157686.7
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 44416.7,
+      "joint_range": [
+       -66882.5,
+       155715.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -72528.5,
+       161361.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0017",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 53573.4,
+      "joint_range": [
+       -17891.5,
+       125038.2
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -21516.7,
+       128663.5
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 53573.4,
+      "joint_range": [
+       -54228.2,
+       161374.9
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -59696.7,
+       166843.4
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 53573.4,
+      "joint_range": [
+       -57725.8,
+       164872.5
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -63371.8,
+       170518.5
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0075",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 58973.8,
+      "joint_range": [
+       -12491.0,
+       130438.7
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -16116.3,
+       134063.9
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 58973.8,
+      "joint_range": [
+       -48827.7,
+       166775.4
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -54296.2,
+       172243.9
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 58973.8,
+      "joint_range": [
+       -52325.3,
+       170273.0
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -57971.3,
+       175919.0
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0006",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 45308.1,
+      "joint_range": [
+       -26156.8,
+       116772.9
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -29782.0,
+       120398.2
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 45308.1,
+      "joint_range": [
+       -62493.5,
+       153109.6
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -67962.0,
+       158578.1
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 45308.1,
+      "joint_range": [
+       -65991.1,
+       156607.2
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -71637.1,
+       162253.2
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0024",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 56511.7,
+      "joint_range": [
+       -14953.2,
+       127976.5
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -18578.4,
+       131601.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 56511.7,
+      "joint_range": [
+       -51289.9,
+       164313.2
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -56758.4,
+       169781.7
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 56511.7,
+      "joint_range": [
+       -54787.5,
+       167810.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -60433.5,
+       173456.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0045",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 28406.0,
+      "joint_range": [
+       -43058.8,
+       99870.9
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -46684.1,
+       103496.1
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 28406.0,
+      "joint_range": [
+       -79395.5,
+       136207.5
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -84864.1,
+       141676.1
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 28406.0,
+      "joint_range": [
+       -82893.2,
+       139705.2
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -88539.1,
+       145351.1
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0009",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 48930.6,
+      "joint_range": [
+       -22534.3,
+       120395.4
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -26159.5,
+       124020.7
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 48930.6,
+      "joint_range": [
+       -58871.0,
+       156732.1
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -64339.5,
+       162200.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 48930.6,
+      "joint_range": [
+       -62368.6,
+       160229.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -68014.6,
+       165875.7
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0033",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 71139.8,
+      "joint_range": [
+       -325.0,
+       142604.7
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -3950.3,
+       146229.9
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 71139.8,
+      "joint_range": [
+       -36661.7,
+       178941.4
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -42130.3,
+       184409.9
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 71139.8,
+      "joint_range": [
+       -40159.3,
+       182439.0
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -45805.3,
+       188084.9
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0025",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 47619.3,
+      "joint_range": [
+       -23845.6,
+       119084.1
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -27470.8,
+       122709.4
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 47619.3,
+      "joint_range": [
+       -60182.3,
+       155420.8
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -65650.8,
+       160889.3
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 47619.3,
+      "joint_range": [
+       -63679.9,
+       158918.4
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -69325.9,
+       164564.4
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0032",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 60700.7,
+      "joint_range": [
+       -10764.1,
+       132165.6
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -14389.4,
+       135790.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 60700.7,
+      "joint_range": [
+       -47100.8,
+       168502.3
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -52569.4,
+       173970.8
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 60700.7,
+      "joint_range": [
+       -50598.4,
+       171999.9
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -56244.4,
+       177645.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0016",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 71124.7,
+      "joint_range": [
+       -340.1,
+       142589.6
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -3965.4,
+       146214.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 71124.7,
+      "joint_range": [
+       -36676.8,
+       178926.3
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -42145.4,
+       184394.8
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 71124.7,
+      "joint_range": [
+       -40174.4,
+       182423.9
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -45820.4,
+       188069.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0089",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 79729.5,
+      "joint_range": [
+       8264.7,
+       151194.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       4639.4,
+       154819.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 79729.5,
+      "joint_range": [
+       -28072.0,
+       187531.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -33540.6,
+       192999.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 79729.5,
+      "joint_range": [
+       -31569.7,
+       191028.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -37215.6,
+       196674.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0029",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 65970.9,
+      "joint_range": [
+       -5493.9,
+       137435.8
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -9119.2,
+       141061.0
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 65970.9,
+      "joint_range": [
+       -41830.6,
+       173772.5
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -47299.2,
+       179241.0
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 65970.9,
+      "joint_range": [
+       -45328.2,
+       177270.1
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -50974.2,
+       182916.1
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0018",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 62209.1,
+      "joint_range": [
+       -9255.7,
+       133674.0
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -12881.0,
+       137299.2
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 62209.1,
+      "joint_range": [
+       -45592.4,
+       170010.7
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -51061.0,
+       175479.2
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 62209.1,
+      "joint_range": [
+       -49090.0,
+       173508.3
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -54736.0,
+       179154.2
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0013",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 82558.6,
+      "joint_range": [
+       11093.7,
+       154023.4
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       7468.5,
+       157648.7
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 82558.6,
+      "joint_range": [
+       -25243.0,
+       190360.1
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -30711.5,
+       195828.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 82558.6,
+      "joint_range": [
+       -28740.6,
+       193857.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -34386.6,
+       199503.7
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0037",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 32057.2,
+      "joint_range": [
+       -39407.7,
+       103522.0
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -43032.9,
+       107147.3
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 32057.2,
+      "joint_range": [
+       -75744.4,
+       139858.7
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -81212.9,
+       145327.2
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 32057.2,
+      "joint_range": [
+       -79242.0,
+       143356.3
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -84888.0,
+       149002.3
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0041",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 48219.5,
+      "joint_range": [
+       -23245.3,
+       119684.4
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -26870.6,
+       123309.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 48219.5,
+      "joint_range": [
+       -59582.0,
+       156021.1
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -65050.5,
+       161489.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 48219.5,
+      "joint_range": [
+       -63079.6,
+       159518.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -68725.6,
+       165164.7
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0096",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 61380.7,
+      "joint_range": [
+       -10084.1,
+       132845.6
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -13709.4,
+       136470.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 61380.7,
+      "joint_range": [
+       -46420.8,
+       169182.3
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -51889.4,
+       174650.8
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 61380.7,
+      "joint_range": [
+       -49918.4,
+       172679.9
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -55564.4,
+       178325.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0020",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 82014.5,
+      "joint_range": [
+       10549.7,
+       153479.4
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       6924.4,
+       157104.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 82014.5,
+      "joint_range": [
+       -25787.0,
+       189816.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -31255.6,
+       195284.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 82014.5,
+      "joint_range": [
+       -29284.7,
+       193313.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -34930.6,
+       198959.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0047",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 35121.1,
+      "joint_range": [
+       -36343.7,
+       106586.0
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -39969.0,
+       110211.2
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 35121.1,
+      "joint_range": [
+       -72680.4,
+       142922.7
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -78149.0,
+       148391.2
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 35121.1,
+      "joint_range": [
+       -76178.0,
+       146420.3
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -81824.0,
+       152066.2
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0046",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 81791.6,
+      "joint_range": [
+       10326.8,
+       153256.5
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       6701.5,
+       156881.7
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 81791.6,
+      "joint_range": [
+       -26009.9,
+       189593.2
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -31478.5,
+       195061.7
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 81791.6,
+      "joint_range": [
+       -29507.5,
+       193090.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -35153.5,
+       198736.7
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0022",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 71065.5,
+      "joint_range": [
+       -399.3,
+       142530.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -4024.6,
+       146155.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 71065.5,
+      "joint_range": [
+       -36736.0,
+       178867.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -42204.6,
+       184335.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 71065.5,
+      "joint_range": [
+       -40233.7,
+       182364.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -45879.6,
+       188010.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0055",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 68255.9,
+      "joint_range": [
+       -3208.9,
+       139720.7
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -6834.2,
+       143346.0
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 68255.9,
+      "joint_range": [
+       -39545.6,
+       176057.4
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -45014.2,
+       181526.0
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 68255.9,
+      "joint_range": [
+       -43043.3,
+       179555.1
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -48689.2,
+       185201.0
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0080",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 85716.0,
+      "joint_range": [
+       14251.2,
+       157180.9
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       10625.9,
+       160806.1
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 85716.0,
+      "joint_range": [
+       -22085.5,
+       193517.5
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -27554.1,
+       198986.1
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 85716.0,
+      "joint_range": [
+       -25583.2,
+       197015.2
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -31229.1,
+       202661.1
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0092",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 59383.9,
+      "joint_range": [
+       -12080.9,
+       130848.7
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -15706.2,
+       134474.0
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 59383.9,
+      "joint_range": [
+       -48417.6,
+       167185.4
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -53886.2,
+       172654.0
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 59383.9,
+      "joint_range": [
+       -51915.3,
+       170683.1
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -57561.2,
+       176329.0
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0064",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 72945.5,
+      "joint_range": [
+       1480.7,
+       144410.3
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -2144.6,
+       148035.6
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 72945.5,
+      "joint_range": [
+       -34856.0,
+       180747.0
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -40324.6,
+       186215.6
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 72945.5,
+      "joint_range": [
+       -38353.7,
+       184244.7
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -43999.6,
+       189890.6
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0084",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 69811.3,
+      "joint_range": [
+       -1653.5,
+       141276.1
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -5278.8,
+       144901.4
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 69811.3,
+      "joint_range": [
+       -37990.2,
+       177612.8
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -43458.8,
+       183081.4
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 69811.3,
+      "joint_range": [
+       -41487.9,
+       181110.5
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -47133.8,
+       186756.4
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0061",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 84676.2,
+      "joint_range": [
+       13211.4,
+       156141.1
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       9586.1,
+       159766.3
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 84676.2,
+      "joint_range": [
+       -23125.3,
+       192477.8
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -28593.8,
+       197946.3
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 84676.2,
+      "joint_range": [
+       -26622.9,
+       195975.4
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -32268.9,
+       201621.4
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0034",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 87915.4,
+      "joint_range": [
+       16450.5,
+       159380.2
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       12825.3,
+       163005.5
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 87915.4,
+      "joint_range": [
+       -19886.2,
+       195716.9
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -25354.7,
+       201185.5
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 87915.4,
+      "joint_range": [
+       -23383.8,
+       199214.5
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -29029.7,
+       204860.5
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   },
+   {
+    "batch_id": "B0067",
+    "levels": [
+     {
+      "level": 0.8,
+      "finite": true,
+      "cost_center": 60913.7,
+      "joint_range": [
+       -10551.2,
+       132378.5
+      ],
+      "joint_halfwidth": 71464.8,
+      "naive_box_range": [
+       -14176.4,
+       136003.8
+      ],
+      "naive_box_halfwidth": 75090.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.9,
+      "finite": true,
+      "cost_center": 60913.7,
+      "joint_range": [
+       -46887.9,
+       168715.2
+      ],
+      "joint_halfwidth": 107801.5,
+      "naive_box_range": [
+       -52356.4,
+       174183.7
+      ],
+      "naive_box_halfwidth": 113270.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.95,
+      "finite": true,
+      "cost_center": 60913.7,
+      "joint_range": [
+       -50385.5,
+       172212.8
+      ],
+      "joint_halfwidth": 111299.2,
+      "naive_box_range": [
+       -56031.5,
+       177858.8
+      ],
+      "naive_box_halfwidth": 116945.1,
+      "looseness_ratio": 1.05
+     },
+     {
+      "level": 0.99,
+      "finite": false,
+      "reason": "名义覆盖 99% 需要第 26 个顺序分位，但校准批次只有 25 个独立分数；该分位不存在，当前样本量下无法给出有限预测区域（可增加校准批次后重算）。"
+     }
+    ]
+   }
+  ]
+ },
+ "default_prices": [
+  0.8,
+  220.0,
+  0.3
+ ]
+}
